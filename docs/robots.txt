@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ardaekiz0.github.io/kdv-indir/sitemap.xml
+Sitemap: https://ardaekiz0.github.io/muhasebe-paketi/sitemap.xml

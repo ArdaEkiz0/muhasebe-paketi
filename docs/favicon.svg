@@ -1,4 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <path d="M0 8 L8 0 L32 0 L32 32 L0 32 Z" fill="#2563eb"/>
-  <path d="M10 16 h5 v-5 h3 v5 h5 v3 h-5 v5 h-3 v-5 h-5 z" fill="#ffffff"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#102a5c"/><stop offset="1" stop-color="#0d1b3e"/></linearGradient></defs>
+<rect width="1024" height="1024" rx="225" fill="url(#g)"/>
+<rect x="220" y="330" width="90" height="380" fill="#ffffff"/>
+<rect x="700" y="330" width="90" height="380" fill="#ffffff"/>
+<polygon points="310,330 397,330 505,595 427,595" fill="#2563eb"/>
+<polygon points="612,330 700,330 582,595 505,595" fill="#ffffff"/>
+<circle cx="745" cy="670" r="105" fill="#12805c" stroke="#0d1b3e" stroke-width="15"/>
+<polyline points="690,674 730,714 806,628" fill="none" stroke="#ffffff" stroke-width="26" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
