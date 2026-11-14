@@ -115,29 +115,62 @@
   <section class="section showcase wrap" id="ciktilar">
     <div class="showcase__grid">
       <div class="showcase__names">
-        <button type="button" data-target="pane-uygulama" aria-pressed="true">App</button>
+        <button type="button" data-target="pane-uygulama" aria-pressed="true">Entry screen</button>
         <button type="button" data-target="pane-sonuc" aria-pressed="false">Result list</button>
-        <button type="button" data-target="pane-ozet" aria-pressed="false">Summary bar</button>
-        <p class="muted">Screenshots are from the real app, running on sample data.</p>
+        <button type="button" data-target="pane-ozet" aria-pressed="false">Summary</button>
+        <p class="muted">Windows are drawn with sample data to show the product's real interface.</p>
       </div>
       <div class="showcase__stage">
         <div class="showcase__pane is-on" id="pane-uygulama">
-          <figure class="shot shutter" data-reveal>
-            <img src="ekran-uygulama.png" alt="App window: file picker, tools, result table, summary bar and licence panel" width="1800" height="860" loading="lazy">
-            <figcaption class="caption small">App window: pick the Excel, sign in yourself, the program works the filings.</figcaption>
-          </figure>
+          <div class="ui" data-ui="sgk-giris">
+            <div class="ui__bar">
+              <span class="ui__title">SGK Withholding</span>
+              <span class="ui__meta">48 producers · agricultural withholding</span>
+            </div>
+            <div class="ui__toolbar">
+              <span class="chip chip--flag">ENTERING 3/48</span>
+              <span class="chip">ENTERED 44</span>
+              <span class="chip chip--ghost">WAITING 1</span>
+            </div>
+            <table>
+              <thead>
+                <tr><th>Title</th><th class="num">Tax number</th><th class="num">Base</th><th class="num">Bağ-Kur</th></tr>
+              </thead>
+              <tbody>
+                <tr class="is-flagged"><td>Ahmet Yılmaz</td><td class="num">12345678901</td><td class="num">48,000.00</td><td class="num">1,440.00</td></tr>
+                <tr class="is-flagged"><td>Mehmet Kaya</td><td class="num">98765432109</td><td class="num">96,500.00</td><td class="num">2,895.00</td></tr>
+                <tr><td>Ayşe Demir</td><td class="num">45678901234</td><td class="num">1,250,000.00</td><td class="num">37,500.00</td></tr>
+              </tbody>
+            </table>
+          </div>
         </div>
         <div class="showcase__pane" id="pane-sonuc">
-          <figure class="shot">
-            <img src="ekran-tablo.png" alt="Result table: status, document no, VKN, date, type, base, VAT, source and detail columns" width="1433" height="378" loading="lazy">
-            <figcaption class="caption small">Result list: passed and failed records, with tax number and message.</figcaption>
-          </figure>
+          <div class="ui" data-ui="sgk-sonuc">
+            <div class="ui__bar">
+              <span class="ui__title">Result list</span>
+              <span class="ui__meta">48 passed · 2 failed</span>
+            </div>
+            <table>
+              <thead>
+                <tr><th>Status</th><th>Title</th><th class="num">Tax no</th><th>Message</th></tr>
+              </thead>
+              <tbody>
+                <tr class="is-flagged"><td><span class="chip chip--flag">ERROR</span></td><td>Hasan Öztürk</td><td class="num">20123456780</td><td>Base limit reached, split into two.</td></tr>
+                <tr class="is-ghost"><td><span class="chip chip--ghost">RETRY</span></td><td>Zeynep Aksoy</td><td class="num">11223344556</td><td>Session dropped, retried once.</td></tr>
+                <tr><td><span class="chip">OK</span></td><td>Ayşe Demir</td><td class="num">45678901234</td><td>Record passed.</td></tr>
+              </tbody>
+            </table>
+          </div>
         </div>
         <div class="showcase__pane" id="pane-ozet">
-          <figure class="shot">
-            <img src="ekran-ozet.png" alt="Summary bar: matched, flagged, amount difference and other counters" width="1460" height="75" loading="lazy">
-            <figcaption class="caption small">Summary bar: how many passed, how many failed.</figcaption>
-          </figure>
+          <div class="ui" data-ui="sgk-ozet">
+            <div class="ui__foot">
+              <span>Passed <b>48</b></span>
+              <span>Failed <b>2</b></span>
+              <span>Retried <b>1</b></span>
+              <span class="nums">51 records · 1 pass</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>

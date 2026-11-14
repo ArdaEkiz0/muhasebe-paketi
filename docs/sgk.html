@@ -118,29 +118,63 @@
   <section class="section showcase wrap" id="ciktilar">
     <div class="showcase__grid">
       <div class="showcase__names">
-        <button type="button" data-target="pane-uygulama" aria-pressed="true">Uygulama</button>
+        <button type="button" data-target="pane-uygulama" aria-pressed="true">Giriş ekranı</button>
         <button type="button" data-target="pane-sonuc" aria-pressed="false">Sonuç listesi</button>
-        <button type="button" data-target="pane-ozet" aria-pressed="false">Özet Şeridi</button>
-        <p class="muted">Ekran görüntüleri gerçek uygulamadan alınmıştır; örnek veriyle çalışır.</p>
+        <button type="button" data-target="pane-ozet" aria-pressed="false">Özet</button>
+        <p class="muted">Penccereler ürünün gerçek arayüzünü göstermek için örnek veriyle çizilmiştir.</p>
       </div>
       <div class="showcase__stage">
         <div class="showcase__pane is-on" id="pane-uygulama">
-          <figure class="shot shutter" data-reveal>
-            <img src="ekran-uygulama.png" alt="Uygulama penceresi: dosya seçimi, araçlar, sonuç tablosu, özet şeridi ve lisans paneli" width="1800" height="860" loading="lazy">
-            <figcaption class="caption small">Uygulama penceresi: Excel'i seçin, girişi siz yapın, program bildirimleri işler.</figcaption>
-          </figure>
+          <div class="ui" data-ui="sgk-giris">
+            <div class="ui__bar">
+              <span class="ui__title">SGK E-Kesinti</span>
+              <span class="ui__meta">48 üretici · tarımsal kesinti</span>
+            </div>
+            <div class="ui__toolbar">
+              <span class="chip chip--flag">GİRİLİYOR 3/48</span>
+              <span class="chip">GİRİLDİ 44</span>
+              <span class="chip chip--ghost">BEKliyor 1</span>
+            </div>
+            <table>
+              <thead>
+                <tr><th>Ünvan</th><th class="num">TC Kimlik No</th><th class="num">Matrah</th><th class="num">Bağ-Kur</th></tr>
+              </thead>
+              <tbody>
+                <tr class="is-flagged"><td>Ahmet Yılmaz</td><td class="num">12345678901</td><td class="num">48.000,00</td><td class="num">1.440,00</td></tr>
+                <tr class="is-flagged"><td>Mehmet Kaya</td><td class="num">98765432109</td><td class="num">96.500,00</td><td class="num">2.895,00</td></tr>
+                <tr><td>Ayşe Demir</td><td class="num">45678901234</td><td class="num">1.250.000,00</td><td class="num">37.500,00</td></tr>
+                <tr class="is-ghost"><td>Nuran Çelik</td><td class="num">34567890123</td><td class="num">1.000.000,00</td><td class="num">—</td></tr>
+              </tbody>
+            </table>
+          </div>
         </div>
         <div class="showcase__pane" id="pane-sonuc">
-          <figure class="shot">
-            <img src="ekran-tablo.png" alt="Sonuç tablosu: durum, belge no, VKN, tarih, tip, matrah, KDV, kaynak ve detay sütunları" width="1433" height="378" loading="lazy">
-            <figcaption class="caption small">Sonuç listesi: geçen ve hatalı kayıtlar, TC ve hata mesajıyla.</figcaption>
-          </figure>
+          <div class="ui" data-ui="sgk-sonuc">
+            <div class="ui__bar">
+              <span class="ui__title">Sonuç listesi</span>
+              <span class="ui__meta">48 geçti · 2 hata</span>
+            </div>
+            <table>
+              <thead>
+                <tr><th>Durum</th><th>Ünvan</th><th class="num">TC</th><th>Mesaj</th></tr>
+              </thead>
+              <tbody>
+                <tr class="is-flagged"><td><span class="chip chip--flag">HATA</span></td><td>Hasan Öztürk</td><td class="num">20123456780</td><td>Matrah aşımı, ikiye bölündü.</td></tr>
+                <tr class="is-ghost"><td><span class="chip chip--ghost">TEKRAR</span></td><td>Zeynep Aksoy</td><td class="num">11223344556</td><td>Oturum düştü, bir tur daha denendi.</td></tr>
+                <tr><td><span class="chip">OK</span></td><td>Ayşe Demir</td><td class="num">45678901234</td><td>Kayıt geçti.</td></tr>
+              </tbody>
+            </table>
+          </div>
         </div>
         <div class="showcase__pane" id="pane-ozet">
-          <figure class="shot">
-            <img src="ekran-ozet.png" alt="Özet şeridi: eşleşen, sorunlu, tutar farkı ve diğer durum sayaçları" width="1460" height="75" loading="lazy">
-            <figcaption class="caption small">Özet şeridi: "şu kadar geçti, şu kadar hata aldı".</figcaption>
-          </figure>
+          <div class="ui" data-ui="sgk-ozet">
+            <div class="ui__foot">
+              <span>Geçti <b>48</b></span>
+              <span>Hata <b>2</b></span>
+              <span>Tekrar <b>1</b></span>
+              <span class="nums">51 kayıt · 1 tur</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
