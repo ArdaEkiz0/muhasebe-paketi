@@ -23,41 +23,9 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#2563eb">
 <link rel="stylesheet" href="style.css">
-<style>
-/* Bu sayfanın başlığında ürün ekranı yok (index.html'deki gibi); yazı
-   sütununu geniş tutuyoruz ki başlık 5 sütuna sıkışıp sağ yarı boş kalmasın. */
-.hero--paket .hero__copy { grid-column: 1 / span 8; }
-/* Başlığın sağındaki fiyat özeti: sayfaya girer girmez paket bedeli görünsün. */
-.hero--paket .hero__aside {
-  grid-column: 9 / span 4; align-self: end;
-  background: var(--surface); border: 1px solid var(--rule);
-  border-radius: var(--radius); padding: 1.5rem 1.6rem;
-}
-.hero--paket .hero__aside .name { font-size: var(--step-small); font-weight: 500; color: var(--muted); }
-.hero--paket .hero__aside .figure {
-  font-family: var(--font-display); font-size: clamp(2.2rem, 4vw, 2.9rem);
-  line-height: 1; letter-spacing: -0.03em; margin-top: 0.5rem;
-  display: flex; align-items: baseline; gap: 0.4rem;
-}
-.hero--paket .hero__aside .figure small { font-family: var(--font-text); font-size: 0.875rem; color: var(--muted); letter-spacing: 0; }
-.hero--paket .hero__aside .was { margin-top: 0.35rem; font-size: var(--step-small); color: var(--muted); }
-.hero--paket .hero__aside .was s { color: var(--ink-soft); }
-.hero--paket .hero__aside .go { display: inline-flex; margin-top: 1rem; font-size: var(--step-small); }
-@media (max-width: 64em) {
-  .hero--paket .hero__copy { grid-column: 1 / -1; }
-  .hero--paket .hero__aside { grid-column: 1 / -1; margin-top: 2rem; }
-}
-/* Fiyat bölümünde iki kart var (paket + ofis); varsayılan 3 sütun grid
-   üçüncü sütunu boş bırakıyordu. */
-@media (min-width: 64.01em) { .plans--ikili { grid-template-columns: 1.16fr 1fr; } }
-@media (max-width: 64em) {
-  .plans--ikili { grid-template-columns: 1fr; }
-  .plans--ikili .plan--lead { grid-column: auto; }
-}
-</style>
 <script src="js-baslat.js"></script>
 </head>
-<body class="has-mobile-cta">
+<body>
 
 <header class="wrap">
   <nav class="nav" aria-label="Ana menü">
@@ -76,27 +44,99 @@
 <main id="ust">
 
   <!-- ================= BAŞLIK ================= -->
-  <section class="hero hero--paket">
+  <section class="hero">
     <div class="hero__inner wrap">
       <div class="hero__copy">
         <h1 class="display lines">
           <span class="line"><span data-line style="--i:0">Tek kurulum.</span></span>
           <span class="line"><span data-line style="--i:1">Üç modül.</span></span>
-          <span class="line"><span data-line style="--i:2">Hangisini alırsanız o açık.</span></span>
         </h1>
-        <p class="lead" data-rise style="--i:3">KDV Çapraz Kontrol, Luca Mizan Kontrol ve SGK E-Kesinti aynı kurulumda gelir, tek menüden açılır. Her modülü 15 gün ücretsiz denersiniz; satın aldığınız modül açılır, almadığınız kendi lisansına kadar kilitli kalır.</p>
-        <div class="hero__actions" data-rise style="--i:4">
+        <p class="lead" data-rise style="--i:2">KDV Çapraz Kontrol, Luca Mizan Kontrol ve SGK E-Kesinti aynı kurulumda gelir, tek menüden açılır. Her modülü 15 gün ücretsiz denersiniz; satın aldığınız modül açılır, almadığınız kendi lisansına kadar kilitli kalır.</p>
+        <div class="hero__actions" data-rise style="--i:3">
           <a class="button" href="indir/" data-press>Ücretsiz indir</a>
           <a class="link" href="#fiyatlar">Fiyatlara bakın</a>
         </div>
+        <p class="hero__price nums" data-rise style="--i:4">Üç modül birlikte <b>23.900 TL</b> + KDV / yıl · tek tek toplamı 28.700 TL · liste fiyatı <s>34.900 TL</s></p>
         <p class="hero__meta small muted" data-rise style="--i:5">Windows 10 ve 11’de çalışır · Cihaz başına yıllık lisans · Mükellef sayısında sınır yok · Fiyatlar KDV hariç</p>
       </div>
-      <aside class="hero__aside" data-rise style="--i:5">
-        <p class="name">Üç modül birlikte</p>
-        <p class="figure">23.900 <small>TL + KDV / yıl</small></p>
-        <p class="was">Tek tek toplamı 28.700 TL · liste fiyatı <s>34.900 TL</s></p>
-        <a class="link go" href="#fiyatlar">Fiyat tablosu</a>
-      </aside>
+      <div class="hero__launch" data-senaryo="tek">
+        <div class="hero__launch-top">
+          <p class="hero__launch-note">Uygulama penceresi</p>
+          <div class="senaryo" role="group" aria-label="Lisans senaryosu seçin">
+            <button type="button" data-sen="tek" aria-pressed="true">Tek modül</button>
+            <button type="button" data-sen="uc" aria-pressed="false">Üç modül</button>
+            <button type="button" data-sen="deneme" aria-pressed="false">Deneme</button>
+          </div>
+        </div>
+        <div class="kabuk" data-ui="kabuk" role="img" aria-label="Muhasebe Paketi ana penceresi: üç modül kartı, seçtiğiniz senaryoya göre lisans durumu">
+          <div class="kabuk__strip"></div>
+          <div class="kabuk__titlebar">
+            <span class="kabuk__app">Muhasebe Paketi</span>
+            <span class="kabuk__ver nums">v3.1.90</span>
+          </div>
+          <div class="kabuk__head">
+            <p class="kabuk__intro">Tek kurulum, üç modül. Hangisini denemek isterseniz 15 gün ücretsiz; satın aldığınız modül açık kalır, diğerleri kendi lisansı alınana kadar kilitli durur.</p>
+          </div>
+          <div class="kabuk__cards">
+            <div class="kabuk__card kabuk__card--kdv">
+              <p class="kabuk__name">KDV Çapraz Kontrol</p>
+              <p class="kabuk__desc">Fatura, mizan ve beyannameyi karşılaştırır, eksik belgeyi çıkarır.</p>
+              <div class="kabuk__st kabuk__st--aktif">
+                <span class="kabuk__badge kabuk__badge--ok">Aktif</span>
+                <p class="kabuk__satir">Lisanslı · 3 Kasım 2027 tarihine kadar</p>
+                <span class="kabuk__btn kabuk__btn--navy">Aç</span>
+              </div>
+              <div class="kabuk__st kabuk__st--deneme">
+                <span class="kabuk__badge kabuk__badge--den">Denenmedi</span>
+                <p class="kabuk__satir">15 gün ücretsiz · kartsız</p>
+                <span class="kabuk__btn kabuk__btn--deneme">Denemeyi başlat</span>
+              </div>
+            </div>
+            <div class="kabuk__card kabuk__card--mizan">
+              <p class="kabuk__name">Luca Mizan</p>
+              <p class="kabuk__desc">Luca'dan mizan ve muavin çeker, kontrol eder, raporu hazırlar.</p>
+              <div class="kabuk__st kabuk__st--aktif">
+                <span class="kabuk__badge kabuk__badge--ok">Aktif</span>
+                <p class="kabuk__satir">Lisanslı · 3 Kasım 2027 tarihine kadar</p>
+                <span class="kabuk__btn kabuk__btn--navy">Aç</span>
+              </div>
+              <div class="kabuk__st kabuk__st--kilitli">
+                <span class="kabuk__badge kabuk__badge--kilit">Kilitli</span>
+                <p class="kabuk__satir">Lisans gerekli</p>
+                <span class="kabuk__btn kabuk__btn--kilit">Satın al</span>
+              </div>
+              <div class="kabuk__st kabuk__st--deneme">
+                <span class="kabuk__badge kabuk__badge--den">Denenmedi</span>
+                <p class="kabuk__satir">15 gün ücretsiz · kartsız</p>
+                <span class="kabuk__btn kabuk__btn--deneme">Denemeyi başlat</span>
+              </div>
+            </div>
+            <div class="kabuk__card kabuk__card--sgk">
+              <p class="kabuk__name">SGK E-Kesinti</p>
+              <p class="kabuk__desc">E-bildirge kesintilerini toplar, eksik gün ve tutar farkını gösterir.</p>
+              <div class="kabuk__st kabuk__st--aktif">
+                <span class="kabuk__badge kabuk__badge--ok">Aktif</span>
+                <p class="kabuk__satir">Lisanslı · 3 Kasım 2027 tarihine kadar</p>
+                <span class="kabuk__btn kabuk__btn--navy">Aç</span>
+              </div>
+              <div class="kabuk__st kabuk__st--kilitli">
+                <span class="kabuk__badge kabuk__badge--kilit">Kilitli</span>
+                <p class="kabuk__satir">Lisans gerekli</p>
+                <span class="kabuk__btn kabuk__btn--kilit">Satın al</span>
+              </div>
+              <div class="kabuk__st kabuk__st--deneme">
+                <span class="kabuk__badge kabuk__badge--den">Denenmedi</span>
+                <p class="kabuk__satir">15 gün ücretsiz · kartsız</p>
+                <span class="kabuk__btn kabuk__btn--deneme">Denemeyi başlat</span>
+              </div>
+            </div>
+          </div>
+          <div class="kabuk__foot">
+            <span class="kabuk__cihaz">Yetki bu cihaza tanımlanır</span>
+            <span class="kabuk__footbtns"><span>Satın alma sayfası</span><span>Lisansı yenile</span></span>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -105,7 +145,7 @@
     <div class="pricing__head">
       <h2 class="head">Üç ayrı iş,<br>tek kurulum.</h2>
       <div class="pricing__side">
-        <p class="lead muted">Modüller birbirine bağlı değil: biri çökse diğerleri çalışmaya devam eder. Lisans kapısı her modülün kendi içinde, o yüzden biri açıkken diğeri kilitli kalabilir.</p>
+        <p class="lead">Modüller birbirine bağlı değil: biri çökse diğerleri çalışmaya devam eder. Lisans kapısı her modülün kendi içinde, o yüzden biri açıkken diğeri kilitli kalabilir.</p>
         <p class="tag">15 gün ücretsiz deneme · modül başına</p>
       </div>
     </div>
@@ -182,9 +222,9 @@
   <!-- ================= FİYATLAR ================= -->
   <section class="section wrap" id="fiyatlar">
     <div class="pricing__head">
-      <h2 class="head">Üçünü birlikte alırsanız<br>4.800 TL tasarruf.</h2>
+      <h2 class="head">Üçünü alın,<br>4.800 TL tasarruf.</h2>
       <div class="pricing__side">
-        <p class="lead muted">Tek tek toplam 28.700 TL yerine 23.900 TL. Üç modül de tam sürüm; kısıtlı paket yok.</p>
+        <p class="lead">Tek tek toplam 28.700 TL yerine 23.900 TL. Üç modül de tam sürüm; kısıtlı paket yok.</p>
         <p class="tag">Aynı cihazda üç modül · tek fatura, tek yenileme tarihi</p>
       </div>
     </div>
@@ -236,7 +276,7 @@
       </article>
     </div>
 
-    <div class="tarife">
+    <div class="tarife" data-reveal>
       <table class="tarife__table">
         <caption class="sr-only">Modül fiyatları: kurucu ve liste bedeli, cihaz başına yıllık</caption>
         <thead>
@@ -282,7 +322,7 @@
       </table>
     </div>
 
-    <div class="trust">
+    <div class="trust" data-reveal>
       <div><b>Modül başına 15 gün</b><span>Kredi kartı istenmez</span></div>
       <div><b>14 gün koşulsuz iade</b><span>Gerekçe belirtmeniz gerekmez</span></div>
       <div><b>Havale/EFT ile ödeme</b><span>Faturanız ödeme sonrası düzenlenir</span></div>
@@ -318,7 +358,7 @@
   <!-- ================= CTA ================= -->
   <section class="cta">
     <div class="cta__grid wrap">
-      <h2>Hangi modülün işinize yaradığını<br>15 gün boyunca görün.</h2>
+      <h2>Üç modülü 15 gün<br>boyunca deneyin.</h2>
       <div class="cta__side">
         <p>Tek kurulumu indirin, menüden modülü seçin. Kredi kartı istemez; süre modülü ilk açtığınızda başlar.</p>
         <a class="button button--stage" href="indir/" data-press>Ücretsiz indir</a>
@@ -331,7 +371,8 @@
   <section class="contact wrap" id="iletisim">
     <div class="contact__grid">
       <div class="contact__col">
-        <p class="contact__prompt"><span>Hangi modül size uygun?</span><span class="soft">Yazın, birlikte bakalım.</span></p>
+        <h2 class="head">Hangi modül size uygun?</h2>
+        <p class="contact__prompt"><span class="soft">Yazın, birlikte bakalım.</span></p>
         <form class="contact__form" novalidate data-subject="Muhasebe Paketi: lisans ve sorular">
           <div class="contact__field">
             <label class="sr-only" for="eposta">E-posta adresiniz</label>
@@ -374,11 +415,9 @@
   <span class="end"><a class="link" href="indir/">İndir · v3.1.90</a></span>
 </footer>
 
+<script src="vendor/gsap.min.js"></script>
+<script src="vendor/ScrollTrigger.min.js"></script>
 <script src="app.js"></script>
-<div class="mobile-cta" aria-label="Ücretsiz indir">
-  <span class="mobile-cta__text">15 gün ücretsiz deneme</span>
-  <a class="button" href="indir/" data-press>Ücretsiz indir</a>
-</div>
 <aside class="cookie-note" id="cerez-notu" role="note" aria-label="Çerez bilgisi" hidden>
   <p>Bu sitede çerez, analitik veya takip betiği yok. Yalnız bu notu bir kez kapatmanız için tarayıcınızda küçük bir tercih kaydı tutulur.</p>
   <button type="button" data-cerez-kapat>Anladım</button>

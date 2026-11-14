@@ -23,34 +23,9 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#2563eb">
 <link rel="stylesheet" href="style.css">
-<style>
-/* This page's hero has no product screenshot (index.html has one); keep the
-   copy column wider so the headline is not squeezed into half the page. */
-.hero--paket .hero__copy { grid-column: 1 / span 8; }
-/* Price summary on the right of the hero: the bundle price is visible immediately. */
-.hero--paket .hero__aside {
-  grid-column: 9 / span 4; align-self: end;
-  background: var(--surface); border: 1px solid var(--rule);
-  border-radius: var(--radius); padding: 1.5rem 1.6rem;
-}
-.hero--paket .hero__aside .name { font-size: var(--step-small); font-weight: 500; color: var(--muted); }
-.hero--paket .hero__aside .figure {
-  font-family: var(--font-display); font-size: clamp(2.2rem, 4vw, 2.9rem);
-  line-height: 1; letter-spacing: -0.03em; margin-top: 0.5rem;
-  display: flex; align-items: baseline; gap: 0.4rem;
-}
-.hero--paket .hero__aside .figure small { font-family: var(--font-text); font-size: 0.875rem; color: var(--muted); letter-spacing: 0; }
-.hero--paket .hero__aside .was { margin-top: 0.35rem; font-size: var(--step-small); color: var(--muted); }
-.hero--paket .hero__aside .was s { color: var(--ink-soft); }
-.hero--paket .hero__aside .go { display: inline-flex; margin-top: 1rem; font-size: var(--step-small); }
-@media (max-width: 64em) {
-  .hero--paket .hero__copy { grid-column: 1 / -1; }
-  .hero--paket .hero__aside { grid-column: 1 / -1; margin-top: 2rem; }
-}
-</style>
 <script src="js-baslat.js"></script>
 </head>
-<body class="has-mobile-cta">
+<body>
 
 <header class="wrap">
   <nav class="nav" aria-label="Main menu">
@@ -68,27 +43,99 @@
 
 <main id="ust">
 
-  <section class="hero hero--paket">
+  <section class="hero">
     <div class="hero__inner wrap">
       <div class="hero__copy">
         <h1 class="display lines">
           <span class="line"><span data-line style="--i:0">One installer.</span></span>
           <span class="line"><span data-line style="--i:1">Three modules.</span></span>
-          <span class="line"><span data-line style="--i:2">You unlock the ones you buy.</span></span>
         </h1>
-        <p class="lead" data-rise style="--i:3">KDV Cross-Check, Luca Trial Balance Check and SGK Withholding ship together and open from one menu. Try each module free for 15 days; the module you buy unlocks, the ones you do not stay locked until their own licence.</p>
-        <div class="hero__actions" data-rise style="--i:4">
+        <p class="lead" data-rise style="--i:2">KDV Cross-Check, Luca Trial Balance Check and SGK Withholding ship together and open from one menu. Try each module free for 15 days; the module you buy unlocks, the ones you do not stay locked until their own licence.</p>
+        <div class="hero__actions" data-rise style="--i:3">
           <a class="button" href="indir-en/" data-press>Download free</a>
           <a class="link" href="#fiyatlar">See prices</a>
         </div>
+        <p class="hero__price nums" data-rise style="--i:4">All three modules <b>23,900 TL</b> + VAT / year · 28,700 TL bought separately · list <s>34,900 TL</s></p>
         <p class="hero__meta small muted" data-rise style="--i:5">Runs on Windows 10 and 11 · Annual licence per device · No limit on client count · Prices exclude VAT</p>
       </div>
-      <aside class="hero__aside" data-rise style="--i:5">
-        <p class="name">All three modules</p>
-        <p class="figure">23,900 <small>TL + VAT / year</small></p>
-        <p class="was">28,700 TL bought separately · list <s>34,900 TL</s></p>
-        <a class="link go" href="#fiyatlar">Price table</a>
-      </aside>
+      <div class="hero__launch" data-senaryo="tek">
+        <div class="hero__launch-top">
+          <p class="hero__launch-note">Application window</p>
+          <div class="senaryo" role="group" aria-label="Choose a licence scenario">
+            <button type="button" data-sen="tek" aria-pressed="true">One module</button>
+            <button type="button" data-sen="uc" aria-pressed="false">Three modules</button>
+            <button type="button" data-sen="deneme" aria-pressed="false">Trial</button>
+          </div>
+        </div>
+        <div class="kabuk" data-ui="kabuk" role="img" aria-label="Accounting Suite main window: three module cards showing the licence state of the chosen scenario">
+          <div class="kabuk__strip"></div>
+          <div class="kabuk__titlebar">
+            <span class="kabuk__app">Accounting Suite</span>
+            <span class="kabuk__ver nums">v3.1.90</span>
+          </div>
+          <div class="kabuk__head">
+            <p class="kabuk__intro">One installer, three modules. Try whichever you want free for 15 days; the module you buy stays open, the others stay locked until you license them.</p>
+          </div>
+          <div class="kabuk__cards">
+            <div class="kabuk__card kabuk__card--kdv">
+              <p class="kabuk__name">KDV Cross-Check</p>
+              <p class="kabuk__desc">Compares invoices, trial balance and declarations; lists the missing document.</p>
+              <div class="kabuk__st kabuk__st--aktif">
+                <span class="kabuk__badge kabuk__badge--ok">Active</span>
+                <p class="kabuk__satir">Licensed · until 3 Nov 2027</p>
+                <span class="kabuk__btn kabuk__btn--navy">Open</span>
+              </div>
+              <div class="kabuk__st kabuk__st--deneme">
+                <span class="kabuk__badge kabuk__badge--den">Not tried</span>
+                <p class="kabuk__satir">15 days free · no card</p>
+                <span class="kabuk__btn kabuk__btn--deneme">Start the trial</span>
+              </div>
+            </div>
+            <div class="kabuk__card kabuk__card--mizan">
+              <p class="kabuk__name">Luca Trial Balance</p>
+              <p class="kabuk__desc">Pulls the trial balance and ledger from Luca, checks them, prepares the report.</p>
+              <div class="kabuk__st kabuk__st--aktif">
+                <span class="kabuk__badge kabuk__badge--ok">Active</span>
+                <p class="kabuk__satir">Licensed · until 3 Nov 2027</p>
+                <span class="kabuk__btn kabuk__btn--navy">Open</span>
+              </div>
+              <div class="kabuk__st kabuk__st--kilitli">
+                <span class="kabuk__badge kabuk__badge--kilit">Locked</span>
+                <p class="kabuk__satir">Licence required</p>
+                <span class="kabuk__btn kabuk__btn--kilit">Buy</span>
+              </div>
+              <div class="kabuk__st kabuk__st--deneme">
+                <span class="kabuk__badge kabuk__badge--den">Not tried</span>
+                <p class="kabuk__satir">15 days free · no card</p>
+                <span class="kabuk__btn kabuk__btn--deneme">Start the trial</span>
+              </div>
+            </div>
+            <div class="kabuk__card kabuk__card--sgk">
+              <p class="kabuk__name">SGK Withholding</p>
+              <p class="kabuk__desc">Collects e-declaration withholding lines; shows missing days and amount differences.</p>
+              <div class="kabuk__st kabuk__st--aktif">
+                <span class="kabuk__badge kabuk__badge--ok">Active</span>
+                <p class="kabuk__satir">Licensed · until 3 Nov 2027</p>
+                <span class="kabuk__btn kabuk__btn--navy">Open</span>
+              </div>
+              <div class="kabuk__st kabuk__st--kilitli">
+                <span class="kabuk__badge kabuk__badge--kilit">Locked</span>
+                <p class="kabuk__satir">Licence required</p>
+                <span class="kabuk__btn kabuk__btn--kilit">Buy</span>
+              </div>
+              <div class="kabuk__st kabuk__st--deneme">
+                <span class="kabuk__badge kabuk__badge--den">Not tried</span>
+                <p class="kabuk__satir">15 days free · no card</p>
+                <span class="kabuk__btn kabuk__btn--deneme">Start the trial</span>
+              </div>
+            </div>
+          </div>
+          <div class="kabuk__foot">
+            <span class="kabuk__cihaz">Authorised to this device</span>
+            <span class="kabuk__footbtns"><span>Purchase page</span><span>Renew licence</span></span>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -96,7 +143,7 @@
     <div class="pricing__head">
       <h2 class="head">Three separate jobs,<br>one installer.</h2>
       <div class="pricing__side">
-        <p class="lead muted">The modules are independent: if one fails the others keep working. Each one checks its own licence, so one can be unlocked while another stays locked.</p>
+        <p class="lead">The modules are independent: if one fails the others keep working. Each one checks its own licence, so one can be unlocked while another stays locked.</p>
         <p class="tag">15-day free trial · per module</p>
       </div>
     </div>
@@ -172,9 +219,9 @@
 
   <section class="section wrap" id="fiyatlar">
     <div class="pricing__head">
-      <h2 class="head">Take all three<br>and save 4,800 TL.</h2>
+      <h2 class="head">Take all three,<br>save 4,800 TL.</h2>
       <div class="pricing__side">
-        <p class="lead muted">23,900 TL instead of 28,700 TL bought separately. All three are full versions; there is no cut-down tier.</p>
+        <p class="lead">23,900 TL instead of 28,700 TL bought separately. All three are full versions; there is no cut-down tier.</p>
         <p class="tag">Three modules on one device · one invoice, one renewal date</p>
       </div>
     </div>
@@ -225,7 +272,7 @@
       </article>
     </div>
 
-    <div class="tarife">
+    <div class="tarife" data-reveal>
       <table class="tarife__table">
         <caption class="sr-only">Module prices: founder and list price, annual per device</caption>
         <thead>
@@ -271,7 +318,7 @@
       </table>
     </div>
 
-    <div class="trust">
+    <div class="trust" data-reveal>
       <div><b>15 days per module</b><span>No credit card</span></div>
       <div><b>14-day refund</b><span>No reason needed</span></div>
       <div><b>Bank transfer</b><span>Invoice issued after payment</span></div>
@@ -305,7 +352,7 @@
 
   <section class="cta">
     <div class="cta__grid wrap">
-      <h2>See for 15 days which module<br>earns its keep.</h2>
+      <h2>Try all three modules<br>for 15 days.</h2>
       <div class="cta__side">
         <p>Install once, pick the module from the menu. No credit card; the clock starts when you open the module.</p>
         <a class="button button--stage" href="indir-en/" data-press>Download free</a>
@@ -317,7 +364,8 @@
   <section class="contact wrap" id="iletisim">
     <div class="contact__grid">
       <div class="contact__col">
-        <p class="contact__prompt"><span>Which module fits your work?</span><span class="soft">Write to us.</span></p>
+        <h2 class="head">Which module fits your work?</h2>
+        <p class="contact__prompt"><span class="soft">Write to us.</span></p>
         <form class="contact__form" novalidate data-subject="Accounting Suite: licensing and questions">
           <div class="contact__field">
             <label class="sr-only" for="eposta">Your e-mail address</label>
@@ -360,11 +408,9 @@
   <span class="end"><a class="link" href="indir-en/">Download · Version 3.1.90</a></span>
 </footer>
 
+<script src="vendor/gsap.min.js"></script>
+<script src="vendor/ScrollTrigger.min.js"></script>
 <script src="app.js"></script>
-<div class="mobile-cta" aria-label="Download free">
-  <span class="mobile-cta__text">15-day free trial</span>
-  <a class="button" href="indir-en/" data-press>Download free</a>
-</div>
 <aside class="cookie-note" id="cerez-notu" role="note" aria-label="Cookie notice" hidden>
   <p>This site uses no cookies, analytics or tracking scripts. Only a small preference is stored in your browser so this note stays closed.</p>
   <button type="button" data-cerez-kapat>Got it</button>

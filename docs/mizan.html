@@ -38,7 +38,7 @@
 }
 .hero--paket .hero__aside .figure small { font-family: var(--font-text); font-size: 0.875rem; color: var(--muted); letter-spacing: 0; }
 .hero--paket .hero__aside .was { margin-top: 0.35rem; font-size: var(--step-small); color: var(--muted); }
-.hero--paket .hero__aside .was s { color: var(--ink-soft); }
+.hero--paket .hero__aside .was s { color: var(--muted); }
 .hero--paket .hero__aside .go { display: inline-flex; margin-top: 1rem; font-size: var(--step-small); }
 @media (max-width: 64em) {
   .hero--paket .hero__copy { grid-column: 1 / -1; }
@@ -48,7 +48,7 @@
 .kurallar { display: grid; gap: 0; margin-top: 1.5rem; }
 .kurallar div {
   display: grid; grid-template-columns: 9rem 1fr; gap: 1.5rem;
-  padding-block: 0.85rem; border-top: 1px solid var(--rule);
+  padding-block: 0.85rem; border-top: 1px solid var(--rule); /* hesap kodu → kural tablosu: gerçek veri satırları */ /* taste-skill-ignore */
 }
 .kurallar div:first-child { border-top: 0; }
 .kurallar dt { font-variant-numeric: tabular-nums; font-weight: 500; white-space: nowrap; }
@@ -65,7 +65,7 @@
 </style>
 <script src="js-baslat.js"></script>
 </head>
-<body class="has-mobile-cta">
+<body>
 
 <header class="wrap">
   <nav class="nav" aria-label="Ana menü">
@@ -87,7 +87,6 @@
   <section class="hero hero--paket">
     <div class="hero__inner wrap">
       <div class="hero__copy">
-        <p class="tag" data-rise style="--i:0">Muhasebe Paketi · 2. modül</p>
         <h1 class="display lines">
           <span class="line"><span data-line style="--i:0">Mizan tutmuyorsa</span></span>
           <span class="line"><span data-line style="--i:1">sebebi hesaptadır.</span></span>
@@ -99,7 +98,7 @@
         </div>
         <p class="hero__meta small muted" data-rise style="--i:5">Luca lisansınız ayrıca gerekir · Windows 10 ve 11 · Cihaz başına yıllık lisans · Mükellef sayısında sınır yok</p>
       </div>
-      <aside class="hero__aside" data-rise style="--i:5">
+      <aside class="hero__aside" data-rise style="--i:5" data-ui="fiyat-karti">
         <p class="name">Luca Mizan Kontrol</p>
         <p class="figure">8.900 <small>TL + KDV / yıl</small></p>
         <p class="was">Liste fiyatı <s>12.900 TL</s> · kurucu fiyatı ilk 10 cihaz</p>
@@ -119,10 +118,42 @@
     </div>
   </section>
 
+  <!-- ================= EKRANLAR ================= -->
+  <section class="section showcase wrap" id="ciktilar">
+    <div class="showcase__grid">
+      <div class="showcase__names">
+        <button type="button" data-target="pane-uygulama" aria-pressed="true">Uygulama</button>
+        <button type="button" data-target="pane-sonuc" aria-pressed="false">Sonuç tablosu</button>
+        <button type="button" data-target="pane-ozet" aria-pressed="false">Özet şeridi</button>
+        <p class="muted">Ekran görüntüleri gerçek uygulamadan alınmıştır; örnek veriyle çalışır.</p>
+      </div>
+      <div class="showcase__stage">
+        <div class="showcase__pane is-on" id="pane-uygulama">
+          <figure class="shot shutter" data-reveal>
+            <img src="ekran-uygulama.png" alt="Uygulama penceresi: dosya seçimi, araçlar, sonuç tablosu, özet şeridi ve lisans paneli" width="1800" height="860" loading="lazy">
+            <figcaption class="caption small">Uygulama penceresi: Luca Mizan'ı seçin, mizan ve muavin dökümü çekilir, sonuç tabloya yazılır.</figcaption>
+          </figure>
+        </div>
+        <div class="showcase__pane" id="pane-sonuc">
+          <figure class="shot">
+            <img src="ekran-tablo.png" alt="Sonuç tablosu: durum, belge no, VKN, tarih, tip, matrah, KDV, kaynak ve detay sütunları" width="1433" height="378" loading="lazy">
+            <figcaption class="caption small">Sonuç tablosu: ihlal hesap kodu ve kural numarasıyla listelenir.</figcaption>
+          </figure>
+        </div>
+        <div class="showcase__pane" id="pane-ozet">
+          <figure class="shot">
+            <img src="ekran-ozet.png" alt="Özet şeridi: eşleşen, sorunlu, tutar farkı, muavinde yok, faturada yok, mükerrer ve diğer durum sayaçları" width="1460" height="75" loading="lazy">
+            <figcaption class="caption small">Üstte OK, HATA ve UYARI sayacı durur.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ================= KURALLAR ================= -->
   <section class="section wrap" id="kurallar">
     <div class="pricing__head">
-      <h2 class="head">Kontrol edilen kurallar<br>hazır gelir.</h2>
+      <h2 class="head">Kurallar<br>hazır gelir.</h2>
       <div class="pricing__side">
         <p class="lead muted">Kural listesi programın içinde tanımlı; her kontrolde aynı 12 kural uygulanır. Yeni kural eklenip çıkarılabilir, böylece ofisinizin alışkanlığı programa girer.</p>
         <p class="tag">Hesap bazında uyuşmazlık · mükerrer kayıt yok</p>
@@ -203,7 +234,7 @@
   <!-- ================= CTA ================= -->
   <section class="cta">
     <div class="cta__grid wrap">
-      <h2>Bir mükellefin mizanını<br>15 gün boyunca kontrol edin.</h2>
+      <h2>Mizanı 15 günde<br>kontrol edin.</h2>
       <div class="cta__side">
         <p>Tek kurulumu indirin, menüden Luca Mizan'ı seçin. Deneme o modülü ilk açtığınızda başlar; kredi kartı istemez.</p>
         <a class="button button--stage" href="indir/" data-press>Ücretsiz indir</a>
@@ -262,10 +293,6 @@
 <script src="vendor/gsap.min.js"></script>
 <script src="vendor/ScrollTrigger.min.js"></script>
 <script src="app.js"></script>
-<div class="mobile-cta" aria-label="Ücretsiz indir">
-  <span class="mobile-cta__text">15 gün ücretsiz deneme</span>
-  <a class="button" href="indir/" data-press>Ücretsiz indir</a>
-</div>
 <aside class="cookie-note" id="cerez-notu" role="note" aria-label="Çerez bilgisi" hidden>
   <p>Bu sitede çerez, analitik veya takip betiği yok. Yalnız bu notu bir kez kapatmanız için tarayıcınızda küçük bir tercih kaydı tutulur.</p>
   <button type="button" data-cerez-kapat>Anladım</button>

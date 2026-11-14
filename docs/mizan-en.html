@@ -38,7 +38,7 @@
 }
 .hero--paket .hero__aside .figure small { font-family: var(--font-text); font-size: 0.875rem; color: var(--muted); letter-spacing: 0; }
 .hero--paket .hero__aside .was { margin-top: 0.35rem; font-size: var(--step-small); color: var(--muted); }
-.hero--paket .hero__aside .was s { color: var(--ink-soft); }
+.hero--paket .hero__aside .was s { color: var(--muted); }
 .hero--paket .hero__aside .go { display: inline-flex; margin-top: 1rem; font-size: var(--step-small); }
 @media (max-width: 64em) {
   .hero--paket .hero__copy { grid-column: 1 / -1; }
@@ -47,7 +47,7 @@
 .kurallar { display: grid; gap: 0; margin-top: 1.5rem; }
 .kurallar div {
   display: grid; grid-template-columns: 9rem 1fr; gap: 1.5rem;
-  padding-block: 0.85rem; border-top: 1px solid var(--rule);
+  padding-block: 0.85rem; border-top: 1px solid var(--rule); /* account code → rule table: real data rows */ /* taste-skill-ignore */
 }
 .kurallar div:first-child { border-top: 0; }
 .kurallar dt { font-variant-numeric: tabular-nums; font-weight: 500; white-space: nowrap; }
@@ -63,7 +63,7 @@
 </style>
 <script src="js-baslat.js"></script>
 </head>
-<body class="has-mobile-cta">
+<body>
 
 <header class="wrap">
   <nav class="nav" aria-label="Main menu">
@@ -84,7 +84,6 @@
   <section class="hero hero--paket">
     <div class="hero__inner wrap">
       <div class="hero__copy">
-        <p class="tag" data-rise style="--i:0">Accounting Suite · module 2</p>
         <h1 class="display lines">
           <span class="line"><span data-line style="--i:0">If the balance</span></span>
           <span class="line"><span data-line style="--i:1">does not tie, the account tells you why.</span></span>
@@ -96,7 +95,7 @@
         </div>
         <p class="hero__meta small muted" data-rise style="--i:5">Your Luca licence is required separately · Windows 10 and 11 · Annual licence per device · No limit on client count</p>
       </div>
-      <aside class="hero__aside" data-rise style="--i:5">
+      <aside class="hero__aside" data-rise style="--i:5" data-ui="fiyat-karti">
         <p class="name">Luca Trial Balance Check</p>
         <p class="figure">8,900 <small>TL + VAT / year</small></p>
         <p class="was">List price <s>12,900 TL</s> · founder price, first 10 devices</p>
@@ -112,6 +111,38 @@
       <p class="run" data-reveal><b>Pick the client.</b> The client list comes with a year and class filter and a search box. Choose a single client, give a date range (leave it blank for the full year), or take reports for every filtered client one after another.</p>
       <p class="run" data-reveal><b>Check.</b> The downloaded trial balances are scanned against the rule list. Every breach is listed with the account code, account name and rule number; the OK, ERROR and WARNING counters sit on top. The same breach is not written twice.</p>
       <p class="run" data-reveal><b>Take the report.</b> The result is written to Excel with a per-rule summary showing how many accounts each rule fired on. You can hand the report to the client as it is.</p>
+    </div>
+  </section>
+
+  <!-- ================= SCREENS ================= -->
+  <section class="section showcase wrap" id="ciktilar">
+    <div class="showcase__grid">
+      <div class="showcase__names">
+        <button type="button" data-target="pane-uygulama" aria-pressed="true">App</button>
+        <button type="button" data-target="pane-sonuc" aria-pressed="false">Result table</button>
+        <button type="button" data-target="pane-ozet" aria-pressed="false">Summary bar</button>
+        <p class="muted">Screenshots are from the real app, running on sample data.</p>
+      </div>
+      <div class="showcase__stage">
+        <div class="showcase__pane is-on" id="pane-uygulama">
+          <figure class="shot shutter" data-reveal>
+            <img src="ekran-uygulama.png" alt="App window: file picker, tools, result table, summary bar and licence panel" width="1800" height="860" loading="lazy">
+            <figcaption class="caption small">App window: open Luca, pick the trial-balance module, and the result lands in the table.</figcaption>
+          </figure>
+        </div>
+        <div class="showcase__pane" id="pane-sonuc">
+          <figure class="shot">
+            <img src="ekran-tablo.png" alt="Result table: status, document no, VKN, date, type, base, VAT, source and detail columns" width="1433" height="378" loading="lazy">
+            <figcaption class="caption small">Result table: each breach listed with the account code and rule number.</figcaption>
+          </figure>
+        </div>
+        <div class="showcase__pane" id="pane-ozet">
+          <figure class="shot">
+            <img src="ekran-ozet.png" alt="Summary bar: matched, flagged, amount difference, missing, duplicate and other counters" width="1460" height="75" loading="lazy">
+            <figcaption class="caption small">OK, ERROR and WARNING counters sit on top.</figcaption>
+          </figure>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -196,7 +227,7 @@
 
   <section class="cta">
     <div class="cta__grid wrap">
-      <h2>Check one client's trial balance<br>for 15 days.</h2>
+      <h2>Check a trial balance<br>free for 15 days.</h2>
       <div class="cta__side">
         <p>Download the installer, pick Luca Trial Balance in the menu. The trial starts when you first open that module; no credit card.</p>
         <a class="button button--stage" href="indir-en/" data-press>Download free</a>
@@ -254,10 +285,6 @@
 <script src="vendor/gsap.min.js"></script>
 <script src="vendor/ScrollTrigger.min.js"></script>
 <script src="app.js"></script>
-<div class="mobile-cta" aria-label="Download free">
-  <span class="mobile-cta__text">15-day free trial</span>
-  <a class="button" href="indir-en/" data-press>Download free</a>
-</div>
 <aside class="cookie-note" id="cerez-notu" role="note" aria-label="Cookie note" hidden>
   <p>This site uses no cookies, analytics or tracking scripts. Only a small preference is kept in your browser so this note stays closed once you dismiss it.</p>
   <button type="button" data-cerez-kapat>Got it</button>
