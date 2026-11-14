@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; media-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'"><meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SGK Withholding · Enter agricultural withholding from Excel into TAKEP in bulk</title>
+<meta name="description" content="Reads agricultural withholding lines from Excel, enters them into the SGK TAKEP screen producer by producer, checks the base and Bağ-Kur amounts, and reports which records went through and which failed.">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="canonical" href="https://ardaekiz0.github.io/kdv-indir/sgk-en.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Accounting Suite">
+<meta property="og:locale" content="en_GB">
+<meta property="og:url" content="https://ardaekiz0.github.io/kdv-indir/sgk-en.html">
+<meta property="og:title" content="SGK Withholding · Bulk agricultural withholding entry">
+<meta property="og:description" content="Reads from Excel, enters into TAKEP producer by producer, checks base and Bağ-Kur amounts, reports successes and failures.">
+<meta property="og:image" content="https://ardaekiz0.github.io/kdv-indir/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="SGK Withholding window">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2563eb">
+<link rel="stylesheet" href="style.css">
+<style>
+.hero--paket .hero__copy { grid-column: 1 / span 8; }
+.hero--paket .hero__aside {
+  grid-column: 9 / span 4; align-self: end;
+  background: var(--surface); border: 1px solid var(--rule);
+  border-radius: var(--radius); padding: 1.5rem 1.6rem;
+}
+.hero--paket .hero__aside .name { font-size: var(--step-small); font-weight: 500; color: var(--muted); }
+.hero--paket .hero__aside .figure {
+  font-family: var(--font-display); font-size: clamp(2.2rem, 4vw, 2.9rem);
+  line-height: 1; letter-spacing: -0.03em; margin-top: 0.5rem;
+  display: flex; align-items: baseline; gap: 0.4rem;
+}
+.hero--paket .hero__aside .figure small { font-family: var(--font-text); font-size: 0.875rem; color: var(--muted); letter-spacing: 0; }
+.hero--paket .hero__aside .was { margin-top: 0.35rem; font-size: var(--step-small); color: var(--muted); }
+.hero--paket .hero__aside .was s { color: var(--ink-soft); }
+.hero--paket .hero__aside .go { display: inline-flex; margin-top: 1rem; font-size: var(--step-small); }
+@media (max-width: 64em) {
+  .hero--paket .hero__copy { grid-column: 1 / -1; }
+  .hero--paket .hero__aside { grid-column: 1 / -1; margin-top: 2rem; }
+}
+.sablon { overflow-x: auto; margin-top: 1.5rem; }
+.sablon table { width: 100%; border-collapse: collapse; font-size: var(--step-small); }
+.sablon th, .sablon td { text-align: left; padding: 0.7rem 0.9rem; border-top: 1px solid var(--rule); }
+.sablon thead th { font-weight: 500; color: var(--muted); border-top: 0; }
+.sablon td { font-variant-numeric: tabular-nums; }
+.runin__col { grid-column: 1 / span 7; }
+@media (max-width: 64em) { .runin__col { grid-column: 1 / -1; } }
+/* two cards in the price section; the default 3-column grid left one empty */
+@media (min-width: 64.01em) { .plans--ikili { grid-template-columns: 1.16fr 1fr; } }
+@media (max-width: 64em) {
+  .plans--ikili { grid-template-columns: 1fr; }
+  .plans--ikili .plan--lead { grid-column: auto; }
+}
+</style>
+<script src="js-baslat.js"></script>
+</head>
+<body class="has-mobile-cta">
+
+<header class="wrap">
+  <nav class="nav" aria-label="Main menu">
+    <a class="nav__mark link" href="index-en.html">Accounting Suite</a>
+    <div class="nav__links">
+      <a class="link" href="kdv-en.html">KDV Cross-Check</a>
+      <a class="link" href="mizan-en.html">Luca Trial Balance</a>
+      <a class="link" href="sgk-en.html" aria-current="page">SGK Withholding</a>
+      <a class="link hide-phone" href="index-en.html#fiyatlar">Prices</a>
+      <a class="link" href="indir-en/">Download</a>
+      <a class="link" href="sgk.html" lang="tr">Türkçe</a>
+    </div>
+  </nav>
+</header>
+
+<main id="ust">
+
+  <section class="hero hero--paket">
+    <div class="hero__inner wrap">
+      <div class="hero__copy">
+        <p class="tag" data-rise style="--i:0">Accounting Suite · module 3</p>
+        <h1 class="display lines">
+          <span class="line"><span data-line style="--i:0">A hundred producers</span></span>
+          <span class="line"><span data-line style="--i:1">from one Excel file.</span></span>
+        </h1>
+        <p class="lead" data-rise style="--i:3">It reads agricultural withholding lines from Excel and enters them into the SGK TAKEP screen producer by producer. The base and the Bağ-Kur withholding are written to the kuruş; when the run ends it tells you how many records went through and which tax number failed.</p>
+        <div class="hero__actions" data-rise style="--i:4">
+          <a class="button" href="indir-en/" data-press>Try free for 15 days</a>
+          <a class="link" href="index-en.html#fiyatlar">See prices</a>
+        </div>
+        <p class="hero__meta small muted" data-rise style="--i:5">You sign in yourself; the program never sees your password · Windows 10 and 11 · Annual licence per device</p>
+      </div>
+      <aside class="hero__aside" data-rise style="--i:5">
+        <p class="name">SGK Withholding</p>
+        <p class="figure">6,900 <small>TL + VAT / year</small></p>
+        <p class="was">List price <s>9,900 TL</s> · founder price, first 10 devices</p>
+        <a class="link go" href="index-en.html#fiyatlar">Price table</a>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section runin wrap" id="nasil">
+    <div class="runin__col">
+      <h2 class="head">Drop the Excel in, sign in, leave it running.</h2>
+      <p class="run" data-reveal><b>Prepare the Excel.</b> Four columns are enough: title, tax number, base, Bağ-Kur withholding. If the folder holds one Excel file it uses that one whatever it is called; with several it asks which; with none it creates an empty template itself.</p>
+      <p class="run" data-reveal><b>Sign in yourself.</b> Chrome opens and goes to the SGK page. You enter the user code and password; the program does not store your session. When you are in, you press a key and the run starts.</p>
+      <p class="run" data-reveal><b>The program enters.</b> For each producer it queries the tax number, writes the base and withholding into the fields, saves, and moves on. A base of 1,000,000 TL or more is split into two records, so a single line above the limit is not rejected.</p>
+      <p class="run" data-reveal><b>See the result.</b> At the end it says how many records went through and how many failed, lists the failures with tax number and message, and offers one more pass if you want it. Temporary failures such as a dropped session are recovered in that pass.</p>
+    </div>
+  </section>
+
+  <section class="section wrap" id="sablon">
+    <div class="pricing__head">
+      <h2 class="head">Four columns,<br>that is all.</h2>
+      <div class="pricing__side">
+        <p class="lead muted">You can keep your own Excel file; its column names only need to match these four. The program does not write over the file you have.</p>
+        <p class="tag">One file in the folder? The name does not matter</p>
+      </div>
+    </div>
+    <div class="sablon">
+      <table>
+        <caption class="sr-only">The four columns of the Excel template</caption>
+        <thead>
+          <tr><th scope="col">Title</th><th scope="col">Tax number</th><th scope="col">Base</th><th scope="col">Bağ-Kur</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Ahmet Yılmaz</td><td>12345678901</td><td>48,000.00</td><td>1,440.00</td></tr>
+          <tr><td>Mehmet Kaya</td><td>98765432109</td><td>96,500.00</td><td>2,895.00</td></tr>
+          <tr><td>Ayşe Demir</td><td>45678901234</td><td>1,250,000.00</td><td>37,500.00</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="trust">
+      <div><b>Bulk entry</b><span>Producer after producer</span></div>
+      <div><b>To the kuruş</b><span>Base and withholding in separate fields</span></div>
+      <div><b>Failure report</b><span>Listed with tax number and message</span></div>
+      <div><b>One more pass</b><span>For the ones that failed</span></div>
+    </div>
+  </section>
+
+  <section class="section wrap" id="fiyat">
+    <div class="pricing__head">
+      <h2 class="head">One module, one price.</h2>
+      <div class="pricing__side">
+        <p class="lead muted">You can take the SGK module on its own. The other two stay installed but locked until their own licence; adding one later needs no second download.</p>
+        <p class="tag">15-day free trial · no credit card</p>
+      </div>
+    </div>
+    <div class="plans plans--ikili">
+      <article class="plan plan--lead">
+        <p class="plan__badge">Founder price · first 10 devices</p>
+        <div>
+          <h3 class="plan__name">SGK Withholding</h3>
+          <p class="plan__for">For practitioners who enter dozens of agricultural withholding lines by hand every month</p>
+          <p class="plan__price">
+            <span class="plan__figure">6,900</span>
+            <span class="plan__unit">TL + VAT / year</span>
+          </p>
+          <p class="plan__ref">List price <s>9,900 TL</s> + VAT · same founder price on renewal</p>
+          <p class="plan__scope">1 computer · unlimited producers</p>
+          <ul class="plan__feats">
+            <li>Bulk entry from an Excel list</li>
+            <li>Base and Bağ-Kur withholding check</li>
+            <li>Report of entered and failed records</li>
+          </ul>
+        </div>
+        <div class="plan__foot">
+          <a class="button" href="indir-en/" data-press>Try free for 15 days</a>
+          <p class="plan__micro">No credit card · invoice, bank transfer</p>
+        </div>
+      </article>
+
+      <article class="plan">
+        <div>
+          <h3 class="plan__name">All three modules</h3>
+          <p class="plan__for">KDV Cross-Check + Luca Trial Balance Check + SGK Withholding in one installer</p>
+          <p class="plan__price">
+            <span class="plan__figure">23,900</span>
+            <span class="plan__unit">TL + VAT / year</span>
+          </p>
+          <p class="plan__ref">28,700 TL bought separately · list <s>34,900 TL</s></p>
+          <p class="plan__scope">1 computer · unlimited clients</p>
+          <ul class="plan__feats">
+            <li>All three modules, one invoice</li>
+            <li>One renewal date</li>
+            <li>The SGK module alone is 6,900 TL</li>
+          </ul>
+        </div>
+        <div class="plan__foot">
+          <a class="button button--ghost" href="index-en.html#fiyatlar" data-press>Price table</a>
+          <p class="plan__micro">Per device, not per person</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="cta__grid wrap">
+      <h2>Try one month's filings<br>for 15 days.</h2>
+      <div class="cta__side">
+        <p>Download the installer, pick SGK Withholding in the menu. The trial starts when you first open that module; no credit card.</p>
+        <a class="button button--stage" href="indir-en/" data-press>Download free</a>
+        <a class="link" href="#iletisim">Write to us about licences</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact wrap" id="iletisim">
+    <div class="contact__grid">
+      <div class="contact__col">
+        <p class="contact__prompt"><span>How many producers do you enter?</span><span class="soft">Write to us and we will look together.</span></p>
+        <form class="contact__form" novalidate data-subject="SGK Withholding: licence and questions">
+          <div class="contact__field">
+            <label class="sr-only" for="eposta">Your e-mail address</label>
+            <input class="field" id="eposta" name="eposta" type="email" placeholder="Your e-mail address" required>
+            <button class="contact__send" type="submit" aria-label="Send">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+          </div>
+          <p class="contact__error small" role="alert" hidden></p>
+          <p class="contact__next small muted">Pressing Send opens your e-mail app.</p>
+        </form>
+      </div>
+      <dl class="contact__rows">
+        <div><dt>Phone</dt><dd><a class="link" href="tel:+905462083854">+90 546 208 38 54</a></dd></div>
+        <div><dt>E-mail</dt><dd><a class="link" href="mailto:ardaekiz72@gmail.com">ardaekiz72@gmail.com</a></dd></div>
+        <div><dt>Version</dt><dd class="nums">v3.1.90</dd></div>
+      </dl>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <nav aria-label="Footer">
+    <a class="link" href="index-en.html">Accounting Suite</a>
+    <a class="link" href="kdv-en.html">KDV Cross-Check</a>
+    <a class="link" href="mizan-en.html">Luca Trial Balance</a>
+    <a class="link" href="sgk-en.html">SGK Withholding</a>
+    <a class="link" href="indir-en/">Download</a>
+    <a class="link" href="https://github.com/ArdaEkiz0/kdv-indir">GitHub</a>
+    <a class="link" href="#iletisim">Support</a>
+    <a class="link" href="index-en.html#fiyatlar">Prices</a>
+    <a class="link" href="kvkk-en.html">Privacy</a>
+    <a class="link" href="mesafeli-satis-en.html">Distance sales</a>
+    <a class="link" href="iade-en.html">Refunds</a>
+    <a class="link" href="lisans-en.html">Licence terms</a>
+    <a class="link" href="sgk.html" lang="tr">Türkçe</a>
+  </nav>
+  <span class="muted">© 2026 Arda Ekiz</span>
+  <span class="end"><a class="link" href="indir-en/">Download · v3.1.90</a></span>
+</footer>
+
+<script src="vendor/gsap.min.js"></script>
+<script src="vendor/ScrollTrigger.min.js"></script>
+<script src="app.js"></script>
+<div class="mobile-cta" aria-label="Download free">
+  <span class="mobile-cta__text">15-day free trial</span>
+  <a class="button" href="indir-en/" data-press>Download free</a>
+</div>
+<aside class="cookie-note" id="cerez-notu" role="note" aria-label="Cookie note" hidden>
+  <p>This site uses no cookies, analytics or tracking scripts. Only a small preference is kept in your browser so this note stays closed once you dismiss it.</p>
+  <button type="button" data-cerez-kapat>Got it</button>
+</aside>
+</body>
+</html>

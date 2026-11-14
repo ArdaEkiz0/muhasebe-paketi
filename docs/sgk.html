@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; media-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'"><meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SGK E-Kesinti · Tarımsal kesinti bildirimini Excel'den TAKEP'e toplu girin</title>
+<meta name="description" content="Tarımsal kesinti bildirimlerini Excel'den okur, SGK TAKEP ekranına üretici üretici girer, matrah ve Bağ-Kur tutarını kontrol eder; başarılı ve hatalı kayıtları raporlar. Windows masaüstü otomasyonu.">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="canonical" href="https://ardaekiz0.github.io/kdv-indir/sgk.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Muhasebe Paketi">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:url" content="https://ardaekiz0.github.io/kdv-indir/sgk.html">
+<meta property="og:title" content="SGK E-Kesinti · Kesinti bildirimini Excel'den TAKEP'e toplu girin">
+<meta property="og:description" content="Excel'den okur, TAKEP'e üretici üretici girer, matrah ve Bağ-Kur tutarını kontrol eder, başarılı ve hatalı kayıtları raporlar.">
+<meta property="og:image" content="https://ardaekiz0.github.io/kdv-indir/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="SGK E-Kesinti arayüzü">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2563eb">
+<link rel="stylesheet" href="style.css">
+<style>
+.hero--paket .hero__copy { grid-column: 1 / span 8; }
+.hero--paket .hero__aside {
+  grid-column: 9 / span 4; align-self: end;
+  background: var(--surface); border: 1px solid var(--rule);
+  border-radius: var(--radius); padding: 1.5rem 1.6rem;
+}
+.hero--paket .hero__aside .name { font-size: var(--step-small); font-weight: 500; color: var(--muted); }
+.hero--paket .hero__aside .figure {
+  font-family: var(--font-display); font-size: clamp(2.2rem, 4vw, 2.9rem);
+  line-height: 1; letter-spacing: -0.03em; margin-top: 0.5rem;
+  display: flex; align-items: baseline; gap: 0.4rem;
+}
+.hero--paket .hero__aside .figure small { font-family: var(--font-text); font-size: 0.875rem; color: var(--muted); letter-spacing: 0; }
+.hero--paket .hero__aside .was { margin-top: 0.35rem; font-size: var(--step-small); color: var(--muted); }
+.hero--paket .hero__aside .was s { color: var(--ink-soft); }
+.hero--paket .hero__aside .go { display: inline-flex; margin-top: 1rem; font-size: var(--step-small); }
+@media (max-width: 64em) {
+  .hero--paket .hero__copy { grid-column: 1 / -1; }
+  .hero--paket .hero__aside { grid-column: 1 / -1; margin-top: 2rem; }
+}
+/* Excel şablonu: dört sütun, olduğu gibi */
+.sablon { overflow-x: auto; margin-top: 1.5rem; }
+.sablon table { width: 100%; border-collapse: collapse; font-size: var(--step-small); }
+.sablon th, .sablon td { text-align: left; padding: 0.7rem 0.9rem; border-top: 1px solid var(--rule); }
+.sablon thead th { font-weight: 500; color: var(--muted); border-top: 0; }
+.sablon td { font-variant-numeric: tabular-nums; }
+.runin__col { grid-column: 1 / span 7; }
+@media (max-width: 64em) { .runin__col { grid-column: 1 / -1; } }
+/* fiyat bölümünde iki kart var; varsayılan 3 sütun üçüncü sütunu boş bırakıyordu */
+@media (min-width: 64.01em) { .plans--ikili { grid-template-columns: 1.16fr 1fr; } }
+@media (max-width: 64em) {
+  .plans--ikili { grid-template-columns: 1fr; }
+  .plans--ikili .plan--lead { grid-column: auto; }
+}
+</style>
+<script src="js-baslat.js"></script>
+</head>
+<body class="has-mobile-cta">
+
+<header class="wrap">
+  <nav class="nav" aria-label="Ana menü">
+    <a class="nav__mark link" href="index.html">Muhasebe Paketi</a>
+    <div class="nav__links">
+      <a class="link" href="kdv.html">KDV Çapraz Kontrol</a>
+      <a class="link" href="mizan.html">Luca Mizan</a>
+      <a class="link" href="sgk.html" aria-current="page">SGK E-Kesinti</a>
+      <a class="link hide-phone" href="index.html#fiyatlar">Fiyatlar</a>
+      <a class="link" href="indir/">İndir</a>
+      <a class="link" href="sgk-en.html" lang="en">English</a>
+    </div>
+  </nav>
+</header>
+
+<main id="ust">
+
+  <!-- ================= BAŞLIK ================= -->
+  <section class="hero hero--paket">
+    <div class="hero__inner wrap">
+      <div class="hero__copy">
+        <p class="tag" data-rise style="--i:0">Muhasebe Paketi · 3. modül</p>
+        <h1 class="display lines">
+          <span class="line"><span data-line style="--i:0">Yüz üretici</span></span>
+          <span class="line"><span data-line style="--i:1">tek Excel'den.</span></span>
+        </h1>
+        <p class="lead" data-rise style="--i:3">Tarımsal kesinti bildirimlerini Excel'den okur, SGK TAKEP ekranına üretici üretici girer. Matrahı ve Bağ-Kur kesintisini kuruşu kuruşuna yazar; iş bitince kaç kaydın geçtiğini, hangi TC'nin hata aldığını söyler.</p>
+        <div class="hero__actions" data-rise style="--i:4">
+          <a class="button" href="indir/" data-press>15 gün ücretsiz deneyin</a>
+          <a class="link" href="index.html#fiyatlar">Fiyatlara bakın</a>
+        </div>
+        <p class="hero__meta small muted" data-rise style="--i:5">Girişi siz yaparsınız, program şifrenizi bilmez · Windows 10 ve 11 · Cihaz başına yıllık lisans</p>
+      </div>
+      <aside class="hero__aside" data-rise style="--i:5">
+        <p class="name">SGK E-Kesinti</p>
+        <p class="figure">6.900 <small>TL + KDV / yıl</small></p>
+        <p class="was">Liste fiyatı <s>9.900 TL</s> · kurucu fiyatı ilk 10 cihaz</p>
+        <a class="link go" href="index.html#fiyatlar">Fiyat tablosu</a>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ================= NASIL ÇALIŞIR ================= -->
+  <section class="section runin wrap" id="nasil">
+    <div class="runin__col">
+      <h2 class="head">Excel'i koyun, girişi siz yapın, gerisini bırakın.</h2>
+      <p class="run" data-reveal><b>Excel'i hazırlayın.</b> Dört sütun yeter: ünvan, TC kimlik no, matrah, Bağ-Kur kesintisi. Klasörde tek Excel varsa adı ne olursa olsun onu kullanır; birden fazlaysa hangisini istediğinizi sorar; hiç yoksa boş şablonu kendisi oluşturur.</p>
+      <p class="run" data-reveal><b>Girişi siz yapın.</b> Chrome açılır ve SGK sayfasına gider. Kullanıcı kodu ve şifreyi siz girersiniz; program oturum bilgilerinizi saklamaz. Giriş bitince bir tuşa basarsınız, iş başlar.</p>
+      <p class="run" data-reveal><b>Program girer.</b> Her üretici için TC'yi sorgular, matrahı ve kesintiyi ilgili alanlara yazar, kaydeder ve bir sonrakine geçer. Matrahı 1.000.000 TL ve üzeri olan kaydı ikiye böler; böylece tek satırda sınırı aşan bildirim reddedilmez.</p>
+      <p class="run" data-reveal><b>Sonucu görün.</b> İş bitince "şu kadar kayıt geçti, şu kadar hata aldı" der; hatalıları TC ve hata mesajıyla listeler, isterseniz bir tur daha dener. Oturum düşmesi gibi geçici hatalar bu turda kurtulur.</p>
+    </div>
+  </section>
+
+  <!-- ================= ŞABLON ================= -->
+  <section class="section wrap" id="sablon">
+    <div class="pricing__head">
+      <h2 class="head">Şablon dört sütun,<br>hepsi bu.</h2>
+      <div class="pricing__side">
+        <p class="lead muted">Kendi Excel dosyanızı kullanabilirsiniz; sütun adları bu dörtlüye uysun yeter. Mevcut dosyanıza program dokunmaz, üzerine yazmaz.</p>
+        <p class="tag">Klasörde tek dosya varsa adı önemli değil</p>
+      </div>
+    </div>
+    <div class="sablon">
+      <table>
+        <caption class="sr-only">Excel şablonunun dört sütunu</caption>
+        <thead>
+          <tr><th scope="col">Ünvan</th><th scope="col">TC Kimlik No</th><th scope="col">Matrah</th><th scope="col">Bağ-Kur</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Ahmet Yılmaz</td><td>12345678901</td><td>48.000,00</td><td>1.440,00</td></tr>
+          <tr><td>Mehmet Kaya</td><td>98765432109</td><td>96.500,00</td><td>2.895,00</td></tr>
+          <tr><td>Ayşe Demir</td><td>45678901234</td><td>1.250.000,00</td><td>37.500,00</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="trust">
+      <div><b>Toplu giriş</b><span>Üretici üretici, sırayla</span></div>
+      <div><b>Kuruşu kuruşuna</b><span>Matrah ve kesinti ayrı alanlara</span></div>
+      <div><b>Hata raporu</b><span>TC ve mesajla listelenir</span></div>
+      <div><b>Tekrar deneme</b><span>Hatalılar için bir tur daha</span></div>
+    </div>
+  </section>
+
+  <!-- ================= FİYAT ================= -->
+  <section class="section wrap" id="fiyat">
+    <div class="pricing__head">
+      <h2 class="head">Tek modül, tek fiyat.</h2>
+      <div class="pricing__side">
+        <p class="lead muted">SGK modülünü tek başına alabilirsiniz. Diğer iki modül kurulu kalır, kendi lisansına kadar kilitli görünür; sonradan eklediğinizde yeniden indirmeniz gerekmez.</p>
+        <p class="tag">15 gün ücretsiz deneme · kredi kartı istenmez</p>
+      </div>
+    </div>
+    <div class="plans plans--ikili">
+      <article class="plan plan--lead">
+        <p class="plan__badge">Kurucu fiyatı · ilk 10 cihaz</p>
+        <div>
+          <h3 class="plan__name">SGK E-Kesinti</h3>
+          <p class="plan__for">Her ay onlarca üreticinin tarımsal kesinti bildirimini elle giren meslek mensupları için</p>
+          <p class="plan__price">
+            <span class="plan__figure">6.900</span>
+            <span class="plan__unit">TL + KDV / yıl</span>
+          </p>
+          <p class="plan__ref">Liste fiyatı <s>9.900 TL</s> + KDV · yenilemede aynı kurucu fiyat</p>
+          <p class="plan__scope">1 bilgisayar · sınırsız üretici</p>
+          <ul class="plan__feats">
+            <li>Excel listesinden toplu giriş</li>
+            <li>Matrah ve Bağ-Kur kesintisi kontrolü</li>
+            <li>Geçen ve hata alan kayıtların raporu</li>
+          </ul>
+        </div>
+        <div class="plan__foot">
+          <a class="button" href="indir/" data-press>15 gün ücretsiz deneyin</a>
+          <p class="plan__micro">Kredi kartı istenmez · faturalı, havale/EFT</p>
+        </div>
+      </article>
+
+      <article class="plan">
+        <div>
+          <h3 class="plan__name">Üç modül birlikte</h3>
+          <p class="plan__for">KDV Çapraz Kontrol + Luca Mizan Kontrol + SGK E-Kesinti, tek kurulumda</p>
+          <p class="plan__price">
+            <span class="plan__figure">23.900</span>
+            <span class="plan__unit">TL + KDV / yıl</span>
+          </p>
+          <p class="plan__ref">Tek tek toplamı 28.700 TL · liste fiyatı <s>34.900 TL</s></p>
+          <p class="plan__scope">1 bilgisayar · sınırsız mükellef</p>
+          <ul class="plan__feats">
+            <li>Üç modülün tamamı, tek fatura</li>
+            <li>Tek yenileme tarihi</li>
+            <li>SGK modülü tek başına 6.900 TL</li>
+          </ul>
+        </div>
+        <div class="plan__foot">
+          <a class="button button--ghost" href="index.html#fiyatlar" data-press>Fiyat tablosu</a>
+          <p class="plan__micro">Kişi başı değil, cihaz başına</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ================= CTA ================= -->
+  <section class="cta">
+    <div class="cta__grid wrap">
+      <h2>Bir aylık bildirimi<br>15 gün boyunca deneyin.</h2>
+      <div class="cta__side">
+        <p>Tek kurulumu indirin, menüden SGK E-Kesinti'yi seçin. Deneme o modülü ilk açtığınızda başlar; kredi kartı istemez.</p>
+        <a class="button button--stage" href="indir/" data-press>Ücretsiz indir</a>
+        <a class="link" href="#iletisim">Lisans ve sorular için yazın</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= İLETİŞİM ================= -->
+  <section class="contact wrap" id="iletisim">
+    <div class="contact__grid">
+      <div class="contact__col">
+        <p class="contact__prompt"><span>Kaç üretici giriyorsunuz?</span><span class="soft">Yazın, birlikte bakalım.</span></p>
+        <form class="contact__form" novalidate data-subject="SGK E-Kesinti: lisans ve sorular">
+          <div class="contact__field">
+            <label class="sr-only" for="eposta">E-posta adresiniz</label>
+            <input class="field" id="eposta" name="eposta" type="email" placeholder="E-posta adresiniz" required>
+            <button class="contact__send" type="submit" aria-label="Gönder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+          </div>
+          <p class="contact__error small" role="alert" hidden></p>
+          <p class="contact__next small muted">Gönder’e bastığınızda e-posta uygulamanız açılır.</p>
+        </form>
+      </div>
+      <dl class="contact__rows">
+        <div><dt>Telefon</dt><dd><a class="link" href="tel:+905462083854">0546 208 38 54</a></dd></div>
+        <div><dt>E-posta</dt><dd><a class="link" href="mailto:ardaekiz72@gmail.com">ardaekiz72@gmail.com</a></dd></div>
+        <div><dt>Sürüm</dt><dd class="nums">v3.1.90</dd></div>
+      </dl>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <nav aria-label="Alt menü">
+    <a class="link" href="index.html">Muhasebe Paketi</a>
+    <a class="link" href="kdv.html">KDV Çapraz Kontrol</a>
+    <a class="link" href="mizan.html">Luca Mizan</a>
+    <a class="link" href="sgk.html">SGK E-Kesinti</a>
+    <a class="link" href="indir/">İndir</a>
+    <a class="link" href="https://github.com/ArdaEkiz0/kdv-indir">GitHub</a>
+    <a class="link" href="#iletisim">Destek</a>
+    <a class="link" href="index.html#fiyatlar">Fiyatlar</a>
+    <a class="link" href="kvkk.html">KVKK</a>
+    <a class="link" href="mesafeli-satis.html">Mesafeli satış</a>
+    <a class="link" href="iade.html">İade</a>
+    <a class="link" href="lisans.html">Lisans sözleşmesi</a>
+    <a class="link" href="sgk-en.html" lang="en">English</a>
+  </nav>
+  <span class="muted">© 2026 Arda Ekiz</span>
+  <span class="end"><a class="link" href="indir/">İndir · v3.1.90</a></span>
+</footer>
+
+<script src="vendor/gsap.min.js"></script>
+<script src="vendor/ScrollTrigger.min.js"></script>
+<script src="app.js"></script>
+<div class="mobile-cta" aria-label="Ücretsiz indir">
+  <span class="mobile-cta__text">15 gün ücretsiz deneme</span>
+  <a class="button" href="indir/" data-press>Ücretsiz indir</a>
+</div>
+<aside class="cookie-note" id="cerez-notu" role="note" aria-label="Çerez bilgisi" hidden>
+  <p>Bu sitede çerez, analitik veya takip betiği yok. Yalnız bu notu bir kez kapatmanız için tarayıcınızda küçük bir tercih kaydı tutulur.</p>
+  <button type="button" data-cerez-kapat>Anladım</button>
+</aside>
+</body>
+</html>

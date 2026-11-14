@@ -4,258 +4,108 @@
 <meta charset="utf-8">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; media-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'"><meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>KDV Çapraz Kontrol · Compare your sales invoices against your VAT ledger</title>
-<meta name="description" content="Compares your sales invoices (e-Invoice, VAT offset slips, Excel) against your VAT ledger (KDV control list) and lists missing, incorrect and duplicated VAT entries with their results; a Windows desktop application.">
+<title>Accounting Suite · Three modules, one installer, one licence per module</title>
+<meta name="description" content="KDV Cross-Check, Luca Trial Balance Check and SGK Withholding in one installer. Each module is free for 15 days; the module you buy unlocks, the others stay locked until their own licence. Annual per-device licence, prices exclude VAT.">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<link rel="canonical" href="https://ardaekiz0.github.io/kdv-indir/index-en.html">
+<link rel="canonical" href="https://ardaekiz0.github.io/kdv-indir/">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="KDV Çapraz Kontrol">
+<meta property="og:site_name" content="Accounting Suite">
 <meta property="og:locale" content="en_US">
-<meta property="og:url" content="https://ardaekiz0.github.io/kdv-indir/index-en.html">
-<meta property="og:title" content="KDV Çapraz Kontrol · Compare your sales invoices against your VAT ledger">
-<meta property="og:description" content="Compares your sales invoices (e-Invoice, VAT offset slips, Excel) against your VAT ledger (KDV control list) and lists missing, incorrect and duplicated VAT entries with their results; a Windows desktop application.">
+<meta property="og:url" content="https://ardaekiz0.github.io/kdv-indir/">
+<meta property="og:title" content="Accounting Suite · Three modules, one installer">
+<meta property="og:description" content="KDV Cross-Check, Luca Trial Balance Check and SGK Withholding in one installer. Each module is free for 15 days.">
 <meta property="og:image" content="https://ardaekiz0.github.io/kdv-indir/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="KDV Capraz Kontrol interface">
+<meta property="og:image:alt" content="Accounting Suite interface">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:url" content="https://ardaekiz0.github.io/kdv-indir/index-en.html">
-<meta name="twitter:title" content="KDV Çapraz Kontrol · Compare your sales invoices against your VAT ledger">
-<meta name="twitter:description" content="Compares your sales invoices (e-Invoice, VAT offset slips, Excel) against your VAT ledger (KDV control list) and lists missing, incorrect and duplicated VAT entries with their results; a Windows desktop application.">
-<meta name="twitter:image" content="https://ardaekiz0.github.io/kdv-indir/og-image.png">
-
-
 <meta name="theme-color" content="#2563eb">
 <link rel="stylesheet" href="style.css">
+<style>
+/* This page's hero has no product screenshot (index.html has one); keep the
+   copy column wider so the headline is not squeezed into half the page. */
+.hero--paket .hero__copy { grid-column: 1 / span 8; }
+/* Price summary on the right of the hero: the bundle price is visible immediately. */
+.hero--paket .hero__aside {
+  grid-column: 9 / span 4; align-self: end;
+  background: var(--surface); border: 1px solid var(--rule);
+  border-radius: var(--radius); padding: 1.5rem 1.6rem;
+}
+.hero--paket .hero__aside .name { font-size: var(--step-small); font-weight: 500; color: var(--muted); }
+.hero--paket .hero__aside .figure {
+  font-family: var(--font-display); font-size: clamp(2.2rem, 4vw, 2.9rem);
+  line-height: 1; letter-spacing: -0.03em; margin-top: 0.5rem;
+  display: flex; align-items: baseline; gap: 0.4rem;
+}
+.hero--paket .hero__aside .figure small { font-family: var(--font-text); font-size: 0.875rem; color: var(--muted); letter-spacing: 0; }
+.hero--paket .hero__aside .was { margin-top: 0.35rem; font-size: var(--step-small); color: var(--muted); }
+.hero--paket .hero__aside .was s { color: var(--ink-soft); }
+.hero--paket .hero__aside .go { display: inline-flex; margin-top: 1rem; font-size: var(--step-small); }
+@media (max-width: 64em) {
+  .hero--paket .hero__copy { grid-column: 1 / -1; }
+  .hero--paket .hero__aside { grid-column: 1 / -1; margin-top: 2rem; }
+}
+</style>
 <script src="js-baslat.js"></script>
 </head>
 <body class="has-mobile-cta">
 
 <header class="wrap">
   <nav class="nav" aria-label="Main menu">
-    <a class="nav__mark link" href="#top">KDV Çapraz Kontrol</a>
+    <a class="nav__mark link" href="index-en.html">Accounting Suite</a>
     <div class="nav__links">
-      <a class="link" href="#how">How it works</a>
-      <a class="link hide-phone" href="#screens">Screens</a>
-      <a class="link hide-phone" href="#compare">Comparison</a>
-      <a class="link" href="#license">Licence</a>
-      <a class="link" href="#faq">FAQ</a>
-      <a class="link" href="paket-en.html">Accounting Suite</a>
+      <a class="link" href="kdv-en.html">KDV Cross-Check</a>
+      <a class="link" href="mizan-en.html">Luca Trial Balance</a>
+      <a class="link" href="sgk-en.html">SGK Withholding</a>
+      <a class="link" href="index-en.html#fiyatlar">Prices</a>
+      <a class="link" href="indir-en/">Download</a>
       <a class="link" href="index.html" lang="tr">Türkçe</a>
     </div>
   </nav>
 </header>
 
-<main id="top">
+<main id="ust">
 
-  <!-- ================= HERO ================= -->
-  <section class="hero">
+  <section class="hero hero--paket">
     <div class="hero__inner wrap">
       <div class="hero__copy">
         <h1 class="display lines">
-          <span class="line"><span data-line style="--i:0">Leave no VAT</span></span>
-          <span class="line"><span data-line style="--i:1">difference.</span></span>
+          <span class="line"><span data-line style="--i:0">One installer.</span></span>
+          <span class="line"><span data-line style="--i:1">Three modules.</span></span>
+          <span class="line"><span data-line style="--i:2">You unlock the ones you buy.</span></span>
         </h1>
-        <p class="lead" data-rise style="--i:3">Compares your sales invoices (e-Invoice, VAT offset slips, Excel) against your VAT ledger; lists missing, incorrect and duplicated VAT entries.</p>
+        <p class="lead" data-rise style="--i:3">KDV Cross-Check, Luca Trial Balance Check and SGK Withholding ship together and open from one menu. Try each module free for 15 days; the module you buy unlocks, the ones you do not stay locked until their own licence.</p>
         <div class="hero__actions" data-rise style="--i:4">
-          <a class="button" href="indir-en/" data-press>Download for free</a>
-          <a class="link" href="#how">How it works?</a>
+          <a class="button" href="indir-en/" data-press>Download free</a>
+          <a class="link" href="#fiyatlar">See prices</a>
         </div>
-        <p class="hero__meta small muted" data-rise style="--i:5">Runs on Windows 10 and 11 · Installer or portable · Free trial</p>
+        <p class="hero__meta small muted" data-rise style="--i:5">Runs on Windows 10 and 11 · Annual licence per device · No limit on client count · Prices exclude VAT</p>
       </div>
-    </div>
-    <div class="hero__stage" data-scene data-fragment="ledger" aria-label="KDV Çapraz Kontrol result screen">
-      <p class="hero__stage-note">Check result</p>
-      <div class="hero__fragment">
-        <div class="ui" data-ui="ledger">
-          <div class="ui__bar">
-            <span class="ui__title">KDV Çapraz Kontrol</span>
-            <span class="ui__meta">39 result rows</span>
-          </div>
-          <div class="ui__toolbar">
-            <span class="chip">MATCHED 2</span>
-            <span class="chip chip--flag">NOT IN LEDGER 6</span>
-            <span class="chip chip--flag">NOT IN INVOICES 19</span>
-            <span class="chip chip--ghost">DUPLICATE 9</span>
-          </div>
-          <table>
-            <thead>
-              <tr><th>Status</th><th>Document No</th><th class="num">Date</th><th class="num">Gross</th><th class="num">VAT</th></tr>
-            </thead>
-            <tbody>
-              <tr><td><span class="chip">MATCHED</span></td><td>GFE202400000001</td><td class="num">2024-02-05</td><td class="num">1,000.00</td><td class="num">200.00</td></tr>
-              <tr class="is-flagged"><td><span class="chip chip--flag">AMOUNT DIFF</span></td><td>GFE202400000003</td><td class="num">2024-02-11</td><td class="num">500.00</td><td class="num">50.00</td></tr>
-              <tr class="is-flagged"><td><span class="chip chip--flag">VKN DIFF</span></td><td>GFE202400000010</td><td class="num">2024-02-13</td><td class="num">800.00</td><td class="num">160.00</td></tr>
-              <tr class="is-flagged"><td><span class="chip chip--flag">NOT IN LEDGER</span></td><td>GFE202600009003</td><td class="num">2026-07-17</td><td class="num">1,000.00</td><td class="num">200.00</td></tr>
-              <tr class="is-ghost"><td><span class="chip chip--ghost">NOT IN INVOICES</span></td><td>010720269001</td><td class="num">2026-07-01</td><td class="num">-</td><td class="num">19,703.76</td></tr>
-            </tbody>
-          </table>
-          <div class="ui__foot">
-            <span class="chip chip--flag">NEW ISSUE 1</span>
-            <span class="chip">RESOLVED 2</span>
-            <span class="nums">10 invoices · 35 ledger rows</span>
-          </div>
-        </div>
-      </div>
+      <aside class="hero__aside" data-rise style="--i:5">
+        <p class="name">All three modules</p>
+        <p class="figure">23,900 <small>TL + VAT / year</small></p>
+        <p class="was">28,700 TL bought separately · list <s>34,900 TL</s></p>
+        <a class="link go" href="#fiyatlar">Price table</a>
+      </aside>
     </div>
   </section>
 
-  <!-- ================= HOW IT WORKS ================= -->
-  <section class="section runin wrap" id="how">
-    <div class="runin__col">
-      <h2 class="head">Two folders. One check.</h2>
-      <p class="run" data-reveal><b>Load.</b> Choose your invoice folder and your ledger folder (you can also pick individual files; subfolders are included). The program matches records by document number, then compares amount and VAT.</p>
-      <p class="run" data-reveal><b>Review.</b> Every row is listed with its own status: matched, amount difference, VKN difference, not in ledger, not in invoices, duplicate. Double-click a row to open the full document detail in a separate window.</p>
-      <div class="runin__stage runin__frames" data-reveal>
-        <figure class="shot shutter" data-reveal>
-          <img src="ekran-uygulama.png" alt="KDV Çapraz Kontrol application window: toolbar, result table and summary strip" width="1800" height="860" loading="lazy">
-        </figure>
-        <figure class="shot shutter" data-reveal>
-          <img src="ekran-tablo.png" alt="Result table with status, document no, VKN, date, gross and VAT columns" width="1433" height="378" loading="lazy">
-        </figure>
-        <figure class="shot shutter" data-reveal>
-          <img src="ekran-karsilastirma.png" alt="Summary strip showing NEW ISSUE 1 and RESOLVED cards" width="310" height="79" loading="lazy">
-        </figure>
-      </div>
-      <p class="run" data-reveal><b>Save.</b> Get your Excel report, PDF report, Ba/Bs form and accountant package in one click. Each run is compared against the previous one; newly missing and resolved documents are flagged in the summary strip.</p>
-    </div>
-  </section>
-
-  <!-- ================= PRODUCT SCENE (three.js) ================= -->
-  <section class="section scene wrap" id="scene" data-scene data-fragment="cross">
-    <div class="scene__grid">
-      <div class="scene__steps">
-        <div class="scene__step">
-          <h3>Invoices are matched</h3>
-          <p>Sales invoice rows are matched against ledger records by document number.</p>
-        </div>
-        <div class="scene__step">
-          <h3>Differences are flagged</h3>
-          <p>Rows whose amount or VAT does not match are coloured together with the field that differs.</p>
-        </div>
-        <div class="scene__step">
-          <h3>It is recorded</h3>
-          <p>Every row gets its own result; you carry the results straight into your report.</p>
-        </div>
-      </div>
-      <div class="scene__stage">
-        <canvas id="cross-scene" aria-hidden="true"></canvas>
-        <div class="scene__legend" aria-hidden="true">
-          <span><i></i> Matched</span>
-          <span><i></i> Different</span>
-          <span><i class="dash"></i> Missing record</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= SCREENS ================= -->
-  <section class="section showcase wrap" id="screens">
-    <div class="showcase__grid">
-      <div class="showcase__names">
-        <button type="button" data-target="pane-uygulama" aria-pressed="true">Application</button>
-        <button type="button" data-target="pane-sonuc" aria-pressed="false">Result table</button>
-        <button type="button" data-target="pane-ozet" aria-pressed="false">Summary strip</button>
-        <button type="button" data-target="pane-karsilastirma" aria-pressed="false">Comparison</button>
-        <p class="muted">Screenshots are taken from the real application; they run on sample data. The application interface is currently in Turkish.</p>
-      </div>
-      <div class="showcase__stage">
-        <div class="showcase__pane is-on" id="pane-uygulama">
-          <figure class="shot shutter" data-reveal>
-            <img src="ekran-uygulama.png" alt="Application window: file selection, tools, result table, summary strip and licence panel" width="1800" height="860" loading="lazy">
-            <figcaption class="caption small">Application window: file selection, tools, result table and summary strip.</figcaption>
-          </figure>
-        </div>
-        <div class="showcase__pane" id="pane-sonuc">
-          <figure class="shot">
-            <img src="ekran-tablo.png" alt="Result table: status, document no, VKN, date, type, gross, VAT, source and detail columns" width="1433" height="378" loading="lazy">
-            <figcaption class="caption small">Result table: every row with its status, document and amounts; double-click for detail.</figcaption>
-          </figure>
-        </div>
-        <div class="showcase__pane" id="pane-ozet">
-          <figure class="shot">
-            <img src="ekran-ozet.png" alt="Summary strip: matched, problematic, amount difference, not in ledger, not in invoices, duplicate and further status counters" width="1460" height="75" loading="lazy">
-            <figcaption class="caption small">Summary strip: status counters; in a narrow window the cards wrap to a second row.</figcaption>
-          </figure>
-        </div>
-        <div class="showcase__pane" id="pane-karsilastirma">
-          <figure class="shot">
-            <img src="ekran-karsilastirma.png" alt="NEW ISSUE 1 and RESOLVED 2 cards" width="310" height="79" loading="lazy">
-            <figcaption class="caption small">Comparison cards: newly missing and resolved documents against the previous run.</figcaption>
-          </figure>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= COMPARISON ================= -->
-  <section class="section wrap" id="compare">
-    <div class="compare">
-      <div class="compare__head">
-        <h2>How is the check done?</h2>
-        <div class="compare__col compare__col--us">KDV Çapraz Kontrol</div>
-        <div class="compare__col">Manual check</div>
-      </div>
-      <div class="compare__rows">
-        <div class="compare__row">
-          <div class="name">Speed</div>
-          <div class="us" data-etiket="KDV Çapraz Kontrol"><span>100 records ≈ 1 minute</span></div>
-          <div class="lab" data-etiket="Manual check">Hours</div>
-        </div>
-        <div class="compare__row">
-          <div class="name">Accuracy</div>
-          <div class="us" data-etiket="KDV Çapraz Kontrol"><span>Rule-based</span></div>
-          <div class="lab" data-etiket="Manual check">Depends on the person</div>
-        </div>
-        <div class="compare__row">
-          <div class="name">Result</div>
-          <div class="us" data-etiket="KDV Çapraz Kontrol"><span>Row by row</span></div>
-          <div class="lab" data-etiket="Manual check">Grand total</div>
-        </div>
-        <div class="compare__row">
-          <div class="name">Report</div>
-          <div class="us" data-etiket="KDV Çapraz Kontrol"><span>Automatic</span></div>
-          <div class="lab" data-etiket="Manual check">Written by hand</div>
-        </div>
-        <div class="compare__row">
-          <div class="name">Duplicates</div>
-          <div class="us" data-etiket="KDV Çapraz Kontrol"><span>Flagged</span></div>
-          <div class="lab" data-etiket="Manual check">Easily missed</div>
-        </div>
-      </div>
-    </div>
-    <div class="proof">
-      <div class="proof__intro">
-        <p><b>Use cases</b></p>
-        <p class="muted">Accountants · Accounting teams · Independent accountants</p>
-      </div>
-      <ul>
-        <li>Audit trail</li>
-        <li>Export to Excel</li>
-        <li>Local installation</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- ================= LICENCE ================= -->
-  <section class="section wrap" id="license">
+  <section class="section wrap" id="moduller">
     <div class="pricing__head">
-      <h2 class="head">Pay once a year,<br>catch the VAT gap every month.</h2>
+      <h2 class="head">Three separate jobs,<br>one installer.</h2>
       <div class="pricing__side">
-        <p class="lead muted">Yearly licence per computer; no limit on clients. Prices exclude VAT.</p>
-        <p class="tag">15-day free trial · no credit card</p>
-        <p class="tag">Trial-balance and SGK modules ship in the same installer: <a class="link" href="paket-en.html">Accounting Suite</a></p>
+        <p class="lead muted">The modules are independent: if one fails the others keep working. Each one checks its own licence, so one can be unlocked while another stays locked.</p>
+        <p class="tag">15-day free trial · per module</p>
       </div>
     </div>
 
     <div class="plans">
-      <article class="plan plan--lead">
-        <p class="plan__badge">Founding price · first 10 devices</p>
+      <article class="plan">
         <div>
-          <h3 class="plan__name">Single Computer</h3>
-          <p class="plan__for">For independent accountants and small practices working on one computer</p>
+          <h3 class="plan__name"><a class="link" href="kdv-en.html">KDV Cross-Check</a></h3>
+          <p class="plan__for">Matches your sales invoices against the ledger and lists missing, wrong and duplicate VAT entries with the reason.</p>
           <p class="plan__price">
             <span class="plan__figure">12,900</span>
             <span class="plan__unit">TL + VAT / year</span>
@@ -263,171 +113,212 @@
           <p class="plan__ref">List price <s>19,900 TL</s> + VAT</p>
           <p class="plan__scope">1 computer · unlimited clients</p>
           <ul class="plan__feats">
-            <li>Compares e-Invoice, Excel and the VAT ledger</li>
-            <li>Lists missing, incorrect and duplicate VAT entries</li>
-            <li>Excel, PDF and Ba/Bs reports</li>
-            <li>Same founding price on renewal</li>
+            <li>e-Invoice, Excel and ledger comparison</li>
+            <li>Excel, PDF and Ba/Bs report</li>
+            <li>Same founder price on renewal</li>
           </ul>
         </div>
         <div class="plan__foot">
-          <a class="button" href="indir-en/" data-press>Start the 15-day trial</a>
-          <p class="plan__micro">No credit card · invoice, bank transfer</p>
+          <a class="button" href="kdv-en.html" data-press>See the KDV module</a>
+          <p class="plan__micro">Invoiced, bank transfer · 14-day refund</p>
         </div>
       </article>
 
       <article class="plan">
         <div>
-          <h3 class="plan__name">Office · 3 Computers</h3>
-          <p class="plan__for">For small accounting offices working side by side</p>
+          <h3 class="plan__name"><a class="link" href="mizan-en.html">Luca Trial Balance Check</a></h3>
+          <p class="plan__for">Pulls the trial balance and ledger detail from Luca, checks them account by account and writes what it finds into a report.</p>
           <p class="plan__price">
-            <span class="plan__figure">44,900</span>
+            <span class="plan__figure">8,900</span>
+            <span class="plan__unit">TL + VAT / year</span>
+          </p>
+          <p class="plan__ref">List price <s>12,900 TL</s> + VAT</p>
+          <p class="plan__scope">1 computer · unlimited clients</p>
+          <ul class="plan__feats">
+            <li>Compares trial balance and ledger totals</li>
+            <li>Mismatch list per account</li>
+            <li>Report you can hand to the client</li>
+          </ul>
+        </div>
+        <div class="plan__foot">
+          <a class="button button--ghost" href="mizan-en.html" data-press>See the trial-balance module</a>
+          <p class="plan__micro">Invoiced, bank transfer · 14-day refund</p>
+        </div>
+      </article>
+
+      <article class="plan">
+        <div>
+          <h3 class="plan__name"><a class="link" href="sgk-en.html">SGK Withholding</a></h3>
+          <p class="plan__for">Reads agricultural withholding lines from Excel and enters them into TAKEP in bulk; shows missing days and amount differences.</p>
+          <p class="plan__price">
+            <span class="plan__figure">6,900</span>
+            <span class="plan__unit">TL + VAT / year</span>
+          </p>
+          <p class="plan__ref">List price <s>9,900 TL</s> + VAT</p>
+          <p class="plan__scope">1 computer · unlimited producers</p>
+          <ul class="plan__feats">
+            <li>Bulk entry from an Excel list</li>
+            <li>Withholding amount and base check</li>
+            <li>Entered / not entered report</li>
+          </ul>
+        </div>
+        <div class="plan__foot">
+          <a class="button button--ghost" href="sgk-en.html" data-press>See the withholding module</a>
+          <p class="plan__micro">Invoiced, bank transfer · 14-day refund</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section wrap" id="fiyatlar">
+    <div class="pricing__head">
+      <h2 class="head">Take all three<br>and save 4,800 TL.</h2>
+      <div class="pricing__side">
+        <p class="lead muted">23,900 TL instead of 28,700 TL bought separately. All three are full versions; there is no cut-down tier.</p>
+        <p class="tag">Three modules on one device · one invoice, one renewal date</p>
+      </div>
+    </div>
+
+    <div class="plans">
+      <article class="plan plan--lead">
+        <p class="plan__badge">Founder price · first 10 devices</p>
+        <div>
+          <h3 class="plan__name">All Three Modules</h3>
+          <p class="plan__for">KDV Cross-Check + Luca Trial Balance Check + SGK Withholding</p>
+          <p class="plan__price">
+            <span class="plan__figure">23,900</span>
+            <span class="plan__unit">TL + VAT / year</span>
+          </p>
+          <p class="plan__ref">List <s>34,900 TL</s> + VAT · 28,700 TL separately</p>
+          <p class="plan__scope">1 computer · unlimited clients</p>
+          <ul class="plan__feats">
+            <li>All three modules, one installer</li>
+            <li>One invoice, one renewal date</li>
+            <li>Same founder price on renewal</li>
+          </ul>
+        </div>
+        <div class="plan__foot">
+          <a class="button" href="indir-en/" data-press>Try free</a>
+          <p class="plan__micro">No credit card · invoiced, bank transfer</p>
+        </div>
+      </article>
+
+      <article class="plan">
+        <div>
+          <h3 class="plan__name">Office · 3 Devices</h3>
+          <p class="plan__for">For small accounting offices working together, all three modules</p>
+          <p class="plan__price">
+            <span class="plan__figure">59,900</span>
             <span class="plan__unit">TL + VAT / year</span>
           </p>
           <p class="plan__ref">One invoice, one renewal date</p>
           <p class="plan__scope">3 computers · unlimited clients</p>
           <ul class="plan__feats">
-            <li>Everything in the Single Computer pack</li>
-            <li>Separate installation on 3 computers</li>
+            <li>All three modules on 3 computers</li>
+            <li>Discount per device</li>
           </ul>
         </div>
         <div class="plan__foot">
-          <a class="button button--ghost" href="#contact" data-press>Get a quote</a>
-          <p class="plan__micro">Invoice, bank transfer · 14-day refund</p>
-        </div>
-      </article>
-
-      <article class="plan">
-        <div>
-          <h3 class="plan__name">Bureau · 5 Computers</h3>
-          <p class="plan__for">For practices with a large client portfolio and a bigger team</p>
-          <p class="plan__price">
-            <span class="plan__figure">69,900</span>
-            <span class="plan__unit">TL + VAT / year</span>
-          </p>
-          <p class="plan__ref">One invoice, one renewal date</p>
-          <p class="plan__scope">5 computers · unlimited clients</p>
-          <ul class="plan__feats">
-            <li>Everything in the Single Computer pack</li>
-            <li>Separate installation on 5 computers</li>
-          </ul>
-        </div>
-        <div class="plan__foot">
-          <a class="button button--ghost" href="#contact" data-press>Get a quote</a>
-          <p class="plan__micro">Invoice, bank transfer · 14-day refund</p>
+          <a class="button button--ghost" href="#iletisim" data-press>Request a quote</a>
+          <p class="plan__micro">Invoiced, bank transfer · 14-day refund</p>
         </div>
       </article>
     </div>
 
     <div class="tarife">
       <table class="tarife__table">
-        <caption class="sr-only">Pack comparison: computers, client limit and yearly price</caption>
+        <caption class="sr-only">Module prices: founder and list price, annual per device</caption>
         <thead>
           <tr>
-            <th scope="col">Pack</th>
-            <th scope="col">Computers</th>
-            <th scope="col">Clients</th>
-            <th scope="col" class="num">Yearly price</th>
+            <th scope="col">Module</th>
+            <th scope="col">What it does</th>
+            <th scope="col" class="num">Founder</th>
+            <th scope="col" class="num">List</th>
           </tr>
         </thead>
         <tbody>
           <tr class="is-lead">
-            <th scope="row">Single Computer <em>Founding price, first 10 devices</em></th>
-            <td data-e="Computers">1</td>
-            <td data-e="Clients">Unlimited</td>
-            <td data-e="Yearly price" class="num">12,900 TL + VAT</td>
+            <th scope="row">KDV Cross-Check <em>first 10 devices</em></th>
+            <td data-e="What it does">Invoice ↔ ledger matching</td>
+            <td data-e="Founder" class="num">12,900 TL + VAT</td>
+            <td data-e="List" class="num">19,900 TL + VAT</td>
           </tr>
           <tr>
-            <th scope="row">Office <em>3 computers</em></th>
-            <td data-e="Computers">3</td>
-            <td data-e="Clients">Unlimited</td>
-            <td data-e="Yearly price" class="num">44,900 TL + VAT</td>
+            <th scope="row">Luca Trial Balance Check <em>first 10 devices</em></th>
+            <td data-e="What it does">Trial balance and ledger check</td>
+            <td data-e="Founder" class="num">8,900 TL + VAT</td>
+            <td data-e="List" class="num">12,900 TL + VAT</td>
           </tr>
           <tr>
-            <th scope="row">Bureau <em>5 computers</em></th>
-            <td data-e="Computers">5</td>
-            <td data-e="Clients">Unlimited</td>
-            <td data-e="Yearly price" class="num">69,900 TL + VAT</td>
+            <th scope="row">SGK Withholding <em>first 10 devices</em></th>
+            <td data-e="What it does">Bulk entry into TAKEP</td>
+            <td data-e="Founder" class="num">6,900 TL + VAT</td>
+            <td data-e="List" class="num">9,900 TL + VAT</td>
+          </tr>
+          <tr>
+            <th scope="row">All three modules <em>first 10 devices</em></th>
+            <td data-e="What it does">Everything</td>
+            <td data-e="Founder" class="num">23,900 TL + VAT</td>
+            <td data-e="List" class="num">34,900 TL + VAT</td>
+          </tr>
+          <tr>
+            <th scope="row">Office · 3 devices <em>all modules</em></th>
+            <td data-e="What it does">Everything, 3 computers</td>
+            <td data-e="Founder" class="num">59,900 TL + VAT</td>
+            <td data-e="List" class="num">79,900 TL + VAT</td>
           </tr>
         </tbody>
       </table>
     </div>
 
     <div class="trust">
-      <div><b>15-day free trial</b><span>No credit card required</span></div>
+      <div><b>15 days per module</b><span>No credit card</span></div>
       <div><b>14-day refund</b><span>No reason needed</span></div>
-      <div><b>Payment by bank transfer</b><span>Invoice issued after payment</span></div>
-      <div><b>No licence key</b><span>Assigned to your computer by the server</span></div>
+      <div><b>Bank transfer</b><span>Invoice issued after payment</span></div>
+      <div><b>No licence key</b><span>Your device is authorised from the server</span></div>
     </div>
-
-    <p class="teklif-row">
-      <span>More than 10 computers, branches, corporate invoicing or a portfolio of 150+ clients:</span>
-      <a class="link" href="#contact">get a quote</a>
-      <span class="muted">·</span>
-      <a class="link" href="tel:+905462083854">+90 546 208 38 54</a>
-    </p>
-
-    <p class="small muted" style="margin-top: 1.25rem">When the period ends the program locks; your saved work is not deleted. The Single Computer pack is sold at the founding price for the first 10 devices and keeps that price on renewal; list price 19,900 TL + VAT / year.</p>
   </section>
 
-  <!-- ================= FAQ ================= -->
-  <section class="section faq wrap" id="faq">
+  <section class="section faq wrap" id="sss">
     <div class="faq__grid">
-      <h2>Frequently asked</h2>
+      <h2>Short answers</h2>
       <div class="faq__list">
-        <details>
-          <summary>Do my records leave my computer?<span class="plus" aria-hidden="true"></span></summary>
-          <div class="answer"><p>No. The program runs locally; your invoices and reports never leave your computer.</p></div>
+        <details open>
+          <summary>Can I buy a single module?<span class="plus" aria-hidden="true"></span></summary>
+          <div class="answer"><p>Yes. Take KDV, Trial Balance or SGK on its own; the others stay installed but locked until their own licence. Adding a module later unlocks the same installation, no second download.</p></div>
         </details>
         <details>
-          <summary>Which files can I load?<span class="plus" aria-hidden="true"></span></summary>
-          <div class="answer"><p>Invoices: PDF, Excel (.xlsx, .xlsm, .xls), XML and single-file .zip archives. Ledger (KDV control list): PDF and Excel. Subfolders are included.</p></div>
+          <summary>How does the trial work?<span class="plus" aria-hidden="true"></span></summary>
+          <div class="answer"><p>The trial runs per module and starts the first time you open that module; it lasts 15 days. A module you never opened has not started yet. No credit card.</p></div>
         </details>
         <details>
-          <summary>Do I need to install it?<span class="plus" aria-hidden="true"></span></summary>
-          <div class="answer"><p>Optional. The installer does not ask for administrator rights; you can also download the <a class="link" href="https://github.com/ArdaEkiz0/kdv-indir/releases/latest/download/KDV-Capraz-Kontrol-portable.zip">portable version</a> and run it directly.</p></div>
+          <summary>Does the trial balance module replace Luca?<span class="plus" aria-hidden="true"></span></summary>
+          <div class="answer"><p>No. Luca stays your accounting program; this module pulls data from Luca, compares the trial balance with the ledger detail and prepares the report. Your Luca licence is separate.</p></div>
         </details>
         <details>
-          <summary>What happens when the licence period ends?<span class="plus" aria-hidden="true"></span></summary>
-          <div class="answer"><p>The program locks; your work stays safe. The licence is granted to this device from the server; there is no key entry on any screen. Get in touch for the full version.</p></div>
-        </details>
-        <details>
-          <summary>Do I need to enter a licence key?<span class="plus" aria-hidden="true"></span></summary>
-          <div class="answer"><p>No. The licence is granted to this device from the server; there is no key entry.</p></div>
-        </details>
-        <details>
-          <summary>Is VAT included, and how do I get an invoice?<span class="plus" aria-hidden="true"></span></summary>
-          <div class="answer"><p>Prices exclude VAT; the invoice is issued on the amount excluding VAT. Payment is made by bank transfer and your invoice is sent after payment. The yearly licence covers 12 months of use.</p></div>
-        </details>
-        <details>
-          <summary>How does the refund work?<span class="plus" aria-hidden="true"></span></summary>
-          <div class="answer"><p>A no-questions refund within 14 days of purchase; you do not need to give a reason. Just write to <a class="link" href="mailto:ardaekiz72@gmail.com">ardaekiz72@gmail.com</a>. Details in the <a class="link" href="iade-en.html">refund terms</a>.</p></div>
-        </details>
-        <details>
-          <summary>Is there a trial?<span class="plus" aria-hidden="true"></span></summary>
-          <div class="answer"><p>Yes. The trial starts when the program first connects to the licence server and lasts 15 days; no credit card required. The trial runs for 15 days per <strong>network (IP)</strong>, not per device: a second computer on the same office/network does not get a fresh 15 days, it inherits the network’s remaining time. A new installation that has not yet reached the server runs for at most 3 days without internet; you need to connect once for the trial to start.</p></div>
+          <summary>I bought all three; what if the computer changes?<span class="plus" aria-hidden="true"></span></summary>
+          <div class="answer"><p>The licence is tied to the device. Install on the new computer and write to us; the authorisation moves and the old device is released.</p></div>
         </details>
       </div>
     </div>
   </section>
 
-  <!-- ================= CTA ================= -->
   <section class="cta">
     <div class="cta__grid wrap">
-      <h2>Start your first check today.</h2>
+      <h2>See for 15 days which module<br>earns its keep.</h2>
       <div class="cta__side">
-        <p>Download the program and try it free for 15 days; the trial starts on the first server connection. Get in touch for the full version.</p>
-        <a class="button button--stage" href="indir-en/" data-press>Download for free</a>
-        <a class="link" href="#contact">Write for licence and questions</a>
+        <p>Install once, pick the module from the menu. No credit card; the clock starts when you open the module.</p>
+        <a class="button button--stage" href="indir-en/" data-press>Download free</a>
+        <a class="link" href="#iletisim">Write to us about licensing</a>
       </div>
     </div>
   </section>
 
-  <!-- ================= CONTACT ================= -->
-  <section class="contact wrap" id="contact">
+  <section class="contact wrap" id="iletisim">
     <div class="contact__grid">
       <div class="contact__col">
-        <p class="contact__prompt"><span>Got a question?</span><span class="soft">Write for licence and questions.</span></p>
-        <form class="contact__form" novalidate data-subject="KDV Çapraz Kontrol: licence and questions">
+        <p class="contact__prompt"><span>Which module fits your work?</span><span class="soft">Write to us.</span></p>
+        <form class="contact__form" novalidate data-subject="Accounting Suite: licensing and questions">
           <div class="contact__field">
             <label class="sr-only" for="eposta">Your e-mail address</label>
             <input class="field" id="eposta" name="eposta" type="email" placeholder="Your e-mail address" required>
@@ -436,11 +327,11 @@
             </button>
           </div>
           <p class="contact__error small" role="alert" hidden></p>
-          <p class="contact__next small muted">Pressing Send opens your e-mail application.</p>
+          <p class="contact__next small muted">Pressing Send opens your e-mail app.</p>
         </form>
       </div>
       <dl class="contact__rows">
-        <div><dt>Phone</dt><dd><a class="link" href="tel:+905462083854">0546 208 38 54</a></dd></div>
+        <div><dt>Phone</dt><dd><a class="link" href="tel:+905462083854">+90 546 208 38 54</a></dd></div>
         <div><dt>E-mail</dt><dd><a class="link" href="mailto:ardaekiz72@gmail.com">ardaekiz72@gmail.com</a></dd></div>
         <div><dt>Version</dt><dd class="nums">v3.1.90</dd></div>
       </dl>
@@ -450,31 +341,32 @@
 </main>
 
 <footer class="foot">
-  <nav aria-label="Footer menu">
+  <nav aria-label="Footer">
+    <a class="link" href="index-en.html">Accounting Suite</a>
+    <a class="link" href="kdv-en.html">KDV Cross-Check</a>
+    <a class="link" href="mizan-en.html">Luca Trial Balance</a>
+    <a class="link" href="sgk-en.html">SGK Withholding</a>
     <a class="link" href="indir-en/">Download</a>
     <a class="link" href="https://github.com/ArdaEkiz0/kdv-indir">GitHub</a>
-    <a class="link" href="#contact">Support</a>
-    <a class="link" href="#faq">Licence</a>
+    <a class="link" href="#iletisim">Support</a>
+    <a class="link" href="#fiyatlar">Prices</a>
     <a class="link" href="kvkk-en.html">Privacy</a>
     <a class="link" href="mesafeli-satis-en.html">Distance sales</a>
-    <a class="link" href="iade-en.html">Returns</a>
-    <a class="link" href="lisans-en.html">Licence agreement</a>
+    <a class="link" href="iade-en.html">Refunds</a>
+    <a class="link" href="lisans-en.html">Licence terms</a>
     <a class="link" href="index.html" lang="tr">Türkçe</a>
   </nav>
   <span class="muted">© 2026 Arda Ekiz</span>
-  <span class="end"><a class="link" href="indir-en/">Download · v3.1.90</a></span>
+  <span class="end"><a class="link" href="indir-en/">Download · Version 3.1.90</a></span>
 </footer>
 
-<script src="vendor/gsap.min.js"></script>
-<script src="vendor/ScrollTrigger.min.js"></script>
-<script src="scene.js"></script>
 <script src="app.js"></script>
 <div class="mobile-cta" aria-label="Download free">
-  <span class="mobile-cta__text">Free 15-day trial</span>
+  <span class="mobile-cta__text">15-day free trial</span>
   <a class="button" href="indir-en/" data-press>Download free</a>
 </div>
 <aside class="cookie-note" id="cerez-notu" role="note" aria-label="Cookie notice" hidden>
-  <p>This site uses no cookies, analytics or tracking scripts. Your browser only stores a small preference so this note stays closed.</p>
+  <p>This site uses no cookies, analytics or tracking scripts. Only a small preference is stored in your browser so this note stays closed.</p>
   <button type="button" data-cerez-kapat>Got it</button>
 </aside>
 </body>

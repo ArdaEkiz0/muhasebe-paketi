@@ -4,45 +4,70 @@
 <meta charset="utf-8">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; media-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'"><meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>KDV Çapraz Kontrol · Satış faturalarınızı muavin defterinizle karşılaştırın</title>
-<meta name="description" content="e-Fatura, MAHSUP fişi ve Excel faturalarınızı muavin defterinizle (KDV kontrol cetveliyle) karşılaştırır; eksik, hatalı ve mükerrer KDV kayıtlarını sonucuyla birlikte listeleyen Windows masaüstü uygulaması.">
+<title>Muhasebe Paketi · Üç modül, tek kurulum, modül başına lisans</title>
+<meta name="description" content="KDV Çapraz Kontrol, Luca Mizan Kontrol ve SGK E-Kesinti tek kurulumda. Her modül 15 gün ücretsiz; satın aldığınız modül açılır, diğerleri kendi lisansına kadar kilitli kalır. Cihaz başına yıllık lisans, fiyatlar KDV hariç.">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="canonical" href="https://ardaekiz0.github.io/kdv-indir/">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="KDV Çapraz Kontrol">
+<meta property="og:site_name" content="Muhasebe Paketi">
 <meta property="og:locale" content="tr_TR">
 <meta property="og:url" content="https://ardaekiz0.github.io/kdv-indir/">
-<meta property="og:title" content="KDV Çapraz Kontrol · Satış faturalarınızı muavin defterinizle karşılaştırın">
-<meta property="og:description" content="e-Fatura, MAHSUP fişi ve Excel faturalarınızı muavin defterinizle (KDV kontrol cetveliyle) karşılaştırır; eksik, hatalı ve mükerrer KDV kayıtlarını sonucuyla birlikte listeleyen Windows masaüstü uygulaması.">
+<meta property="og:title" content="Muhasebe Paketi · Üç modül, tek kurulum, modül başına lisans">
+<meta property="og:description" content="KDV Çapraz Kontrol, Luca Mizan Kontrol ve SGK E-Kesinti tek kurulumda. Her modül 15 gün ücretsiz; satın aldığınız modül açılır.">
 <meta property="og:image" content="https://ardaekiz0.github.io/kdv-indir/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="KDV Çapraz Kontrol arayüzü">
+<meta property="og:image:alt" content="Muhasebe Paketi arayüzü">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:url" content="https://ardaekiz0.github.io/kdv-indir/">
-<meta name="twitter:title" content="KDV Çapraz Kontrol · Satış faturalarınızı muavin defterinizle karşılaştırın">
-<meta name="twitter:description" content="e-Fatura, MAHSUP fişi ve Excel faturalarınızı muavin defterinizle (KDV kontrol cetveliyle) karşılaştırır; eksik, hatalı ve mükerrer KDV kayıtlarını sonucuyla birlikte listeleyen Windows masaüstü uygulaması.">
-<meta name="twitter:image" content="https://ardaekiz0.github.io/kdv-indir/og-image.png">
-
-
 <meta name="theme-color" content="#2563eb">
 <link rel="stylesheet" href="style.css">
+<style>
+/* Bu sayfanın başlığında ürün ekranı yok (index.html'deki gibi); yazı
+   sütununu geniş tutuyoruz ki başlık 5 sütuna sıkışıp sağ yarı boş kalmasın. */
+.hero--paket .hero__copy { grid-column: 1 / span 8; }
+/* Başlığın sağındaki fiyat özeti: sayfaya girer girmez paket bedeli görünsün. */
+.hero--paket .hero__aside {
+  grid-column: 9 / span 4; align-self: end;
+  background: var(--surface); border: 1px solid var(--rule);
+  border-radius: var(--radius); padding: 1.5rem 1.6rem;
+}
+.hero--paket .hero__aside .name { font-size: var(--step-small); font-weight: 500; color: var(--muted); }
+.hero--paket .hero__aside .figure {
+  font-family: var(--font-display); font-size: clamp(2.2rem, 4vw, 2.9rem);
+  line-height: 1; letter-spacing: -0.03em; margin-top: 0.5rem;
+  display: flex; align-items: baseline; gap: 0.4rem;
+}
+.hero--paket .hero__aside .figure small { font-family: var(--font-text); font-size: 0.875rem; color: var(--muted); letter-spacing: 0; }
+.hero--paket .hero__aside .was { margin-top: 0.35rem; font-size: var(--step-small); color: var(--muted); }
+.hero--paket .hero__aside .was s { color: var(--ink-soft); }
+.hero--paket .hero__aside .go { display: inline-flex; margin-top: 1rem; font-size: var(--step-small); }
+@media (max-width: 64em) {
+  .hero--paket .hero__copy { grid-column: 1 / -1; }
+  .hero--paket .hero__aside { grid-column: 1 / -1; margin-top: 2rem; }
+}
+/* Fiyat bölümünde iki kart var (paket + ofis); varsayılan 3 sütun grid
+   üçüncü sütunu boş bırakıyordu. */
+@media (min-width: 64.01em) { .plans--ikili { grid-template-columns: 1.16fr 1fr; } }
+@media (max-width: 64em) {
+  .plans--ikili { grid-template-columns: 1fr; }
+  .plans--ikili .plan--lead { grid-column: auto; }
+}
+</style>
 <script src="js-baslat.js"></script>
 </head>
 <body class="has-mobile-cta">
 
 <header class="wrap">
   <nav class="nav" aria-label="Ana menü">
-    <a class="nav__mark link" href="#ust">KDV Çapraz Kontrol</a>
+    <a class="nav__mark link" href="index.html">Muhasebe Paketi</a>
     <div class="nav__links">
-      <a class="link" href="#nasil">Nasıl çalışır</a>
-      <a class="link hide-phone" href="#ciktilar">Ekranlar</a>
-      <a class="link hide-phone" href="#karsilastirma">Karşılaştırma</a>
-      <a class="link" href="#lisans">Lisans</a>
-      <a class="link" href="#sss">SSS</a>
-      <a class="link" href="paket.html">Muhasebe Paketi</a>
+      <a class="link" href="kdv.html">KDV Çapraz Kontrol</a>
+      <a class="link" href="mizan.html">Luca Mizan</a>
+      <a class="link" href="sgk.html">SGK E-Kesinti</a>
+      <a class="link" href="index.html#fiyatlar">Fiyatlar</a>
+      <a class="link" href="indir/">İndir</a>
       <a class="link" href="index-en.html" lang="en">English</a>
     </div>
   </nav>
@@ -50,212 +75,46 @@
 
 <main id="ust">
 
-  <!-- ================= HERO ================= -->
-  <section class="hero">
+  <!-- ================= BAŞLIK ================= -->
+  <section class="hero hero--paket">
     <div class="hero__inner wrap">
       <div class="hero__copy">
         <h1 class="display lines">
-          <span class="line"><span data-line style="--i:0">KDV’de</span></span>
-          <span class="line"><span data-line style="--i:1">fark kalmasın.</span></span>
+          <span class="line"><span data-line style="--i:0">Tek kurulum.</span></span>
+          <span class="line"><span data-line style="--i:1">Üç modül.</span></span>
+          <span class="line"><span data-line style="--i:2">Hangisini alırsanız o açık.</span></span>
         </h1>
-        <p class="lead" data-rise style="--i:3">Satış faturalarınızı (e-Fatura, MAHSUP fişi, Excel) muavin defterinizle karşılaştırır; eksik, hatalı ve mükerrer KDV kayıtlarını listeler.</p>
+        <p class="lead" data-rise style="--i:3">KDV Çapraz Kontrol, Luca Mizan Kontrol ve SGK E-Kesinti aynı kurulumda gelir, tek menüden açılır. Her modülü 15 gün ücretsiz denersiniz; satın aldığınız modül açılır, almadığınız kendi lisansına kadar kilitli kalır.</p>
         <div class="hero__actions" data-rise style="--i:4">
           <a class="button" href="indir/" data-press>Ücretsiz indir</a>
-          <a class="link" href="#nasil">Nasıl çalışır?</a>
+          <a class="link" href="#fiyatlar">Fiyatlara bakın</a>
         </div>
-        <p class="hero__meta small muted" data-rise style="--i:5">Windows 10 ve 11’de çalışır · Kurulumlu veya taşınabilir · Ücretsiz deneme</p>
+        <p class="hero__meta small muted" data-rise style="--i:5">Windows 10 ve 11’de çalışır · Cihaz başına yıllık lisans · Mükellef sayısında sınır yok · Fiyatlar KDV hariç</p>
       </div>
-    </div>
-    <div class="hero__stage" data-scene data-fragment="ledger" aria-label="KDV Çapraz Kontrol sonuç ekranı">
-      <p class="hero__stage-note">Kontrol sonucu</p>
-      <div class="hero__fragment">
-        <div class="ui" data-ui="ledger">
-          <div class="ui__bar">
-            <span class="ui__title">KDV Çapraz Kontrol</span>
-            <span class="ui__meta">39 sonuç satırı</span>
-          </div>
-          <div class="ui__toolbar">
-            <span class="chip">EŞLEŞEN 2</span>
-            <span class="chip chip--flag">MUAVİNDE YOK 6</span>
-            <span class="chip chip--flag">FATURADA YOK 19</span>
-            <span class="chip chip--ghost">MÜKERRER 9</span>
-          </div>
-          <table>
-            <thead>
-              <tr><th>Durum</th><th>Belge No</th><th class="num">Tarih</th><th class="num">Matrah</th><th class="num">KDV</th></tr>
-            </thead>
-            <tbody>
-              <tr><td><span class="chip">EŞLEŞTİ</span></td><td>GFE202400000001</td><td class="num">2024-02-05</td><td class="num">1.000,00</td><td class="num">200,00</td></tr>
-              <tr class="is-flagged"><td><span class="chip chip--flag">TUTAR FARKI</span></td><td>GFE202400000003</td><td class="num">2024-02-11</td><td class="num">500,00</td><td class="num">50,00</td></tr>
-              <tr class="is-flagged"><td><span class="chip chip--flag">VKN FARKI</span></td><td>GFE202400000010</td><td class="num">2024-02-13</td><td class="num">800,00</td><td class="num">160,00</td></tr>
-              <tr class="is-flagged"><td><span class="chip chip--flag">MUAVİNDE YOK</span></td><td>GFE202600009003</td><td class="num">2026-07-17</td><td class="num">1.000,00</td><td class="num">200,00</td></tr>
-              <tr class="is-ghost"><td><span class="chip chip--ghost">FATURALARDA YOK</span></td><td>010720269001</td><td class="num">2026-07-01</td><td class="num">-</td><td class="num">19.703,76</td></tr>
-            </tbody>
-          </table>
-          <div class="ui__foot">
-            <span class="chip chip--flag">YENİ EKSİK 1</span>
-            <span class="chip">ÇÖZÜLDÜ 2</span>
-            <span class="nums">10 fatura · 35 muavin</span>
-          </div>
-        </div>
-      </div>
+      <aside class="hero__aside" data-rise style="--i:5">
+        <p class="name">Üç modül birlikte</p>
+        <p class="figure">23.900 <small>TL + KDV / yıl</small></p>
+        <p class="was">Tek tek toplamı 28.700 TL · liste fiyatı <s>34.900 TL</s></p>
+        <a class="link go" href="#fiyatlar">Fiyat tablosu</a>
+      </aside>
     </div>
   </section>
 
-  <!-- ================= NASIL ÇALIŞIR ================= -->
-  <section class="section runin wrap" id="nasil">
-    <div class="runin__col">
-      <h2 class="head">İki klasör. Tek kontrol.</h2>
-      <p class="run" data-reveal><b>Yükleyin.</b> Fatura klasörünüzü ve muavin klasörünüzü seçin (tek tek dosya da seçebilirsiniz; alt klasörler dahil taranır). Program kayıtları belge numarası üzerinden eşler, ardından tutar ve KDV karşılaştırmasını yapar.</p>
-      <p class="run" data-reveal><b>İnceleyin.</b> Her satır kendi durumuyla listelenir: eşleşti, tutar farkı, VKN farkı, muavinde yok, faturalarda yok, mükerrer. Satıra çift tıklayın; belgenin tüm ayrıntısı ayrı pencerede açılır.</p>
-      <div class="runin__stage runin__frames" data-reveal>
-        <figure class="shot shutter" data-reveal>
-          <img src="ekran-uygulama.png" alt="KDV Çapraz Kontrol uygulama penceresi: araç çubuğu, sonuç tablosu ve özet şeridi" width="1800" height="860" loading="lazy">
-        </figure>
-        <figure class="shot shutter" data-reveal>
-          <img src="ekran-tablo.png" alt="Sonuç tablosu: durum, belge no, VKN, tarih, matrah ve KDV sütunları" width="1433" height="378" loading="lazy">
-        </figure>
-        <figure class="shot shutter" data-reveal>
-          <img src="ekran-karsilastirma.png" alt="Özet şeridinde YENİ EKSİK 1 ve ÇÖZÜLDÜ kartları" width="310" height="79" loading="lazy">
-        </figure>
-      </div>
-      <p class="run" data-reveal><b>Kaydedin.</b> Excel raporu, PDF raporu, Ba/Bs formu ve muhasebeci paketini tek tıkla alın. Her kontrol bir önceki kontrolle otomatik karşılaştırılır; yeni eksik ve çözülen belgeler özet şeridinde işaretlenir.</p>
-    </div>
-  </section>
-
-  <!-- ================= ÜRÜN SAHNESİ (three.js) ================= -->
-  <section class="section scene wrap" id="sahne" data-scene data-fragment="cross">
-    <div class="scene__grid">
-      <div class="scene__steps">
-        <div class="scene__step">
-          <h3>Faturalar eşleşir</h3>
-          <p>Satış faturası satırları, muavin kayıtlarıyla belge numarası üzerinden eşlenir.</p>
-        </div>
-        <div class="scene__step">
-          <h3>Farklar işaretlenir</h3>
-          <p>Tutarı veya KDV’si tutmayan satırlar, hangi alanda farklı olduğuyla birlikte renklenir.</p>
-        </div>
-        <div class="scene__step">
-          <h3>Kayda geçer</h3>
-          <p>Her satır kendi sonucunu alır; sonuçları doğrudan rapora taşırsınız.</p>
-        </div>
-      </div>
-      <div class="scene__stage">
-        <canvas id="cross-scene" aria-hidden="true"></canvas>
-        <div class="scene__legend" aria-hidden="true">
-          <span><i></i> Eşleşen</span>
-          <span><i></i> Farklı</span>
-          <span><i class="dash"></i> Eksik kayıt</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= EKRANLAR ================= -->
-  <section class="section showcase wrap" id="ciktilar">
-    <div class="showcase__grid">
-      <div class="showcase__names">
-        <button type="button" data-target="pane-uygulama" aria-pressed="true">Uygulama</button>
-        <button type="button" data-target="pane-sonuc" aria-pressed="false">Sonuç tablosu</button>
-        <button type="button" data-target="pane-ozet" aria-pressed="false">Özet şeridi</button>
-        <button type="button" data-target="pane-karsilastirma" aria-pressed="false">Karşılaştırma</button>
-        <p class="muted">Ekran görüntüleri gerçek uygulamadan alınmıştır; örnek veriyle çalışır.</p>
-      </div>
-      <div class="showcase__stage">
-        <div class="showcase__pane is-on" id="pane-uygulama">
-          <figure class="shot shutter" data-reveal>
-            <img src="ekran-uygulama.png" alt="Uygulama penceresi: dosya seçimi, araçlar, sonuç tablosu, özet şeridi ve lisans paneli" width="1800" height="860" loading="lazy">
-            <figcaption class="caption small">Uygulama penceresi: dosya seçimi, araçlar, sonuç tablosu ve özet şeridi.</figcaption>
-          </figure>
-        </div>
-        <div class="showcase__pane" id="pane-sonuc">
-          <figure class="shot">
-            <img src="ekran-tablo.png" alt="Sonuç tablosu: durum, belge no, VKN, tarih, tip, matrah, KDV, kaynak ve detay sütunları" width="1433" height="378" loading="lazy">
-            <figcaption class="caption small">Sonuç tablosu: her satır durumu, belgesi ve tutarlarıyla birlikte; ayrıntı için çift tıklayın.</figcaption>
-          </figure>
-        </div>
-        <div class="showcase__pane" id="pane-ozet">
-          <figure class="shot">
-            <img src="ekran-ozet.png" alt="Özet şeridi: eşleşen, sorunlu, tutar farkı, muavinde yok, faturada yok, mükerrer ve diğer durum sayaçları" width="1460" height="75" loading="lazy">
-            <figcaption class="caption small">Özet şeridi: durum sayaçları; dar pencerede kartlar alt satıra geçer.</figcaption>
-          </figure>
-        </div>
-        <div class="showcase__pane" id="pane-karsilastirma">
-          <figure class="shot">
-            <img src="ekran-karsilastirma.png" alt="YENİ EKSİK 1 ve ÇÖZÜLDÜ 2 kartları" width="310" height="79" loading="lazy">
-            <figcaption class="caption small">Karşılaştırma kartları: son kontrole göre yeni eksik ve çözülen belgeler.</figcaption>
-          </figure>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= KARŞILAŞTIRMA ================= -->
-  <section class="section wrap" id="karsilastirma">
-    <div class="compare">
-      <div class="compare__head">
-        <h2>Kontrol nasıl yapılır?</h2>
-        <div class="compare__col compare__col--us">KDV Çapraz Kontrol</div>
-        <div class="compare__col">Manuel kontrol</div>
-      </div>
-      <div class="compare__rows">
-        <div class="compare__row">
-          <div class="name">Hız</div>
-          <div class="us" data-etiket="KDV Çapraz Kontrol"><span>100 kayıt ≈ 1 dakika</span></div>
-          <div class="lab" data-etiket="Manuel kontrol">Saatler</div>
-        </div>
-        <div class="compare__row">
-          <div class="name">Doğruluk</div>
-          <div class="us" data-etiket="KDV Çapraz Kontrol"><span>Kurala dayalı</span></div>
-          <div class="lab" data-etiket="Manuel kontrol">İnsana bağlı</div>
-        </div>
-        <div class="compare__row">
-          <div class="name">Sonuç</div>
-          <div class="us" data-etiket="KDV Çapraz Kontrol"><span>Satır bazlı</span></div>
-          <div class="lab" data-etiket="Manuel kontrol">Genel toplam</div>
-        </div>
-        <div class="compare__row">
-          <div class="name">Rapor</div>
-          <div class="us" data-etiket="KDV Çapraz Kontrol"><span>Otomatik</span></div>
-          <div class="lab" data-etiket="Manuel kontrol">Elle yazılır</div>
-        </div>
-        <div class="compare__row">
-          <div class="name">Mükerrer</div>
-          <div class="us" data-etiket="KDV Çapraz Kontrol"><span>İşaretler</span></div>
-          <div class="lab" data-etiket="Manuel kontrol">Gözden kaçar</div>
-        </div>
-      </div>
-    </div>
-    <div class="proof">
-      <div class="proof__intro">
-        <p><b>Kullanım alanı</b></p>
-        <p class="muted">Mali müşavirler · Ön muhasebe ekipleri · Serbest muhasebeciler</p>
-      </div>
-      <ul>
-        <li>Denetim kaydı</li>
-        <li>Excel’e aktarım</li>
-        <li>Yerel kurulum</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- ================= LİSANS ================= -->
-  <section class="section wrap" id="lisans">
+  <!-- ================= MODÜLLER ================= -->
+  <section class="section wrap" id="moduller">
     <div class="pricing__head">
-      <h2 class="head">Yılda bir kez ödeyin,<br>KDV farkını her ay yakalayın.</h2>
+      <h2 class="head">Üç ayrı iş,<br>tek kurulum.</h2>
       <div class="pricing__side">
-        <p class="lead muted">Cihaz başına yıllık lisans; mükellef sayısında sınır yok. Fiyatlar KDV hariçtir.</p>
-        <p class="tag">15 gün ücretsiz deneme · kredi kartı istenmez</p>
-        <p class="tag">Mizan ve SGK modülleri aynı kurulumda: <a class="link" href="paket.html">Muhasebe Paketi</a></p>
+        <p class="lead muted">Modüller birbirine bağlı değil: biri çökse diğerleri çalışmaya devam eder. Lisans kapısı her modülün kendi içinde, o yüzden biri açıkken diğeri kilitli kalabilir.</p>
+        <p class="tag">15 gün ücretsiz deneme · modül başına</p>
       </div>
     </div>
 
     <div class="plans">
-      <article class="plan plan--lead">
-        <p class="plan__badge">Kurucu fiyatı · ilk 10 cihaz</p>
+      <article class="plan">
         <div>
-          <h3 class="plan__name">Tek Cihaz</h3>
-          <p class="plan__for">Tek bilgisayarda çalışan serbest muhasebeci ve küçük ofisler için</p>
+          <h3 class="plan__name"><a class="link" href="kdv.html">KDV Çapraz Kontrol</a></h3>
+          <p class="plan__for">Satış faturalarınızı muavin defterinizle karşılaştırır; eksik, hatalı ve mükerrer KDV kayıtlarını sonucuyla listeler.</p>
           <p class="plan__price">
             <span class="plan__figure">12.900</span>
             <span class="plan__unit">TL + KDV / yıl</span>
@@ -263,14 +122,93 @@
           <p class="plan__ref">Liste fiyatı <s>19.900 TL</s> + KDV</p>
           <p class="plan__scope">1 bilgisayar · sınırsız mükellef</p>
           <ul class="plan__feats">
-            <li>e-Fatura, Excel ve muavin defterini karşılaştırır</li>
-            <li>Eksik, hatalı ve mükerrer KDV kayıtlarını listeler</li>
+            <li>e-Fatura, Excel ve muavin defteri karşılaştırması</li>
             <li>Excel, PDF ve Ba/Bs raporu</li>
             <li>Yenilemede aynı kurucu fiyat</li>
           </ul>
         </div>
         <div class="plan__foot">
-          <a class="button" href="indir/" data-press>15 gün ücretsiz deneyin</a>
+          <a class="button" href="kdv.html" data-press>KDV modülünü inceleyin</a>
+          <p class="plan__micro">Faturalı, havale/EFT · 14 gün koşulsuz iade</p>
+        </div>
+      </article>
+
+      <article class="plan">
+        <div>
+          <h3 class="plan__name"><a class="link" href="mizan.html">Luca Mizan Kontrol</a></h3>
+          <p class="plan__for">Luca'dan mizanı ve muavin dökümünü çeker, hesap bazında kontrol eder, bulduğunu rapora yazar.</p>
+          <p class="plan__price">
+            <span class="plan__figure">8.900</span>
+            <span class="plan__unit">TL + KDV / yıl</span>
+          </p>
+          <p class="plan__ref">Liste fiyatı <s>12.900 TL</s> + KDV</p>
+          <p class="plan__scope">1 bilgisayar · sınırsız mükellef</p>
+          <ul class="plan__feats">
+            <li>Mizan ve muavin tutarlarını karşılaştırır</li>
+            <li>Hesap bazında uyuşmazlık listesi</li>
+            <li>Rapor çıktısı müşteriye verilebilir</li>
+          </ul>
+        </div>
+        <div class="plan__foot">
+          <a class="button button--ghost" href="mizan.html" data-press>Mizan modülünü inceleyin</a>
+          <p class="plan__micro">Faturalı, havale/EFT · 14 gün koşulsuz iade</p>
+        </div>
+      </article>
+
+      <article class="plan">
+        <div>
+          <h3 class="plan__name"><a class="link" href="sgk.html">SGK E-Kesinti</a></h3>
+          <p class="plan__for">Tarımsal kesinti bildirimlerini Excel'den okuyup TAKEP'e toplu girer; eksik gün ve tutar farkını gösterir.</p>
+          <p class="plan__price">
+            <span class="plan__figure">6.900</span>
+            <span class="plan__unit">TL + KDV / yıl</span>
+          </p>
+          <p class="plan__ref">Liste fiyatı <s>9.900 TL</s> + KDV</p>
+          <p class="plan__scope">1 bilgisayar · sınırsız üretici</p>
+          <ul class="plan__feats">
+            <li>Excel listesinden toplu giriş</li>
+            <li>Kesinti tutarı ve matrah kontrolü</li>
+            <li>Girilen/girilmeyen kayıt raporu</li>
+          </ul>
+        </div>
+        <div class="plan__foot">
+          <a class="button button--ghost" href="sgk.html" data-press>SGK modülünü inceleyin</a>
+          <p class="plan__micro">Faturalı, havale/EFT · 14 gün koşulsuz iade</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ================= FİYATLAR ================= -->
+  <section class="section wrap" id="fiyatlar">
+    <div class="pricing__head">
+      <h2 class="head">Üçünü birlikte alırsanız<br>4.800 TL tasarruf.</h2>
+      <div class="pricing__side">
+        <p class="lead muted">Tek tek toplam 28.700 TL yerine 23.900 TL. Üç modül de tam sürüm; kısıtlı paket yok.</p>
+        <p class="tag">Aynı cihazda üç modül · tek fatura, tek yenileme tarihi</p>
+      </div>
+    </div>
+
+    <div class="plans plans--ikili">
+      <article class="plan plan--lead">
+        <p class="plan__badge">Kurucu fiyatı · ilk 10 cihaz</p>
+        <div>
+          <h3 class="plan__name">Üç Modül Birlikte</h3>
+          <p class="plan__for">KDV Çapraz Kontrol + Luca Mizan Kontrol + SGK E-Kesinti</p>
+          <p class="plan__price">
+            <span class="plan__figure">23.900</span>
+            <span class="plan__unit">TL + KDV / yıl</span>
+          </p>
+          <p class="plan__ref">Liste fiyatı <s>34.900 TL</s> + KDV · tek tek kurucuda 28.700 TL</p>
+          <p class="plan__scope">1 bilgisayar · sınırsız mükellef</p>
+          <ul class="plan__feats">
+            <li>Üç modülün tamamı, tek kurulum</li>
+            <li>Tek fatura, tek yenileme tarihi</li>
+            <li>Yenilemede aynı kurucu fiyat</li>
+          </ul>
+        </div>
+        <div class="plan__foot">
+          <a class="button" href="indir/" data-press>Ücretsiz deneyin</a>
           <p class="plan__micro">Kredi kartı istenmez · faturalı, havale/EFT</p>
         </div>
       </article>
@@ -278,37 +216,17 @@
       <article class="plan">
         <div>
           <h3 class="plan__name">Ofis · 3 Cihaz</h3>
-          <p class="plan__for">Ortak iş yürüten küçük muhasebe ofisleri için</p>
+          <p class="plan__for">Ortak iş yürüten küçük muhasebe ofisleri için, üç modül birlikte</p>
           <p class="plan__price">
-            <span class="plan__figure">44.900</span>
+            <span class="plan__figure">59.900</span>
             <span class="plan__unit">TL + KDV / yıl</span>
           </p>
-          <p class="plan__ref">Tek fatura, tek yenileme tarihi</p>
+          <p class="plan__ref">Liste fiyatı <s>79.900 TL</s> + KDV · tek fatura, tek yenileme tarihi</p>
           <p class="plan__scope">3 bilgisayar · sınırsız mükellef</p>
           <ul class="plan__feats">
-            <li>Tek Cihaz paketindeki tüm özellikler</li>
-            <li>3 bilgisayara ayrı kurulum</li>
-          </ul>
-        </div>
-        <div class="plan__foot">
-          <a class="button button--ghost" href="#iletisim" data-press>Teklif alın</a>
-          <p class="plan__micro">Faturalı, havale/EFT · 14 gün koşulsuz iade</p>
-        </div>
-      </article>
-
-      <article class="plan">
-        <div>
-          <h3 class="plan__name">Büro · 5 Cihaz</h3>
-          <p class="plan__for">Mükellef portföyü büyük, ekibi kalabalık bürolar için</p>
-          <p class="plan__price">
-            <span class="plan__figure">69.900</span>
-            <span class="plan__unit">TL + KDV / yıl</span>
-          </p>
-          <p class="plan__ref">Tek fatura, tek yenileme tarihi</p>
-          <p class="plan__scope">5 bilgisayar · sınırsız mükellef</p>
-          <ul class="plan__feats">
-            <li>Tek Cihaz paketindeki tüm özellikler</li>
-            <li>5 bilgisayara ayrı kurulum</li>
+            <li>Üç modülün tamamı, 3 bilgisayara ayrı kurulum</li>
+            <li>Cihaz değişiminde yetki yeni cihaza taşınır</li>
+            <li>Cihaz başına indirimli</li>
           </ul>
         </div>
         <div class="plan__foot">
@@ -320,91 +238,78 @@
 
     <div class="tarife">
       <table class="tarife__table">
-        <caption class="sr-only">Paket karşılaştırması: cihaz sayısı, mükellef sınırı ve yıllık bedel</caption>
+        <caption class="sr-only">Modül fiyatları: kurucu ve liste bedeli, cihaz başına yıllık</caption>
         <thead>
           <tr>
-            <th scope="col">Paket</th>
-            <th scope="col">Cihaz</th>
-            <th scope="col">Mükellef</th>
-            <th scope="col" class="num">Yıllık bedel</th>
+            <th scope="col">Modül</th>
+            <th scope="col">Ne yapar</th>
+            <th scope="col" class="num">Kurucu</th>
+            <th scope="col" class="num">Liste</th>
           </tr>
         </thead>
         <tbody>
           <tr class="is-lead">
-            <th scope="row">Tek Cihaz <em>Kurucu fiyatı, ilk 10 cihaz</em></th>
-            <td data-e="Cihaz">1</td>
-            <td data-e="Mükellef">Sınırsız</td>
-            <td data-e="Yıllık bedel" class="num">12.900 TL + KDV</td>
+            <th scope="row">KDV Çapraz Kontrol <em>ilk 10 cihaz</em></th>
+            <td data-e="Ne yapar">Fatura ↔ muavin karşılaştırma</td>
+            <td data-e="Kurucu" class="num">12.900 TL + KDV</td>
+            <td data-e="Liste" class="num">19.900 TL + KDV</td>
           </tr>
           <tr>
-            <th scope="row">Ofis <em>3 bilgisayar</em></th>
-            <td data-e="Cihaz">3</td>
-            <td data-e="Mükellef">Sınırsız</td>
-            <td data-e="Yıllık bedel" class="num">44.900 TL + KDV</td>
+            <th scope="row">Luca Mizan Kontrol <em>ilk 10 cihaz</em></th>
+            <td data-e="Ne yapar">Mizan ve muavin kontrolü</td>
+            <td data-e="Kurucu" class="num">8.900 TL + KDV</td>
+            <td data-e="Liste" class="num">12.900 TL + KDV</td>
           </tr>
           <tr>
-            <th scope="row">Büro <em>5 bilgisayar</em></th>
-            <td data-e="Cihaz">5</td>
-            <td data-e="Mükellef">Sınırsız</td>
-            <td data-e="Yıllık bedel" class="num">69.900 TL + KDV</td>
+            <th scope="row">SGK E-Kesinti <em>ilk 10 cihaz</em></th>
+            <td data-e="Ne yapar">TAKEP'e toplu kesinti girişi</td>
+            <td data-e="Kurucu" class="num">6.900 TL + KDV</td>
+            <td data-e="Liste" class="num">9.900 TL + KDV</td>
+          </tr>
+          <tr>
+            <th scope="row">Üç modül birlikte <em>ilk 10 cihaz</em></th>
+            <td data-e="Ne yapar">Üçünün tamamı</td>
+            <td data-e="Kurucu" class="num">23.900 TL + KDV</td>
+            <td data-e="Liste" class="num">34.900 TL + KDV</td>
+          </tr>
+          <tr>
+            <th scope="row">Ofis · 3 cihaz <em>üç modül</em></th>
+            <td data-e="Ne yapar">Üçünün tamamı, 3 bilgisayar</td>
+            <td data-e="Kurucu" class="num">59.900 TL + KDV</td>
+            <td data-e="Liste" class="num">79.900 TL + KDV</td>
           </tr>
         </tbody>
       </table>
     </div>
 
     <div class="trust">
-      <div><b>15 gün ücretsiz deneme</b><span>Kredi kartı istenmez</span></div>
+      <div><b>Modül başına 15 gün</b><span>Kredi kartı istenmez</span></div>
       <div><b>14 gün koşulsuz iade</b><span>Gerekçe belirtmeniz gerekmez</span></div>
       <div><b>Havale/EFT ile ödeme</b><span>Faturanız ödeme sonrası düzenlenir</span></div>
       <div><b>Lisans anahtarı yok</b><span>Yetki cihazınıza sunucudan tanımlanır</span></div>
     </div>
-
-    <p class="teklif-row">
-      <span>10 cihaz üzeri, şube, kurum faturası veya 150+ mükellefli portföy için:</span>
-      <a class="link" href="#iletisim">teklif alın</a>
-      <span class="muted">·</span>
-      <a class="link" href="tel:+905462083854">0546 208 38 54</a>
-    </p>
-
-    <p class="small muted" style="margin-top: 1.25rem">Süre dolunca program kilitlenir; kayıtlı çalışmalarınız silinmez. Tek Cihaz paketi ilk 10 cihaz için kurucu fiyatıyla satılır ve yenilemede de aynı fiyat uygulanır; liste fiyatı 19.900 TL + KDV / yıl.</p>
   </section>
 
   <!-- ================= SSS ================= -->
   <section class="section faq wrap" id="sss">
     <div class="faq__grid">
-      <h2>Sık sorulanlar</h2>
+      <h2>Kısa cevaplar</h2>
       <div class="faq__list">
-        <details>
-          <summary>Verilerim bilgisayar dışına çıkıyor mu?<span class="plus" aria-hidden="true"></span></summary>
-          <div class="answer"><p>Hayır. Program yerel çalışır; faturalarınız ve raporlarınız bilgisayarınızdan çıkmaz.</p></div>
+        <details open>
+          <summary>Tek modül alabilir miyim?<span class="plus" aria-hidden="true"></span></summary>
+          <div class="answer"><p>Evet. KDV, Mizan veya SGK modüllerinden birini tek başına alabilirsiniz; diğerleri kurulu kalır ama kendi lisansına kadar kilitli görünür. Sonradan modül eklediğinizde aynı kurulum açılır, yeniden indirmeniz gerekmez.</p></div>
         </details>
         <details>
-          <summary>Hangi dosyaları yükleyebilirim?<span class="plus" aria-hidden="true"></span></summary>
-          <div class="answer"><p>Faturalar: PDF, Excel (.xlsx, .xlsm, .xls), XML ve tek dosyalık .zip arşivleri. Muavin (KDV kontrol cetveli): PDF ve Excel. Alt klasörler dahil taranır.</p></div>
+          <summary>Deneme nasıl işliyor?<span class="plus" aria-hidden="true"></span></summary>
+          <div class="answer"><p>Deneme modül başına ve o modülü ilk kez açtığınızda başlar; 15 gün sürer. Bir modülü hiç açmadıysanız süresi başlamamıştır. Kredi kartı istemez.</p></div>
         </details>
         <details>
-          <summary>Kurulum gerekiyor mu?<span class="plus" aria-hidden="true"></span></summary>
-          <div class="answer"><p>Tercihe bağlı. Kurulum dosyası yönetici izni istemez; <a class="link" href="https://github.com/ArdaEkiz0/kdv-indir/releases/latest/download/KDV-Capraz-Kontrol-portable.zip">taşınabilir sürümü</a> indirip doğrudan da açabilirsiniz.</p></div>
+          <summary>Mizan modülü Luca'nın yerine geçer mi?<span class="plus" aria-hidden="true"></span></summary>
+          <div class="answer"><p>Hayır. Luca muhasebe programı yerinde kalır; bu modül Luca'dan veriyi çekip mizan ile muavin dökümünü karşılaştırır ve raporu hazırlar. Luca lisansınız ayrıca gerekir.</p></div>
         </details>
         <details>
-          <summary>Lisans süresi dolduğunda ne olur?<span class="plus" aria-hidden="true"></span></summary>
-          <div class="answer"><p>Süre bitince program kilitlenir, çalışmalarınız korunur. Yetki sunucudan bu cihaza tanımlanır; hiçbir ekranda anahtar girişi yoktur. Tam sürüm için iletişime geçin.</p></div>
-        </details>
-        <details>
-          <summary>Lisans anahtarı girmem gerekiyor mu?<span class="plus" aria-hidden="true"></span></summary>
-          <div class="answer"><p>Hayır. Yetki sunucudan bu cihaza tanımlanır; hiçbir ekranda anahtar girişi yoktur.</p></div>
-        </details>
-        <details>
-          <summary>Fiyata KDV dahil mi, fatura nasıl alınır?<span class="plus" aria-hidden="true"></span></summary>
-          <div class="answer"><p>Fiyatlar KDV hariçtir; fatura KDV hariç tutar üzerinden düzenlenir. Ödeme havale/EFT ile yapılır, faturanız ödeme sonrası iletilir. Yıllık lisans bedeli 12 aylık kullanım içindir.</p></div>
-        </details>
-        <details>
-          <summary>İade nasıl işler?<span class="plus" aria-hidden="true"></span></summary>
-          <div class="answer"><p>Satın almadan sonraki 14 gün içinde koşulsuz iade; gerekçe belirtmeniz gerekmez. İade talebiniz için <a class="link" href="mailto:ardaekiz72@gmail.com">ardaekiz72@gmail.com</a> adresine yazmanız yeterli. Ayrıntılar <a class="link" href="iade.html">iade koşullarında</a>.</p></div>
-        </details>
-        <details>
-          <summary>Deneme sürümü var mı?<span class="plus" aria-hidden="true"></span></summary>
-          <div class="answer"><p>Evet. Deneme, program ilk kez sunucuya bağlandığında başlar ve 15 gün sürer; kredi kartı istemez. Demo 15 gün, cihaz başına değil <strong>ağ (IP) başına</strong> tanımlıdır: aynı ofis/ağdaki ikinci bilgisayar sıfırdan 15 gün almaz, ağın kalan süresini devralır. Henüz sunucuya bağlanmamış yeni kurulum, internet yokken en fazla 3 gün açılır; denemenin başlaması için bir kez internete bağlanmak gerekir.</p></div>
+          <summary>Üçünü aldım, bilgisayar değişirse?<span class="plus" aria-hidden="true"></span></summary>
+          <div class="answer"><p>Lisans cihaza bağlıdır. Yeni bilgisayarda kurulum yapıp bize yazın; yetki yeni cihaza taşınır, eski cihazın yetkisi kapanır.</p></div>
         </details>
       </div>
     </div>
@@ -413,9 +318,9 @@
   <!-- ================= CTA ================= -->
   <section class="cta">
     <div class="cta__grid wrap">
-      <h2>İlk kontrolünüzü bugün yapın.</h2>
+      <h2>Hangi modülün işinize yaradığını<br>15 gün boyunca görün.</h2>
       <div class="cta__side">
-        <p>Programı ücretsiz indirip 15 gün deneyin; deneme, ilk sunucu bağlantısında başlar. Tam sürüm için iletişime geçin.</p>
+        <p>Tek kurulumu indirin, menüden modülü seçin. Kredi kartı istemez; süre modülü ilk açtığınızda başlar.</p>
         <a class="button button--stage" href="indir/" data-press>Ücretsiz indir</a>
         <a class="link" href="#iletisim">Lisans ve sorular için yazın</a>
       </div>
@@ -426,8 +331,8 @@
   <section class="contact wrap" id="iletisim">
     <div class="contact__grid">
       <div class="contact__col">
-        <p class="contact__prompt"><span>Bir sorunuz mu var?</span><span class="soft">Lisans ve sorular için yazın.</span></p>
-        <form class="contact__form" novalidate data-subject="KDV Çapraz Kontrol: lisans ve sorular">
+        <p class="contact__prompt"><span>Hangi modül size uygun?</span><span class="soft">Yazın, birlikte bakalım.</span></p>
+        <form class="contact__form" novalidate data-subject="Muhasebe Paketi: lisans ve sorular">
           <div class="contact__field">
             <label class="sr-only" for="eposta">E-posta adresiniz</label>
             <input class="field" id="eposta" name="eposta" type="email" placeholder="E-posta adresiniz" required>
@@ -451,10 +356,14 @@
 
 <footer class="foot">
   <nav aria-label="Alt menü">
+    <a class="link" href="index.html">Muhasebe Paketi</a>
+    <a class="link" href="kdv.html">KDV Çapraz Kontrol</a>
+    <a class="link" href="mizan.html">Luca Mizan</a>
+    <a class="link" href="sgk.html">SGK E-Kesinti</a>
     <a class="link" href="indir/">İndir</a>
     <a class="link" href="https://github.com/ArdaEkiz0/kdv-indir">GitHub</a>
     <a class="link" href="#iletisim">Destek</a>
-    <a class="link" href="#sss">Lisans</a>
+    <a class="link" href="#fiyatlar">Fiyatlar</a>
     <a class="link" href="kvkk.html">KVKK</a>
     <a class="link" href="mesafeli-satis.html">Mesafeli satış</a>
     <a class="link" href="iade.html">İade</a>
@@ -465,9 +374,6 @@
   <span class="end"><a class="link" href="indir/">İndir · v3.1.90</a></span>
 </footer>
 
-<script src="vendor/gsap.min.js"></script>
-<script src="vendor/ScrollTrigger.min.js"></script>
-<script src="scene.js"></script>
 <script src="app.js"></script>
 <div class="mobile-cta" aria-label="Ücretsiz indir">
   <span class="mobile-cta__text">15 gün ücretsiz deneme</span>

@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; media-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'"><meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Luca Mizan Kontrol · Mizanı ve muavin dökümünü hesap hesap kontrol edin</title>
+<meta name="description" content="Luca'dan mükellef mizanını ve muavin dökümünü çeker; 100 kasa, 120 alıcılar, 320 satıcılar, 600 gelir gibi hesapları 12 muhasebe kuralıyla kontrol eder, HATA/UYARI listesi ve Excel raporu üretir. Windows masaüstü uygulaması.">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="canonical" href="https://ardaekiz0.github.io/kdv-indir/mizan.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Muhasebe Paketi">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:url" content="https://ardaekiz0.github.io/kdv-indir/mizan.html">
+<meta property="og:title" content="Luca Mizan Kontrol · Mizanı hesap hesap kontrol edin">
+<meta property="og:description" content="Luca'dan mizanı ve muavin dökümünü çeker, 12 muhasebe kuralıyla hesap hesap kontrol eder, HATA/UYARI listesi ve Excel raporu üretir.">
+<meta property="og:image" content="https://ardaekiz0.github.io/kdv-indir/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Luca Mizan Kontrol arayüzü">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2563eb">
+<link rel="stylesheet" href="style.css">
+<style>
+.hero--paket .hero__copy { grid-column: 1 / span 8; }
+.hero--paket .hero__aside {
+  grid-column: 9 / span 4; align-self: end;
+  background: var(--surface); border: 1px solid var(--rule);
+  border-radius: var(--radius); padding: 1.5rem 1.6rem;
+}
+.hero--paket .hero__aside .name { font-size: var(--step-small); font-weight: 500; color: var(--muted); }
+.hero--paket .hero__aside .figure {
+  font-family: var(--font-display); font-size: clamp(2.2rem, 4vw, 2.9rem);
+  line-height: 1; letter-spacing: -0.03em; margin-top: 0.5rem;
+  display: flex; align-items: baseline; gap: 0.4rem;
+}
+.hero--paket .hero__aside .figure small { font-family: var(--font-text); font-size: 0.875rem; color: var(--muted); letter-spacing: 0; }
+.hero--paket .hero__aside .was { margin-top: 0.35rem; font-size: var(--step-small); color: var(--muted); }
+.hero--paket .hero__aside .was s { color: var(--ink-soft); }
+.hero--paket .hero__aside .go { display: inline-flex; margin-top: 1rem; font-size: var(--step-small); }
+@media (max-width: 64em) {
+  .hero--paket .hero__copy { grid-column: 1 / -1; }
+  .hero--paket .hero__aside { grid-column: 1 / -1; margin-top: 2rem; }
+}
+/* kurallar listesi: hesap kodu solda, kural sağda */
+.kurallar { display: grid; gap: 0; margin-top: 1.5rem; }
+.kurallar div {
+  display: grid; grid-template-columns: 9rem 1fr; gap: 1.5rem;
+  padding-block: 0.85rem; border-top: 1px solid var(--rule);
+}
+.kurallar div:first-child { border-top: 0; }
+.kurallar dt { font-variant-numeric: tabular-nums; font-weight: 500; white-space: nowrap; }
+.kurallar dd { color: var(--muted); font-size: var(--step-small); margin: 0; }
+/* anlatım sütunu: varsayılan 4/5 dar kalıyor, sayfada görsel yok */
+.runin__col { grid-column: 1 / span 7; }
+@media (max-width: 64em) { .runin__col { grid-column: 1 / -1; } }
+/* fiyat bölümünde iki kart var; varsayılan 3 sütun üçüncü sütunu boş bırakıyordu */
+@media (min-width: 64.01em) { .plans--ikili { grid-template-columns: 1.16fr 1fr; } }
+@media (max-width: 64em) {
+  .plans--ikili { grid-template-columns: 1fr; }
+  .plans--ikili .plan--lead { grid-column: auto; }
+}
+</style>
+<script src="js-baslat.js"></script>
+</head>
+<body class="has-mobile-cta">
+
+<header class="wrap">
+  <nav class="nav" aria-label="Ana menü">
+    <a class="nav__mark link" href="index.html">Muhasebe Paketi</a>
+    <div class="nav__links">
+      <a class="link" href="kdv.html">KDV Çapraz Kontrol</a>
+      <a class="link" href="mizan.html" aria-current="page">Luca Mizan</a>
+      <a class="link" href="sgk.html">SGK E-Kesinti</a>
+      <a class="link hide-phone" href="index.html#fiyatlar">Fiyatlar</a>
+      <a class="link" href="indir/">İndir</a>
+      <a class="link" href="mizan-en.html" lang="en">English</a>
+    </div>
+  </nav>
+</header>
+
+<main id="ust">
+
+  <!-- ================= BAŞLIK ================= -->
+  <section class="hero hero--paket">
+    <div class="hero__inner wrap">
+      <div class="hero__copy">
+        <p class="tag" data-rise style="--i:0">Muhasebe Paketi · 2. modül</p>
+        <h1 class="display lines">
+          <span class="line"><span data-line style="--i:0">Mizan tutmuyorsa</span></span>
+          <span class="line"><span data-line style="--i:1">sebebi hesaptadır.</span></span>
+        </h1>
+        <p class="lead" data-rise style="--i:3">Luca'dan mükellef mizanını ve muavin dökümünü çeker; 100 kasa, 120 alıcılar, 320 satıcılar, 600 gelir gibi hesapları 12 muhasebe kuralıyla kontrol eder. Bulduğunu hesap koduyla, HATA ya da UYARI olarak yazar; Excel raporu olarak verir.</p>
+        <div class="hero__actions" data-rise style="--i:4">
+          <a class="button" href="indir/" data-press>15 gün ücretsiz deneyin</a>
+          <a class="link" href="index.html#fiyatlar">Fiyatlara bakın</a>
+        </div>
+        <p class="hero__meta small muted" data-rise style="--i:5">Luca lisansınız ayrıca gerekir · Windows 10 ve 11 · Cihaz başına yıllık lisans · Mükellef sayısında sınır yok</p>
+      </div>
+      <aside class="hero__aside" data-rise style="--i:5">
+        <p class="name">Luca Mizan Kontrol</p>
+        <p class="figure">8.900 <small>TL + KDV / yıl</small></p>
+        <p class="was">Liste fiyatı <s>12.900 TL</s> · kurucu fiyatı ilk 10 cihaz</p>
+        <a class="link go" href="index.html#fiyatlar">Fiyat tablosu</a>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ================= NASIL ÇALIŞIR ================= -->
+  <section class="section runin wrap" id="nasil">
+    <div class="runin__col">
+      <h2 class="head">Bağlanır, çeker, kontrol eder.</h2>
+      <p class="run" data-reveal><b>Bağlanın.</b> Luca üye numaranızı, kullanıcı adınızı ve parolanızı bir kez girersiniz; bilgiler yalnızca kendi bilgisayarınızdaki bir dosyada durur, hiçbir yere gönderilmez. Tarayıcı açıldığında kullanıcı adı alanını siz doldurursunuz; program şifrenizi kendisi yazmaz.</p>
+      <p class="run" data-reveal><b>Mükellefi seçin.</b> Müşteri listesi yıl ve sınıf filtresiyle, arama kutusuyla gelir. Tek mükellef seçebilir, tarih aralığı verebilir (boş bırakırsanız tüm yıl) ya da filtrelenen bütün mükellefler için sırayla rapor alabilirsiniz.</p>
+      <p class="run" data-reveal><b>Kontrol edin.</b> İndirilen mizan raporları kural listesine göre taranır. Her ihlal hesap kodu, hesap adı ve kural numarasıyla listelenir; üstte OK, HATA ve UYARI sayacı durur. Aynı ihlal tekrar tekrar yazılmaz.</p>
+      <p class="run" data-reveal><b>Raporu alın.</b> Sonuç Excel'e yazılır; kural bazlı özet, hangi kuralın kaç hesapta tetiklendiğini gösterir. Raporu müşteriye olduğu gibi verebilirsiniz.</p>
+    </div>
+  </section>
+
+  <!-- ================= KURALLAR ================= -->
+  <section class="section wrap" id="kurallar">
+    <div class="pricing__head">
+      <h2 class="head">Kontrol edilen kurallar<br>hazır gelir.</h2>
+      <div class="pricing__side">
+        <p class="lead muted">Kural listesi programın içinde tanımlı; her kontrolde aynı 12 kural uygulanır. Yeni kural eklenip çıkarılabilir, böylece ofisinizin alışkanlığı programa girer.</p>
+        <p class="tag">Hesap bazında uyuşmazlık · mükerrer kayıt yok</p>
+      </div>
+    </div>
+    <dl class="kurallar">
+      <div><dt>100 · 101 · 103</dt><dd>Kasa ve banka hesapları ters bakiyede olmamalı; 100 kasa borç bakiyesi 3.000.000 TL'yi geçmemeli.</dd></div>
+      <div><dt>120 · 320</dt><dd>120 alıcılar alacak bakiyeli, 320 satıcılar borç bakiyeli olmamalı.</dd></div>
+      <div><dt>300 · 360 · 361</dt><dd>Banka kredileri ve vergi hesapları ters bakiyede olmamalı.</dd></div>
+      <div><dt>600 · 760 · 770 · 780</dt><dd>600 gelir hesaplarının borcu, 760/770/780 gider hesaplarının alacağı sıfır olmalı.</dd></div>
+      <div><dt>191 · 391</dt><dd>İndirilecek ve hesaplanan KDV hesapları dönem sonunda bakiye taşımamalı.</dd></div>
+    </dl>
+    <div class="trust">
+      <div><b>Kayıtlı kural listesi</b><span>Kural bazlı istatistik</span></div>
+      <div><b>Tek mükellef veya toplu</b><span>Filtrelenen tüm mükellefler</span></div>
+      <div><b>Excel çıktı</b><span>Müşteriye verilebilir</span></div>
+      <div><b>Şifre yerelde kalır</b><span>Sunucuya gönderilmez</span></div>
+    </div>
+  </section>
+
+  <!-- ================= FİYAT ================= -->
+  <section class="section wrap" id="fiyat">
+    <div class="pricing__head">
+      <h2 class="head">Tek modül, tek fiyat.</h2>
+      <div class="pricing__side">
+        <p class="lead muted">Mizan modülünü tek başına alabilirsiniz. Diğer iki modül kurulu kalır, kendi lisansına kadar kilitli görünür; sonradan eklediğinizde yeniden indirmeniz gerekmez.</p>
+        <p class="tag">15 gün ücretsiz deneme · kredi kartı istenmez</p>
+      </div>
+    </div>
+    <div class="plans plans--ikili">
+      <article class="plan plan--lead">
+        <p class="plan__badge">Kurucu fiyatı · ilk 10 cihaz</p>
+        <div>
+          <h3 class="plan__name">Luca Mizan Kontrol</h3>
+          <p class="plan__for">Mizanı Luca'dan çekip hesap hesap kontrol eden, raporu müşteriye veren meslek mensupları için</p>
+          <p class="plan__price">
+            <span class="plan__figure">8.900</span>
+            <span class="plan__unit">TL + KDV / yıl</span>
+          </p>
+          <p class="plan__ref">Liste fiyatı <s>12.900 TL</s> + KDV · yenilemede aynı kurucu fiyat</p>
+          <p class="plan__scope">1 bilgisayar · sınırsız mükellef</p>
+          <ul class="plan__feats">
+            <li>Luca'dan mizan ve muavin dökümü</li>
+            <li>12 muhasebe kuralı, hesap bazında ihlal listesi</li>
+            <li>Toplu mükellef raporu ve Excel çıktı</li>
+          </ul>
+        </div>
+        <div class="plan__foot">
+          <a class="button" href="indir/" data-press>15 gün ücretsiz deneyin</a>
+          <p class="plan__micro">Kredi kartı istenmez · faturalı, havale/EFT</p>
+        </div>
+      </article>
+
+      <article class="plan">
+        <div>
+          <h3 class="plan__name">Üç modül birlikte</h3>
+          <p class="plan__for">KDV Çapraz Kontrol + Luca Mizan Kontrol + SGK E-Kesinti, tek kurulumda</p>
+          <p class="plan__price">
+            <span class="plan__figure">23.900</span>
+            <span class="plan__unit">TL + KDV / yıl</span>
+          </p>
+          <p class="plan__ref">Tek tek toplamı 28.700 TL · liste fiyatı <s>34.900 TL</s></p>
+          <p class="plan__scope">1 bilgisayar · sınırsız mükellef</p>
+          <ul class="plan__feats">
+            <li>Üç modülün tamamı, tek fatura</li>
+            <li>Tek yenileme tarihi</li>
+            <li>Mizan modülü tek başına 8.900 TL</li>
+          </ul>
+        </div>
+        <div class="plan__foot">
+          <a class="button button--ghost" href="index.html#fiyatlar" data-press>Fiyat tablosu</a>
+          <p class="plan__micro">Kişi başı değil, cihaz başına</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ================= CTA ================= -->
+  <section class="cta">
+    <div class="cta__grid wrap">
+      <h2>Bir mükellefin mizanını<br>15 gün boyunca kontrol edin.</h2>
+      <div class="cta__side">
+        <p>Tek kurulumu indirin, menüden Luca Mizan'ı seçin. Deneme o modülü ilk açtığınızda başlar; kredi kartı istemez.</p>
+        <a class="button button--stage" href="indir/" data-press>Ücretsiz indir</a>
+        <a class="link" href="#iletisim">Lisans ve sorular için yazın</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= İLETİŞİM ================= -->
+  <section class="contact wrap" id="iletisim">
+    <div class="contact__grid">
+      <div class="contact__col">
+        <p class="contact__prompt"><span>Mizan modülü işinize yarar mı?</span><span class="soft">Yazın, birlikte bakalım.</span></p>
+        <form class="contact__form" novalidate data-subject="Luca Mizan Kontrol: lisans ve sorular">
+          <div class="contact__field">
+            <label class="sr-only" for="eposta">E-posta adresiniz</label>
+            <input class="field" id="eposta" name="eposta" type="email" placeholder="E-posta adresiniz" required>
+            <button class="contact__send" type="submit" aria-label="Gönder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+          </div>
+          <p class="contact__error small" role="alert" hidden></p>
+          <p class="contact__next small muted">Gönder’e bastığınızda e-posta uygulamanız açılır.</p>
+        </form>
+      </div>
+      <dl class="contact__rows">
+        <div><dt>Telefon</dt><dd><a class="link" href="tel:+905462083854">0546 208 38 54</a></dd></div>
+        <div><dt>E-posta</dt><dd><a class="link" href="mailto:ardaekiz72@gmail.com">ardaekiz72@gmail.com</a></dd></div>
+        <div><dt>Sürüm</dt><dd class="nums">v3.1.90</dd></div>
+      </dl>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <nav aria-label="Alt menü">
+    <a class="link" href="index.html">Muhasebe Paketi</a>
+    <a class="link" href="kdv.html">KDV Çapraz Kontrol</a>
+    <a class="link" href="mizan.html">Luca Mizan</a>
+    <a class="link" href="sgk.html">SGK E-Kesinti</a>
+    <a class="link" href="indir/">İndir</a>
+    <a class="link" href="https://github.com/ArdaEkiz0/kdv-indir">GitHub</a>
+    <a class="link" href="#iletisim">Destek</a>
+    <a class="link" href="index.html#fiyatlar">Fiyatlar</a>
+    <a class="link" href="kvkk.html">KVKK</a>
+    <a class="link" href="mesafeli-satis.html">Mesafeli satış</a>
+    <a class="link" href="iade.html">İade</a>
+    <a class="link" href="lisans.html">Lisans sözleşmesi</a>
+    <a class="link" href="mizan-en.html" lang="en">English</a>
+  </nav>
+  <span class="muted">© 2026 Arda Ekiz</span>
+  <span class="end"><a class="link" href="indir/">İndir · v3.1.90</a></span>
+</footer>
+
+<script src="vendor/gsap.min.js"></script>
+<script src="vendor/ScrollTrigger.min.js"></script>
+<script src="app.js"></script>
+<div class="mobile-cta" aria-label="Ücretsiz indir">
+  <span class="mobile-cta__text">15 gün ücretsiz deneme</span>
+  <a class="button" href="indir/" data-press>Ücretsiz indir</a>
+</div>
+<aside class="cookie-note" id="cerez-notu" role="note" aria-label="Çerez bilgisi" hidden>
+  <p>Bu sitede çerez, analitik veya takip betiği yok. Yalnız bu notu bir kez kapatmanız için tarayıcınızda küçük bir tercih kaydı tutulur.</p>
+  <button type="button" data-cerez-kapat>Anladım</button>
+</aside>
+</body>
+</html>
