@@ -44,6 +44,20 @@
   });
 
   /* ---------- iletişim alanı: doğrulama + e-posta taslağı (sunucu yok) ---------- */
+  /* ---------- ana sayfa: lisans senaryosu (pencere canlı gösterim) ---------- */
+  var launch = document.querySelector('[data-senaryo]');
+  if (launch) {
+    var senBtns = Array.prototype.slice.call(launch.querySelectorAll('.senaryo button'));
+    senBtns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        launch.setAttribute('data-senaryo', btn.getAttribute('data-sen'));
+        senBtns.forEach(function (b) {
+          b.setAttribute('aria-pressed', String(b === btn));
+        });
+      });
+    });
+  }
+
   var form = document.querySelector('.contact__form');
   if (form) {
     var eposta = document.getElementById('eposta');
@@ -102,9 +116,12 @@
   function rise(trigger, items, vars) {
     if (!ST || !items.length) return;
     vars = vars || {};
+    /* dokunmatik/ince ekranda kaydırma sırasında geçici örtüşme olmasın */
+    var y = vars.y === undefined ? 18 : vars.y;
+    if (window.matchMedia('(max-width: 767px), (hover: none)').matches) y = Math.min(y, 10);
     gsap.from(items, {
       opacity: 0,
-      y: vars.y === undefined ? 18 : vars.y,
+      y: y,
       duration: vars.duration || 0.55,
       ease: 'power2.out',
       stagger: vars.stagger === undefined ? 0.07 : vars.stagger,
@@ -164,7 +181,18 @@
     var ANAHTAR = 'kdv-cerez-notu-kapandi';
     var kapandi = false;
     try { kapandi = localStorage.getItem(ANAHTAR) === '1'; } catch (err) {}
-    if (!kapandi) cerezNotu.hidden = false;
+    if (!kapandi) {
+      /* ilk ekrandan sonra gorunur: fold'da icerige cakismasin */
+      cerezNotu.hidden = true;
+      var goster = function () {
+        if (window.scrollY > window.innerHeight * 0.6) {
+          cerezNotu.hidden = false;
+          window.removeEventListener('scroll', goster);
+        }
+      };
+      goster();
+      window.addEventListener('scroll', goster, { passive: true });
+    }
     var kapatBtn = cerezNotu.querySelector('[data-cerez-kapat]');
     if (kapatBtn) {
       kapatBtn.addEventListener('click', function () {
