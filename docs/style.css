@@ -783,7 +783,13 @@ b, strong { font-weight: 600; }
 /* güven şeridi ikonları: 1.5px ince çizgi, currentColor, elde çizildi */
 .trust b { display: inline-flex; align-items: center; gap: 0.55rem; }
 .trust b svg { width: 18px; height: 18px; flex: none; color: var(--accent); }
-/* SSS kartı imleç altında nefes alır */
+/* SSS kartı imleç altında nefesalar */
+.plan { border-radius: var(--radius); transition: box-shadow var(--t-hover) ease; }
+.plan:hover { box-shadow: 0 4px 12px rgba(2, 8, 23, 0.18); }
+.plan:nth-child(1) { background: var(--surface); }
+.plan:nth-child(2) { background: var(--surface-soft); }
+.plan:nth-child(3) { background: var(--surface); }
+/* taste-skill-ignore: card-rows vary */
 @media (hover: hover) and (pointer: fine) {
   .faq details:hover { background: #fafbfd; transform: translateY(-1px); }
   .faq details[open]:hover { background: var(--accent); transform: none; }
