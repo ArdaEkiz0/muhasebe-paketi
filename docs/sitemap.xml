@@ -2,6 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://ardaekiz0.github.io/muhasebe-paketi/</loc><changefreq>monthly</changefreq><priority>1.0</priority></url>
   <url><loc>https://ardaekiz0.github.io/muhasebe-paketi/index-en.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ardaekiz0.github.io/muhasebe-paketi/kdv.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ardaekiz0.github.io/muhasebe-paketi/kdv-en.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ardaekiz0.github.io/muhasebe-paketi/mizan.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ardaekiz0.github.io/muhasebe-paketi/mizan-en.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ardaekiz0.github.io/muhasebe-paketi/sgk.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ardaekiz0.github.io/muhasebe-paketi/sgk-en.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://ardaekiz0.github.io/muhasebe-paketi/indir/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://ardaekiz0.github.io/muhasebe-paketi/indir-en/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://ardaekiz0.github.io/muhasebe-paketi/kvkk.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>

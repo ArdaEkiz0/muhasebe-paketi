@@ -139,10 +139,14 @@
     });
   }
 
-  /* 2 · hero tablo satırları okuma sırasıyla yerleşir */
-  gsap.from('.hero__fragment tbody tr', {
-    opacity: 0, x: -14, duration: 0.5, ease: 'power2.out', stagger: 0.06, delay: 0.35
-  });
+  /* 2 · hero tablo satırları okuma sırasıyla yerleşir (yalnız KDV sayfalarında
+       fragman var; boş seçici GSAP uyarısı üretmesin diye hedef denetlenir) */
+  var heroRows = gsap.utils.toArray('.hero__fragment tbody tr');
+  if (heroRows.length) {
+    gsap.from(heroRows, {
+      opacity: 0, x: -14, duration: 0.5, ease: 'power2.out', stagger: 0.06, delay: 0.35
+    });
+  }
 
   /* 3 · karşılaştırma tablosu satırları */
   rise('.compare__rows', gsap.utils.toArray('.compare__row'), { y: 18, duration: 0.55, stagger: 0.06, start: 'top 80%' });
