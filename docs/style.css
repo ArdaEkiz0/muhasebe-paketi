@@ -220,6 +220,53 @@ nav {
   background: var(--accent-soft); 
 }
 
+/* ---------- header ---------- */
+nav { 
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  background: var(--deep); 
+  z-index: 100; 
+  border-bottom: 1px solid var(--rule); 
+}
+.nav { 
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between; 
+  gap: 1rem; 
+  flex-wrap: wrap; 
+  padding: 1.5rem 2rem; 
+}
+.Nav__mark { 
+  font-family: var(--font-display); 
+  font-weight: 600; 
+  font-size: var(--step-app); 
+  color: var(--stage-ink); 
+  text-decoration: none; 
+}
+.Nav__links { 
+  display: flex; 
+  gap: 1.5rem; 
+  align-items: center; 
+  flex-wrap: wrap; 
+}
+.Nav__links a { 
+  color: var(--ink-soft); 
+  text-decoration: none; 
+  font-size: var(--step-small); 
+  transition: color var(--t-hover) ease; 
+  padding: 0.5rem 1rem; 
+  border-radius: var(--radius); 
+}
+.Nav__links a:hover { 
+  color: var(--accent-ink); 
+}
+.Nav__links a.active { 
+  color: var(--accent); 
+  background: var(--accent-soft); 
+}
+
 /* ---------- hero ---------- */
 .hero { position: relative; padding-bottom: 0; margin-top: 8rem; }
 .hero__inner {
