@@ -177,23 +177,14 @@
     });
   }
 
-  /* 11 · ROUND 7: fiyat rakamı maskeden yükselir — METİN HİÇ DEĞİŞMEZ.
-     Önce sıfırdan sayan bir sayaç denendi; 1,1 saniye boyunca 12.900 yerine
-     12.405 gibi ara değerler okunuyordu. Bir ziyaretçi ya da örnek ekran
-     görüntüsü yanlış fiyat görebilir: kabul edilemez. Artık rakam kaynakta ne
-     yazıyorsa odur, yalnız kırpma maskesi ve hafif yükselme hareket eder.
-     prefers-reduced-motion yukarıdaki erken dönüşte kalır: hiç animasyon yok. */
-  if (ST) {
-    gsap.utils.toArray('.plan__figure').forEach(function (el) {
-      gsap.fromTo(el,
-        { clipPath: 'inset(0 0 100% 0)', yPercent: 18 },
-        {
-          clipPath: 'inset(-12% 0 -20% 0)', yPercent: 0,
-          duration: 0.85, ease: 'power3.out',
-          scrollTrigger: { trigger: el, start: 'top 88%', once: true }
-        });
-    });
-  }
+  /* 11 · ROUND 7: fiyat rakamına METİN/GÖRÜNÜRLÜK animasyonu UYGULANMAZ.
+     İki deneme de geri alındı: (a) sıfırdan sayan sayaç 1,1 saniye boyunca
+     12.900 yerine 12.405 gibi ara değer gösteriyordu; (b) kırpma maskesi
+     animasyon ortasında yarı kırpık fiyat bırakıyordu ("6.900" %75 gizli).
+     Bir ziyaretçi, arama motoru ya da örnek ekran görüntüsü yanlış/okunmaz
+     fiyat görebilir — kabul edilemez. Fiyat kaynakta ne yazıyorsa her an
+     odur; hareketi taşıyan üst kapsayıcı (.plan) zaten rise() ile yükseliyor.
+     prefers-reduced-motion yukarıdaki erken dönüşte kalır. */
 })();
 
   /* ---------- cerez bilgi notu (cerez yok; yalniz bilgi) ---------- */
