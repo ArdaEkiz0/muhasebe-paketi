@@ -124,7 +124,7 @@
       y: y,
       duration: vars.duration || 0.55,
       ease: 'power2.out',
-      stagger: vars.stagger === undefined ? 0.07 : vars.stagger,
+      stagger: vars.stagger === undefined ? 0.06 : vars.stagger,
       scrollTrigger: { trigger: trigger, start: vars.start || 'top 82%', once: true }
     });
   }
@@ -154,8 +154,8 @@
   /* 4 · kanıt satırı ögeleri */
   rise('.proof', gsap.utils.toArray('.proof li'), { y: 12, duration: 0.5, stagger: 0.07, start: 'top 85%' });
 
-  /* 5 · lisans kartları yan yana oturur */
-  rise('.plans', gsap.utils.toArray('.plan'), { y: 26, duration: 0.7, stagger: 0.12 });
+  /* 5 · lisans kartları yan yana oturur (ROUND 7: stagger sıkılaştı) */
+  rise('.plans', gsap.utils.toArray('.plan'), { y: 26, duration: 0.7, stagger: 0.08 });
 
   /* 6 · SSS satırları sırayla açılır */
   rise('.faq__list', gsap.utils.toArray('.faq__list details'), { y: 16, duration: 0.5, stagger: 0.05 });
@@ -176,6 +176,29 @@
       scrollTrigger: { trigger: '.foot', start: 'top 96%', once: true }
     });
   }
+
+  /* 11 · ROUND 7: fiyat rakamı göründüğünde sıfırdan sayar — sayfanın en ağır
+     ögesi performans gösterir. prefers-reduced-motion yukarıdaki erken dönüşte
+     kalır: metin hiç dokunulmadan son değerinde durur. Kaynak metnin kendisi
+     onComplete'te aynen geri yazılır (fiyat kapıları kaynakla aynı kalır). */
+  var ayar = (document.documentElement.lang || 'tr').slice(0, 2) === 'en' ? 'en-US' : 'tr-TR';
+  gsap.utils.toArray('.plan__figure').forEach(function (el) {
+    if (!ST) return;
+    var sonMetin = el.textContent;
+    var deger = parseInt(sonMetin.replace(/\D/g, ''), 10);
+    if (!deger) return;
+    ST.create({
+      trigger: el, start: 'top 88%', once: true,
+      onEnter: function () {
+        var saya = { v: 0 };
+        gsap.to(saya, {
+          v: deger, duration: 1.1, ease: 'power2.out',
+          onUpdate: function () { el.textContent = Math.round(saya.v).toLocaleString(ayar); },
+          onComplete: function () { el.textContent = sonMetin; }
+        });
+      }
+    });
+  });
 })();
 
   /* ---------- cerez bilgi notu (cerez yok; yalniz bilgi) ---------- */

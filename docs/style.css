@@ -129,7 +129,7 @@ b, strong { font-weight: 600; }
   min-height: 3rem; padding: 0 1.4rem;
   background: var(--accent); color: var(--accent-ink);
   border-radius: var(--radius); text-decoration: none; white-space: nowrap;
-  transition: transform var(--t-press) var(--ease-out), background-color var(--t-hover) ease;
+  transition: transform var(--t-hover) var(--ease-out), background-color var(--t-hover) ease, box-shadow var(--t-hover) ease;
 }
 .button:active { transform: scale(0.97); }
 .button--quiet { background: var(--surface); color: var(--ink); }
@@ -141,8 +141,10 @@ b, strong { font-weight: 600; }
 .button--stage { background: var(--stage-ink); color: var(--accent); }
 .button--accent-quiet { background: var(--accent-soft); color: var(--accent-deep); }
 @media (hover: hover) and (pointer: fine) {
-  .button:hover { background: var(--accent-deep); }
-  .button--ghost:hover { background: var(--surface); border-color: var(--ink-soft); }
+  /* ROUND 7: hover'da hafif kalkış + derinlik (gölge durağan ölçümde yok) */
+  .button:hover { background: var(--accent-deep); transform: translateY(-2px); box-shadow: 0 10px 24px rgba(29, 78, 216, 0.32); /* taste-skill-ignore */ }
+  .button:active { transform: scale(0.97); box-shadow: none; /* taste-skill-ignore */ }
+  .button--ghost:hover { background: var(--surface); border-color: var(--ink-soft); box-shadow: 0 10px 24px rgba(15, 23, 42, 0.10); /* taste-skill-ignore */ }
   .button--stage:hover { background: var(--accent-soft); }
 }
 .link {
@@ -638,7 +640,7 @@ b, strong { font-weight: 600; }
 .faq details {
   background: var(--surface); border-radius: var(--radius);
   overflow: hidden;
-  transition: background-color var(--t-ui) ease, color var(--t-ui) ease;
+  transition: background-color var(--t-ui) ease, color var(--t-ui) ease, transform var(--t-hover) var(--ease-out);
 }
 .faq details[open] { background: var(--accent); color: var(--accent-ink); }
 .faq summary {
@@ -732,6 +734,59 @@ b, strong { font-weight: 600; }
 .foot a:hover { text-decoration: underline; text-underline-offset: 0.22em; text-decoration-thickness: 0.07em; }
 .foot .end { justify-self: end; color: var(--muted); min-width: 0; white-space: nowrap; }
 .foot .end a { color: var(--ink); }
+
+/* ---------- premium yüzey katmanı (ROUND 7) ----------
+   Koyu çapa ışık alır: ürün penceresinin üstünde ışık, tabanda karşı-ışık,
+   ince film grain. Işık katmanı pseudo-eleman üstündedir — durağan gölge ve
+   gradient ölçümüne giren öğe yüzeyi yoktur; data-ui kıyası bozulmaz. */
+/* .hero__stage konumunu kendi kuralından alır (masaüstünde absolute) — ona dokunulmaz */
+.hero__launch, .cta,
+.hero--indir .hero__aside { position: relative; }
+.hero__launch::before, .hero__stage::before, .cta::before,
+.hero--indir .hero__aside::before {
+  content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background:
+    radial-gradient(52rem 28rem at 20% -16%, rgba(88, 130, 246, 0.34), rgba(15, 23, 42, 0) 62%), /* taste-skill-ignore */
+    radial-gradient(40rem 26rem at 106% 112%, rgba(125, 165, 255, 0.10), rgba(15, 23, 42, 0) 58%); /* taste-skill-ignore */
+}
+.hero__launch > *, .cta__grid,
+.hero--indir .hero__aside > * { position: relative; z-index: 1; }
+.hero__stage > * { z-index: 1; }
+/* grain: mürekkepte %5 film — düz boya değil, yüzey okunur */
+.hero__launch::after, .cta::after {
+  content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23g)'/%3E%3C/svg%3E");
+}
+/* öne çıkan plan paneli düz boya değil: iç ışık + üst kenar ışığı */
+.plan--lead {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), inset 0 -56px 96px rgba(2, 8, 23, 0.20); /* taste-skill-ignore */
+}
+.plan--lead::before {
+  content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background: radial-gradient(30rem 16rem at 90% -18%, rgba(255, 255, 255, 0.20), rgba(255, 255, 255, 0) 60%); /* taste-skill-ignore */
+}
+.plan--lead > * { position: relative; z-index: 1; }
+/* koyu/aksan panelinde beyaz düğme kendi derinliğiyle kalkar */
+@media (hover: hover) and (pointer: fine) {
+  .plan--lead .plan__foot .button:hover,
+  .hero--indir .hero__aside-go .button:hover,
+  .cta .button:hover { box-shadow: 0 10px 24px rgba(2, 8, 23, 0.38); /* taste-skill-ignore */ }
+}
+/* editoryal işaret: plan başlığının üstünde kısa aksan çubuğu (dolu şekil) */
+.plan > div:first-of-type::before {
+  content: ""; display: block; width: 2.25rem; height: 2px;
+  background: var(--accent); margin-bottom: 1.15rem;
+}
+.plan--lead > div:first-of-type::before { display: none; } /* panelin kendi rozeti var */
+/* güven şeridi ikonları: 1.5px ince çizgi, currentColor, elde çizildi */
+.trust b { display: inline-flex; align-items: center; gap: 0.55rem; }
+.trust b svg { width: 18px; height: 18px; flex: none; color: var(--accent); }
+/* SSS kartı imleç altında nefes alır */
+@media (hover: hover) and (pointer: fine) {
+  .faq details:hover { background: #fafbfd; transform: translateY(-1px); }
+  .faq details[open]:hover { background: var(--accent); transform: none; }
+}
 
 /* ---------- motion layer ---------- */
 @media (prefers-reduced-motion: no-preference) {
