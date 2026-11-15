@@ -318,6 +318,7 @@ b, strong { font-weight: 600; }
   font-size: 13px; line-height: 1.45;
   overflow: hidden; overflow-x: auto;
   scrollbar-width: thin;
+  scrollbar-gutter: both;
 }
 .ui__bar {
   display: flex; align-items: center; justify-content: space-between;
