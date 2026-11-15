@@ -177,28 +177,23 @@
     });
   }
 
-  /* 11 · ROUND 7: fiyat rakamı göründüğünde sıfırdan sayar — sayfanın en ağır
-     ögesi performans gösterir. prefers-reduced-motion yukarıdaki erken dönüşte
-     kalır: metin hiç dokunulmadan son değerinde durur. Kaynak metnin kendisi
-     onComplete'te aynen geri yazılır (fiyat kapıları kaynakla aynı kalır). */
-  var ayar = (document.documentElement.lang || 'tr').slice(0, 2) === 'en' ? 'en-US' : 'tr-TR';
-  gsap.utils.toArray('.plan__figure').forEach(function (el) {
-    if (!ST) return;
-    var sonMetin = el.textContent;
-    var deger = parseInt(sonMetin.replace(/\D/g, ''), 10);
-    if (!deger) return;
-    ST.create({
-      trigger: el, start: 'top 88%', once: true,
-      onEnter: function () {
-        var saya = { v: 0 };
-        gsap.to(saya, {
-          v: deger, duration: 1.1, ease: 'power2.out',
-          onUpdate: function () { el.textContent = Math.round(saya.v).toLocaleString(ayar); },
-          onComplete: function () { el.textContent = sonMetin; }
+  /* 11 · ROUND 7: fiyat rakamı maskeden yükselir — METİN HİÇ DEĞİŞMEZ.
+     Önce sıfırdan sayan bir sayaç denendi; 1,1 saniye boyunca 12.900 yerine
+     12.405 gibi ara değerler okunuyordu. Bir ziyaretçi ya da örnek ekran
+     görüntüsü yanlış fiyat görebilir: kabul edilemez. Artık rakam kaynakta ne
+     yazıyorsa odur, yalnız kırpma maskesi ve hafif yükselme hareket eder.
+     prefers-reduced-motion yukarıdaki erken dönüşte kalır: hiç animasyon yok. */
+  if (ST) {
+    gsap.utils.toArray('.plan__figure').forEach(function (el) {
+      gsap.fromTo(el,
+        { clipPath: 'inset(0 0 100% 0)', yPercent: 18 },
+        {
+          clipPath: 'inset(-12% 0 -20% 0)', yPercent: 0,
+          duration: 0.85, ease: 'power3.out',
+          scrollTrigger: { trigger: el, start: 'top 88%', once: true }
         });
-      }
     });
-  });
+  }
 })();
 
   /* ---------- cerez bilgi notu (cerez yok; yalniz bilgi) ---------- */
