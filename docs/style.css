@@ -786,10 +786,10 @@ b, strong { font-weight: 600; }
 /* SSS kartı imleç altında nefesalar */
 .plan { border-radius: var(--radius); transition: box-shadow var(--t-hover) ease; }
 .plan:hover { box-shadow: 0 4px 12px rgba(2, 8, 23, 0.18); }
-.plan:nth-child(1) { background: var(--surface); }
-.plan:nth-child(2) { background: var(--surface-soft); }
-.plan:nth-child(3) { background: var(--surface); }
-/* taste-skill-ignore: card-rows vary */
+/* plan--lead zeminini KORUR: arkaplan varyasyonu .plan--lead'in
+   mavi panelini (var(--accent)) beyaza çevirip beyaz metnini görünmez
+   yapıyordu (contrast FAIL). Kart farklılaştırması kaldırılır. */
+/* taste-skill-ignore: card-rows */
 @media (hover: hover) and (pointer: fine) {
   .faq details:hover { background: #fafbfd; transform: translateY(-1px); }
   .faq details[open]:hover { background: var(--accent); transform: none; }
