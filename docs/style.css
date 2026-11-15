@@ -1097,7 +1097,7 @@ b, strong { font-weight: 600; }
   white-space: nowrap;
 }
 @media (max-width: 47.99em) {
-  .cookie-note { right: 1rem; bottom: 1rem; max-width: min(19rem, calc(100% - 2rem)); }
+  .cookie-note { right: 1rem; bottom: 1rem; max-width: min(19rem, calc(100% - 2rem)); display: none; }
 }
 
 /* ---------- indirme sayfasi (/indir) ---------- */
