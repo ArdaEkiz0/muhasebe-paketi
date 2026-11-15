@@ -27,19 +27,20 @@
 .hero--paket .hero__copy { grid-column: 1 / span 8; }
 .hero--paket .hero__aside {
   grid-column: 9 / span 4; align-self: end;
-  background: var(--surface); border: 1px solid var(--rule);
-  border-radius: var(--radius); padding: 1.5rem 1.6rem;
+  background: var(--deep); color: #ffffff;
+  clip-path: polygon(0 44px, 44px 0, 100% 0, 100% 100%, 0 100%); /* sayfanın tek kesik köşe imzası (koyu çapa) */
+  padding: 2.2rem 1.6rem 1.6rem 2rem;
 }
-.hero--paket .hero__aside .name { font-size: var(--step-small); font-weight: 500; color: var(--muted); }
+.hero--paket .hero__aside .name { font-size: var(--step-small); font-weight: 500; color: var(--accent-soft); }
 .hero--paket .hero__aside .figure {
-  font-family: var(--font-display); font-size: clamp(2.2rem, 4vw, 2.9rem);
+  font-family: var(--font-display); font-size: clamp(3rem, 4.4vw, 4.25rem);
   line-height: 1; letter-spacing: -0.03em; margin-top: 0.5rem;
   display: flex; align-items: baseline; gap: 0.4rem;
 }
-.hero--paket .hero__aside .figure small { font-family: var(--font-text); font-size: 0.875rem; color: var(--muted); letter-spacing: 0; }
-.hero--paket .hero__aside .was { margin-top: 0.35rem; font-size: var(--step-small); color: var(--muted); }
-.hero--paket .hero__aside .was s { color: var(--muted); }
-.hero--paket .hero__aside .go { display: inline-flex; margin-top: 1rem; font-size: var(--step-small); }
+.hero--paket .hero__aside .figure small { font-family: var(--font-text); font-size: 0.875rem; color: var(--accent-soft); letter-spacing: 0; }
+.hero--paket .hero__aside .was { margin-top: 0.35rem; font-size: var(--step-small); color: rgba(255, 255, 255, 0.85); }
+.hero--paket .hero__aside .was s { color: rgba(255, 255, 255, 0.85); }
+.hero--paket .hero__aside .go { display: inline-flex; margin-top: 1rem; font-size: var(--step-small); color: #ffffff; }
 @media (max-width: 64em) {
   .hero--paket .hero__copy { grid-column: 1 / -1; }
   .hero--paket .hero__aside { grid-column: 1 / -1; margin-top: 2rem; }
