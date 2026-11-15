@@ -29,6 +29,7 @@
   --accent-soft: #dfe9ff;
   --stage: #2563eb;
   --stage-ink: #ffffff;
+  --deep: #0f172a; /* koyu çapa: hero penceresi + kapanış sahnesi beyaz arayüzü öne çıkarır */
   --rule: #dcdfe5;
   --rule-strong: #c3c8d1;
   --ink-soft: #a9b0ba;
@@ -171,7 +172,7 @@ p + p { margin-top: 0.9em; }
 .hero__copy { grid-column: 1 / span 5; }
 .hero__copy .lead { margin-top: clamp(1.5rem, 3vw, 2.25rem); max-width: 100%; }
 .hero__actions { display: flex; align-items: center; gap: 1.1rem; margin-top: 2.25rem; }
-.hero__price { margin-top: 1.4rem; font-size: var(--step-small); }
+.hero__price { margin-top: 1.4rem; font-size: var(--step-body); }
 .hero__price b { font-weight: 500; }
 .hero__price s { color: var(--muted); }
 .hero__meta { margin-top: 1.1rem; }
@@ -181,7 +182,7 @@ p + p { margin-top: 0.9em; }
   left: 44%;
   right: 0;
   bottom: 0;
-  background: var(--stage);
+  background: var(--deep);
   color: var(--stage-ink);
   clip-path: polygon(0 72px, 72px 0, 100% 0, 100% 100%, 0 100%);
 }
@@ -193,12 +194,13 @@ p + p { margin-top: 0.9em; }
   position: absolute; left: 56px; top: 56px;
   width: min(620px, calc(100% - 112px));
 }
+.hero__fragment .ui { box-shadow: 0 20px 48px rgba(2, 8, 23, 0.45); } /* koyu çapada derinlik (data-ui) */
 
 /* ---------- ana sayfa sahne: gerçek uygulama penceresi (kabuk) ---------- */
 .hero__launch {
   grid-column: 6 / span 7;
   align-self: stretch;
-  background: var(--stage); color: var(--stage-ink);
+  background: var(--deep); color: var(--stage-ink);
   clip-path: polygon(0 72px, 72px 0, 100% 0, 100% 100%, 0 100%);
   padding: 2.4rem 0 0 2.6rem;
   margin-top: -1rem;
@@ -232,6 +234,7 @@ p + p { margin-top: 0.9em; }
   margin-top: 1.9rem;
   background: #f5f7fb; color: #0f172a;
   font-size: 13px; line-height: 1.45;
+  box-shadow: 0 24px 64px rgba(2, 8, 23, 0.45); /* koyu çapada derinlik (data-ui) */
 }
 .kabuk__strip { height: 4px; background: #2563eb; }
 .kabuk__titlebar {
@@ -531,7 +534,7 @@ p + p { margin-top: 0.9em; }
 }
 .plan__figure {
   font-family: var(--font-display); font-weight: 500;
-  font-size: var(--step-head); line-height: 1;
+  font-size: clamp(3rem, 4.4vw, 4.25rem); line-height: 1;
   letter-spacing: -0.03em; font-variant-numeric: tabular-nums;
 }
 .plan__unit { font-size: var(--step-small); color: var(--muted); white-space: nowrap; }
@@ -649,9 +652,8 @@ p + p { margin-top: 0.9em; }
 
 /* ---------- cta (kapanış sahnesi) ---------- */
 .cta {
-  background: var(--stage); color: var(--stage-ink);
+  background: var(--deep); color: var(--stage-ink);
   padding-block: clamp(5rem, 10vw, 8.5rem);
-  clip-path: polygon(0 72px, 72px 0, 100% 0, 100% 100%, 0 100%);
 }
 .cta__grid {
   display: grid; grid-template-columns: repeat(12, minmax(0, 1fr));
@@ -842,7 +844,7 @@ p + p { margin-top: 0.9em; }
   .plan { grid-template-columns: 1fr; align-items: start; }
   .plan__foot { grid-column: 1; grid-row: auto; margin-top: 1.4rem; align-content: start; }
   .plan--lead { padding: 1.6rem 1.4rem; }
-  .plan__figure { font-size: clamp(2.6rem, 11vw, 2.9rem); }
+  .plan__figure { font-size: clamp(2.75rem, 12.5vw, 3.4rem); }
   .plan__for { max-width: none; }
   .plan__feats { max-width: none; }
 
@@ -851,14 +853,14 @@ p + p { margin-top: 0.9em; }
   .trust { grid-template-columns: 1fr 1fr; }
 
   .faq__grid { grid-template-columns: 1fr; }
-  .faq__grid > h2 { grid-column: 1 / -1; position: static; font-size: 10vw; margin-bottom: 1.75rem; }
+  .faq__grid > h2 { grid-column: 1 / -1; position: static; font-size: 8vw; margin-bottom: 1.75rem; }
   .faq__list { grid-column: 1 / -1; gap: 6px; }
   .faq summary { min-height: 64px; padding: 14px 20px; }
   .faq .answer { padding: 0 20px 20px; }
 
-  .cta { clip-path: polygon(0 56px, 56px 0, 100% 0, 100% 100%, 0 100%); }
+  .cta { clip-path: none; }
   .cta__grid { grid-template-columns: 1fr; gap: 2.5rem; }
-  .cta h2 { grid-column: 1 / -1; font-size: 10vw; }
+  .cta h2 { grid-column: 1 / -1; font-size: 8vw; }
   .cta__side { grid-column: 1 / -1; justify-items: start; text-align: left; }
 
   .contact__grid { grid-template-columns: 1fr; gap: 3.25rem; }
