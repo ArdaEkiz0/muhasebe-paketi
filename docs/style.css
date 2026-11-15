@@ -761,6 +761,9 @@ b, strong { font-weight: 600; }
 }
 /* öne çıkan plan paneli düz boya değil: iç ışık + üst kenar ışığı */
 .plan--lead {
+  position: relative; /* ::before absolute inset:0 yalnız panel içinde kalsın,
+                         non-positioned ebeveynde viewport'a yayılıp fiyat/metni
+                         amorf beyazla örtmesin */
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), inset 0 -56px 96px rgba(2, 8, 23, 0.20); /* taste-skill-ignore */
 }
 .plan--lead::before {
@@ -768,6 +771,9 @@ b, strong { font-weight: 600; }
   background: radial-gradient(30rem 16rem at 90% -18%, rgba(255, 255, 255, 0.20), rgba(255, 255, 255, 0) 60%); /* taste-skill-ignore */
 }
 .plan--lead > * { position: relative; z-index: 1; }
+.plan--lead .plan__name, .plan--lead .plan__figure,
+.plan--lead .plan__price, .plan--lead .plan__feats,
+.plan--lead .plan__foot { position: relative; z-index: 2; } /* metin her zaman iç-ışık üstünde */
 /* koyu/aksan panelinde beyaz düğme kendi derinliğiyle kalkar */
 @media (hover: hover) and (pointer: fine) {
   .plan--lead .plan__foot .button:hover,
