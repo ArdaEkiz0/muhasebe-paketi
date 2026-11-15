@@ -46,6 +46,14 @@
 .hero--paket .hero__aside .was { margin-top: 0.35rem; font-size: var(--step-small); color: rgba(255, 255, 255, 0.85); }
 .hero--paket .hero__aside .was s { color: rgba(255, 255, 255, 0.85); }
 .hero--paket .hero__aside .go { display: inline-flex; margin-top: 1rem; font-size: var(--step-small); color: #ffffff; }
+/* ROUND 7: koyu çapa paneli ışık alır — pencere üstten aydınlanır (pseudo katman) */
+.hero--paket .hero__aside { position: relative; }
+.hero--paket .hero__aside::before {
+  content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background: radial-gradient(26rem 15rem at 82% -18%, rgba(110, 150, 250, 0.30), rgba(15, 23, 42, 0) 62%), /* taste-skill-ignore */
+              radial-gradient(20rem 14rem at -10% 115%, rgba(125, 165, 255, 0.10), rgba(15, 23, 42, 0) 55%); /* taste-skill-ignore */
+}
+.hero--paket .hero__aside > * { position: relative; z-index: 1; }
 @media (max-width: 64em) {
   .hero--paket .hero__copy { grid-column: 1 / -1; }
   .hero--paket .hero__aside { grid-column: 1 / -1; margin-top: 2rem; }
@@ -202,10 +210,10 @@
       <div><dt>191 · 391</dt><dd>Input and output VAT accounts must not carry a balance at period end.</dd></div>
     </dl>
     <div class="trust">
-      <div><b>Rule-based summary</b><span>Statistics per rule</span></div>
-      <div><b>One client or many</b><span>Every filtered client</span></div>
-      <div><b>Excel output</b><span>Ready for the client</span></div>
-      <div><b>Password stays local</b><span>Never sent to a server</span></div>
+      <div><b><svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5.5 2.5h5.5L15 6.5V17a.5.5 0 0 1-.5.5h-9A.5.5 0 0 1 5 17V3a.5.5 0 0 1 .5-.5Z"/><path d="M11 2.5V7h4"/><path d="M7.5 12.5l1.8 1.8 3.4-3.8"/></svg>Rule-based summary</b><span>Statistics per rule</span></div>
+      <div><b><svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="7.5" cy="7.5" r="2.5"/><path d="M3 16.5c.5-2.6 2.3-4 4.5-4s4 1.4 4.5 4"/><path d="M13.5 5.6a2.5 2.5 0 1 1 1.2 4.7"/><path d="M14.8 12.8c1.5.6 2.4 1.9 2.8 3.7"/></svg>One client or many</b><span>Every filtered client</span></div>
+      <div><b><svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="3.5" width="14" height="13" rx="1.5"/><path d="M3 8h14M8 8v8.5"/></svg>Excel output</b><span>Ready for the client</span></div>
+      <div><b><svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="4.5" y="9" width="11" height="7.5" rx="1.5"/><path d="M7 9V6.5a3 3 0 0 1 6 0V9"/></svg>Password stays local</b><span>Never sent to a server</span></div>
     </div>
   </section>
 
@@ -267,7 +275,7 @@
 
   <section class="cta">
     <div class="cta__grid wrap">
-      <h2>Check a trial balance<br>free for 15 days.</h2>
+      <h2>Check it free<br>for 15 days.</h2>
       <div class="cta__side">
         <p>Download the installer, pick Luca Trial Balance in the menu. The trial starts when you first open that module; no credit card.</p>
         <a class="button button--stage" href="indir-en/" data-press>Download free</a>
@@ -279,7 +287,7 @@
   <section class="contact wrap" id="iletisim">
     <div class="contact__grid">
       <div class="contact__col">
-        <p class="contact__prompt"><span>Would the trial-balance module help?</span><span class="soft">Write to us and we will look together.</span></p>
+        <p class="contact__prompt"><span>Would the trial-balance module help?</span><span class="soft">Write to us.</span></p>
         <form class="contact__form" novalidate data-subject="Luca Trial Balance Check: licence and questions">
           <div class="contact__field">
             <label class="sr-only" for="eposta">Your e-mail address</label>

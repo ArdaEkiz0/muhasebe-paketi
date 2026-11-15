@@ -46,6 +46,14 @@
 .hero--paket .hero__aside .was { margin-top: 0.35rem; font-size: var(--step-small); color: rgba(255, 255, 255, 0.85); }
 .hero--paket .hero__aside .was s { color: rgba(255, 255, 255, 0.85); }
 .hero--paket .hero__aside .go { display: inline-flex; margin-top: 1rem; font-size: var(--step-small); color: #ffffff; }
+/* ROUND 7: koyu çapa paneli ışık alır — pencere üstten aydınlanır (pseudo katman) */
+.hero--paket .hero__aside { position: relative; }
+.hero--paket .hero__aside::before {
+  content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background: radial-gradient(26rem 15rem at 82% -18%, rgba(110, 150, 250, 0.30), rgba(15, 23, 42, 0) 62%), /* taste-skill-ignore */
+              radial-gradient(20rem 14rem at -10% 115%, rgba(125, 165, 255, 0.10), rgba(15, 23, 42, 0) 55%); /* taste-skill-ignore */
+}
+.hero--paket .hero__aside > * { position: relative; z-index: 1; }
 @media (max-width: 64em) {
   .hero--paket .hero__copy { grid-column: 1 / -1; }
   .hero--paket .hero__aside { grid-column: 1 / -1; margin-top: 2rem; }
@@ -209,10 +217,10 @@
       </table>
     </div>
     <div class="trust">
-      <div><b>Toplu giriş</b><span>Üretici üretici, sırayla</span></div>
-      <div><b>Kuruşu kuruşuna</b><span>Matrah ve kesinti ayrı alanlara</span></div>
-      <div><b>Hata raporu</b><span>TC ve mesajla listelenir</span></div>
-      <div><b>Tekrar deneme</b><span>Hatalılar için bir tur daha</span></div>
+      <div><b><svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 12.5V15a1.5 1.5 0 0 0 1.5 1.5h11A1.5 1.5 0 0 0 17 15v-2.5"/><path d="M10 3v7m0 0 3-3m-3 3-3-3"/></svg>Toplu giriş</b><span>Üretici üretici, sırayla</span></div>
+      <div><b><svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="4.5" y="2.5" width="11" height="15" rx="1.5"/><path d="M7 6h6"/><path d="M7.5 10.5h.01M10 10.5h.01M12.5 10.5h.01M7.5 14h.01M10 14h.01M12.5 14h.01"/></svg>Kuruşu kuruşuna</b><span>Matrah ve kesinti ayrı alanlara</span></div>
+      <div><b><svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5.5 2.5h5.5L15 6.5V17a.5.5 0 0 1-.5.5h-9A.5.5 0 0 1 5 17V3a.5.5 0 0 1 .5-.5Z"/><path d="M11 2.5V7h4"/><path d="M10 10v3m0 2.2h.01"/></svg>Hata raporu</b><span>TC ve mesajla listelenir</span></div>
+      <div><b><svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15.5 10a5.5 5.5 0 1 1-1.6-3.9"/><path d="M15.5 3.8v3.2h-3.2"/></svg>Tekrar deneme</b><span>Hatalılar için bir tur daha</span></div>
     </div>
   </section>
 
