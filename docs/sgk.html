@@ -38,7 +38,7 @@
 }
 .hero--paket .hero__aside .name { font-size: var(--step-small); font-weight: 500; color: var(--accent-soft); }
 .hero--paket .hero__aside .figure {
-  font-family: var(--font-display); font-size: clamp(3rem, 4.4vw, 4.25rem);
+  font-family: var(--font-display); font-size: clamp(2.75rem, 4.4vw, 4.25rem);
   line-height: 1; letter-spacing: -0.03em; margin-top: 0.5rem;
   display: flex; align-items: baseline; gap: 0.4rem;
 }
@@ -64,6 +64,18 @@
 .sablon th, .sablon td { text-align: left; padding: 0.7rem 0.9rem; border-top: 1px solid var(--rule); }
 .sablon thead th { font-weight: 500; color: var(--muted); border-top: 0; }
 .sablon td { font-variant-numeric: tabular-nums; }
+/* dar ekranda tablo satır satır yığılır: kaydırma yok, başlık etiket olur */
+@media (max-width: 480px) {
+  .sablon table, .sablon tbody { display: block; width: 100%; }
+  .sablon thead { display: none; }
+  .sablon tr { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem 1.4rem; padding: 0.9rem 0; border-top: 1px solid var(--rule); }
+  .sablon td { display: flex; flex-direction: column; gap: 0.15rem; border: 0; padding: 0; }
+  .sablon td::before { color: var(--muted); font-size: 13px; }
+  .sablon td:nth-child(1)::before { content: "Ünvan"; }
+  .sablon td:nth-child(2)::before { content: "TC Kimlik No"; }
+  .sablon td:nth-child(3)::before { content: "Matrah"; }
+  .sablon td:nth-child(4)::before { content: "Bağ-Kur"; }
+}
 .runin__col { grid-column: 1 / span 7; }
 .runin__gorsel { grid-column: 8 / span 5; align-self: start; }
 @media (max-width: 64em) {
