@@ -27,6 +27,8 @@
 <meta name="twitter:url" content="https://ardaekiz0.github.io/muhasebe-paketi/mizan-en.html">
 <meta name="twitter:image" content="https://ardaekiz0.github.io/muhasebe-paketi/og-image.png">
 <meta name="theme-color" content="#2563eb">
+<link rel="preload" href="vendor/fonts/ClashGrotesk-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="vendor/fonts/ClashGrotesk-600.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="style.css?v=20261117a">
 <style>
 .hero--paket .hero__copy { grid-column: 1 / span 8; }
@@ -133,7 +135,7 @@
       </div>
       <aside class="runin__gorsel" data-reveal>
         <figure class="shot shutter">
-          <img src="ekran-lucamizan.png" alt="Luca Mizan Otomasyonu Mizan screen (Turkish UI): year and class filter, client search and the client list with a trial-balance download button on every row" width="2560" height="1840" loading="lazy">
+          <picture><source type="image/webp" srcset="ekran-lucamizan-h.webp 1280w, ekran-lucamizan.webp 2560w" sizes="(min-width: 1000px) 720px, 96vw"><img src="ekran-lucamizan.png" alt="Luca Mizan Otomasyonu Mizan screen (Turkish UI): year and class filter, client search and the client list with a trial-balance download button on every row" width="2560" height="1840" loading="eager" fetchpriority="high"></picture>
           <figcaption class="caption small">Mizan screen: the list is read live from LUCA; the companies and tax numbers in this picture are samples.</figcaption>
         </figure>
       </aside>
@@ -150,13 +152,13 @@
       <div class="showcase__stage">
         <div class="showcase__pane is-on" id="pane-liste">
           <figure class="shot shutter" data-reveal>
-            <img src="ekran-lucamizan-liste.png" alt="Client list close-up: short name, title, tax office, tax number and a download button on every row" width="1965" height="393" loading="lazy">
+            <picture><source type="image/webp" srcset="ekran-lucamizan-liste-h.webp 982w, ekran-lucamizan-liste.webp 1965w" sizes="(min-width: 1000px) 720px, 96vw"><img src="ekran-lucamizan-liste.png" alt="Client list close-up: short name, title, tax office, tax number and a download button on every row" width="1965" height="393" loading="lazy"></picture>
             <figcaption class="caption small">List close-up: every client on its own row; the button on the right downloads that single trial balance.</figcaption>
           </figure>
         </div>
         <div class="showcase__pane" id="pane-filtre">
           <figure class="shot">
-            <img src="ekran-lucamizan-filtre.png" alt="Filter card: year picker, class buttons, Fetch clients button, below it the client search box and start and end dates" width="1965" height="755" loading="lazy">
+            <picture><source type="image/webp" srcset="ekran-lucamizan-filtre-h.webp 982w, ekran-lucamizan-filtre.webp 1965w" sizes="(min-width: 1000px) 720px, 96vw"><img src="ekran-lucamizan-filtre.png" alt="Filter card: year picker, class buttons, Fetch clients button, below it the client search box and start and end dates" width="1965" height="755" loading="lazy"></picture>
             <figcaption class="caption small">Filter and search: year and class feed the live LUCA list; the search box matches name, title and tax number.</figcaption>
           </figure>
         </div>
@@ -300,8 +302,8 @@
   <span class="end"><a class="link" href="indir-en/">Download · v3.1.90</a></span>
 </footer>
 
-<script src="vendor/gsap.min.js"></script>
-<script src="vendor/ScrollTrigger.min.js"></script>
-<script src="app.js"></script>
+<script src="vendor/gsap.min.js" defer></script>
+<script src="vendor/ScrollTrigger.min.js" defer></script>
+<script src="app.js" defer></script>
 </body>
 </html>

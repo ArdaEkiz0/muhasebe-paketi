@@ -27,6 +27,8 @@
 <meta name="twitter:url" content="https://ardaekiz0.github.io/muhasebe-paketi/">
 <meta name="twitter:image" content="https://ardaekiz0.github.io/muhasebe-paketi/og-image.png">
 <meta name="theme-color" content="#2563eb">
+<link rel="preload" href="vendor/fonts/ClashGrotesk-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="vendor/fonts/ClashGrotesk-600.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="style.css?v=20261117a">
 <script src="js-baslat.js"></script>
 </head>
@@ -233,15 +235,15 @@
       </div>
       <div class="ekranlar__stek">
         <figure>
-          <img src="ekran-uygulama.png" alt="KDV Çapraz Kontrol penceresi: dosya seçimi, araç çubuğu, renklerle ayrışan sonuç tablosu ve durum sayaçları" width="1480" height="768" loading="lazy">
+          <picture><source type="image/webp" srcset="ekran-uygulama.webp"><img src="ekran-uygulama.png" alt="KDV Çapraz Kontrol penceresi: dosya seçimi, araç çubuğu, renklerle ayrışan sonuç tablosu ve durum sayaçları" width="1480" height="768" loading="lazy"></picture>
           <figcaption>KDV Çapraz Kontrol · kontrol sonrası sonuç ekranı (örnek veri)</figcaption>
         </figure>
         <figure>
-          <img src="ekran-tablo.png" alt="Sonuç tablosu yakın planı: durum, belge no, VKN, tarih, matrah ve KDV sütunları" width="1433" height="378" loading="lazy">
+          <picture><source type="image/webp" srcset="ekran-tablo.webp"><img src="ekran-tablo.png" alt="Sonuç tablosu yakın planı: durum, belge no, VKN, tarih, matrah ve KDV sütunları" width="1433" height="378" loading="lazy"></picture>
           <figcaption>Sonuç tablosu · satır satır durum</figcaption>
         </figure>
         <figure>
-          <img src="ekran-sonuc.png" alt="Özet şeridi ve durum satırı: eşleşen, sorunlu, mükerrer, yeni eksik ve çözüldü sayaçları; altında 'Kontrol tamamlandı' satırı" width="1480" height="190" loading="lazy">
+          <picture><source type="image/webp" srcset="ekran-sonuc.webp"><img src="ekran-sonuc.png" alt="Özet şeridi ve durum satırı: eşleşen, sorunlu, mükerrer, yeni eksik ve çözüldü sayaçları; altında 'Kontrol tamamlandı' satırı" width="1480" height="190" loading="lazy"></picture>
           <figcaption>Özet şeridi · kontrol sonu sayaçları</figcaption>
         </figure>
       </div>
@@ -444,8 +446,8 @@
   <span class="end"><a class="link" href="indir/">İndir · v3.1.90</a></span>
 </footer>
 
-<script src="vendor/gsap.min.js"></script>
-<script src="vendor/ScrollTrigger.min.js"></script>
-<script src="app.js"></script>
+<script src="vendor/gsap.min.js" defer></script>
+<script src="vendor/ScrollTrigger.min.js" defer></script>
+<script src="app.js" defer></script>
 </body>
 </html>
