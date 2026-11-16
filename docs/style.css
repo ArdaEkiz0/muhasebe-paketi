@@ -938,7 +938,7 @@ b, strong { font-weight: 600; }
   .plan { grid-template-columns: 1fr; align-items: start; }
   .plan__foot { grid-column: 1; grid-row: auto; margin-top: 1.4rem; align-content: start; }
   .plan--lead { padding: 1.6rem 1.4rem; }
-  .plan__figure { font-size: clamp(2.75rem, 12.5vw, 3.4rem); }
+  .plan__figure { font-size: clamp(2.75rem, 11vw, 3.4rem); }
   .plan__for { max-width: none; }
   .plan__feats { max-width: none; }
 
@@ -947,14 +947,14 @@ b, strong { font-weight: 600; }
   .trust { grid-template-columns: 1fr 1fr; }
 
   .faq__grid { grid-template-columns: 1fr; }
-  .faq__grid > h2 { grid-column: 1 / -1; position: static; font-size: 8vw; margin-bottom: 1.75rem; }
+  .faq__grid > h2 { grid-column: 1 / -1; position: static; font-size: clamp(var(--step-sub), 8vw, var(--step-head)); margin-bottom: 1.75rem; }
   .faq__list { grid-column: 1 / -1; gap: 6px; }
   .faq summary { min-height: 64px; padding: 14px 20px; }
   .faq .answer { padding: 0 20px 20px; }
 
   .cta { clip-path: none; }
   .cta__grid { grid-template-columns: 1fr; gap: 2.5rem; }
-  .cta h2 { grid-column: 1 / -1; font-size: 8vw; }
+  .cta h2 { grid-column: 1 / -1; font-size: clamp(var(--step-sub), 8vw, var(--step-head)); }
   .cta__side { grid-column: 1 / -1; justify-items: start; text-align: left; }
 
   .contact__grid { grid-template-columns: 1fr; gap: 3.25rem; }
