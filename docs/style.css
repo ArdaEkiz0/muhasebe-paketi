@@ -420,6 +420,10 @@ b, strong { font-weight: 600; }
   background: var(--surface);
 }
 .shot img { width: 100%; display: block; }
+/* webp katmani: <img> artik <picture> icinde; yerlesim eskisi gibi kalsin */
+.shot picture, .showcase__pane picture { display: block; }
+.shot--crop picture { height: 100%; }
+.showcase__pane picture + .caption { margin-bottom: 1.75rem; }
 .shot--crop { aspect-ratio: 16 / 9; }
 .shot--crop img { width: 100%; height: 100%; object-fit: cover; object-position: top left; }
 .caption { margin-top: 0.7rem; color: var(--muted); }
