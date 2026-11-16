@@ -132,100 +132,11 @@
       <p class="run" data-reveal><b>Take the report.</b> The result is written to Excel with a per-rule summary showing how many accounts each rule fired on. You can hand the report to the client as it is.</p>
       </div>
       <aside class="runin__gorsel" data-reveal>
-        <div class="ui" data-ui="mizan-secim" aria-label="Luca Mizan Control: client selection and check result">
-          <div class="ui__bar">
-            <span class="ui__title">Luca Mizan Control</span>
-            <span class="ui__meta">Client selection · year 2024</span>
-          </div>
-          <div class="ui__toolbar">
-            <span class="chip">Year 2024</span>
-            <span class="chip">Class: All</span>
-            <span class="chip chip--ghost">12 clients</span>
-          </div>
-          <table>
-            <thead>
-              <tr><th>Client</th><th class="num">Accounts</th><th>Result</th></tr>
-            </thead>
-            <tbody>
-              <tr class="is-flagged"><td>Demir Construction</td><td class="num">214</td><td><span class="chip chip--flag">ERROR 4</span></td></tr>
-              <tr class="is-ghost"><td>Aksoy Foods</td><td class="num">186</td><td><span class="chip chip--ghost">WARNING 2</span></td></tr>
-              <tr><td>Yilmaz Trading</td><td class="num">203</td><td><span class="chip">OK</span></td></tr>
-              <tr><td>Celik Building</td><td class="num">197</td><td><span class="chip">OK</span></td></tr>
-            </tbody>
-          </table>
-          <div class="ui__foot">
-            <span>Excel report <b>ready</b></span>
-            <span class="nums">214 accounts · 12 rules</span>
-          </div>
-        </div>
+        <figure class="shot shutter">
+          <img src="ekran-lucamizan.png" alt="Luca Mizan Otomasyonu Mizan screen (Turkish UI): year and class filter, client search and the client list with a trial-balance download button on every row" width="2560" height="1840" loading="lazy">
+          <figcaption class="caption small">Mizan screen: the list is read live from LUCA; the companies and tax numbers in this picture are samples.</figcaption>
+        </figure>
       </aside>
-  </section>
-
-  <!-- ================= SCREENS ================= -->
-  <section class="section showcase wrap" id="ciktilar">
-    <div class="showcase__grid">
-      <div class="showcase__names">
-        <button type="button" data-target="pane-uygulama" aria-pressed="true">Check screen</button>
-        <button type="button" data-target="pane-sonuc" aria-pressed="false">Breach list</button>
-        <button type="button" data-target="pane-ozet" aria-pressed="false">Summary</button>
-        <p class="muted">Windows are drawn with sample data to show the product's real interface.</p>
-      </div>
-      <div class="showcase__stage">
-        <div class="showcase__pane is-on" id="pane-uygulama">
-          <div class="ui" data-ui="mizan-sonuc">
-            <div class="ui__bar">
-              <span class="ui__title">Luca Trial Balance Check</span>
-              <span class="ui__meta">Client: year 2024 · 214 accounts checked</span>
-            </div>
-            <div class="ui__toolbar">
-              <span class="chip">OK 208</span>
-              <span class="chip chip--flag">ERROR 4</span>
-              <span class="chip chip--ghost">WARNING 2</span>
-            </div>
-            <table>
-              <thead>
-                <tr><th>Account</th><th>Name</th><th class="num">Debit</th><th class="num">Credit</th><th>Rule</th></tr>
-              </thead>
-              <tbody>
-                <tr class="is-flagged"><td>100 · 101 · 103</td><td>Cash / Banks</td><td class="num">8,250.00</td><td class="num">—</td><td>K06</td></tr>
-                <tr class="is-flagged"><td>120</td><td>Receivables</td><td class="num">—</td><td class="num">12,400.00</td><td>K02</td></tr>
-                <tr><td>600</td><td>Domestic Sales</td><td class="num">—</td><td class="num">3,210,000.00</td><td>OK</td></tr>
-                <tr class="is-flagged"><td>191</td><td>Input VAT</td><td class="num">41,500.00</td><td class="num">—</td><td>K11</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <div class="showcase__pane" id="pane-sonuc">
-          <div class="ui" data-ui="mizan-ihlal">
-            <div class="ui__bar">
-              <span class="ui__title">Breach list</span>
-              <span class="ui__meta">6 breaches · 2 rules</span>
-            </div>
-            <table>
-              <thead>
-                <tr><th>Status</th><th>Account</th><th class="num">Balance</th><th>Message</th></tr>
-              </thead>
-              <tbody>
-                <tr class="is-flagged"><td><span class="chip chip--flag">ERROR</span></td><td>120 · Receivables</td><td class="num">12,400.00</td><td>Must not carry a credit balance.</td></tr>
-                <tr class="is-flagged"><td><span class="chip chip--flag">ERROR</span></td><td>320 · Payables</td><td class="num">9,100.00</td><td>Must not carry a debit balance.</td></tr>
-                <tr class="is-flagged"><td><span class="chip chip--flag">ERROR</span></td><td>191 · Input VAT</td><td class="num">41,500.00</td><td>Must not carry a balance at period end.</td></tr>
-                <tr class="is-ghost"><td><span class="chip chip--ghost">WARNING</span></td><td>100 · Cash</td><td class="num">8,250.00</td><td>Debit balance must not exceed 3,000,000 TL.</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <div class="showcase__pane" id="pane-ozet">
-          <div class="ui" data-ui="mizan-ozet">
-            <div class="ui__foot">
-              <span>OK <b>208</b></span>
-              <span>ERROR <b>4</b></span>
-              <span>WARNING <b>2</b></span>
-              <span class="nums">214 accounts · 12 rules</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
   </section>
 
   <section class="section wrap" id="kurallar">

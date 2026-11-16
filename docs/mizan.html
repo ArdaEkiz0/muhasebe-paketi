@@ -135,101 +135,11 @@
       <p class="run" data-reveal><b>Raporu alın.</b> Sonuç Excel'e yazılır; kural bazlı özet, hangi kuralın kaç hesapta tetiklendiğini gösterir. Raporu müşteriye olduğu gibi verebilirsiniz.</p>
       </div>
       <aside class="runin__gorsel" data-reveal>
-        <div class="ui" data-ui="mizan-secim" aria-label="Luca Mizan Kontrol: mükellef seçimi ve kontrol sonucu">
-          <div class="ui__bar">
-            <span class="ui__title">Luca Mizan Kontrol</span>
-            <span class="ui__meta">Mükellef seçimi · yıl 2024</span>
-          </div>
-          <div class="ui__toolbar">
-            <span class="chip">Yıl 2024</span>
-            <span class="chip">Sınıf: Tümü</span>
-            <span class="chip chip--ghost">12 mükellef</span>
-          </div>
-          <table>
-            <thead>
-              <tr><th>Mükellef</th><th class="num">Hesap</th><th>Sonuç</th></tr>
-            </thead>
-            <tbody>
-              <tr class="is-flagged"><td>Demir Yapı Ltd.</td><td class="num">214</td><td><span class="chip chip--flag">HATA 4</span></td></tr>
-              <tr class="is-ghost"><td>Aksoy Gıda A.Ş.</td><td class="num">186</td><td><span class="chip chip--ghost">UYARI 2</span></td></tr>
-              <tr><td>Yılmaz Ticaret</td><td class="num">203</td><td><span class="chip">OK</span></td></tr>
-              <tr><td>Çelik İnşaat</td><td class="num">197</td><td><span class="chip">OK</span></td></tr>
-            </tbody>
-          </table>
-          <div class="ui__foot">
-            <span>Excel raporu <b>hazır</b></span>
-            <span class="nums">214 hesap · 12 kural</span>
-          </div>
-        </div>
+        <figure class="shot shutter">
+          <img src="ekran-lucamizan.png" alt="Luca Mizan Otomasyonu Mizan ekranı: yıl ve sınıf filtresi, firma araması ve listelenen mükellefler — her satırda Mizan indirme düğmesi" width="2560" height="1840" loading="lazy">
+          <figcaption class="caption small">Mizan ekranı: liste LUCA'dan canlı okunur; görüntüdeki firmalar ve vergi numaraları örnektir.</figcaption>
+        </figure>
       </aside>
-  </section>
-
-  <!-- ================= EKRANLAR ================= -->
-  <section class="section showcase wrap" id="ciktilar">
-    <div class="showcase__grid">
-      <div class="showcase__names">
-        <button type="button" data-target="pane-uygulama" aria-pressed="true">Kontrol ekranı</button>
-        <button type="button" data-target="pane-sonuc" aria-pressed="false">İhlal listesi</button>
-        <button type="button" data-target="pane-ozet" aria-pressed="false">Özet kontrolü</button>
-        <p class="muted">Pencereler ürünün gerçek arayüzünü göstermek için örnek veriyle çizilmiştir.</p>
-      </div>
-      <div class="showcase__stage">
-        <div class="showcase__pane is-on" id="pane-uygulama">
-          <div class="ui" data-ui="mizan-sonuc">
-            <div class="ui__bar">
-              <span class="ui__title">Luca Mizan Kontrol</span>
-              <span class="ui__meta">Mükellef: yıl 2024 · 214 hesap kontrol edildi</span>
-            </div>
-            <div class="ui__toolbar">
-              <span class="chip">OK 208</span>
-              <span class="chip chip--flag">HATA 4</span>
-              <span class="chip chip--ghost">UYARI 2</span>
-            </div>
-            <table>
-              <thead>
-                <tr><th>Hesap</th><th>Adı</th><th class="num">Borç</th><th class="num">Alacak</th><th>Kural</th></tr>
-              </thead>
-              <tbody>
-                <tr class="is-flagged"><td>100 · 101 · 103</td><td>Kasa / Banka</td><td class="num">8.250,00</td><td class="num">—</td><td>K06</td></tr>
-                <tr class="is-flagged"><td>120</td><td>Alıcılar</td><td class="num">—</td><td class="num">12.400,00</td><td>K02</td></tr>
-                <tr class="is-flagged"><td>320</td><td>Satıcılar</td><td class="num">9.100,00</td><td class="num">—</td><td>K02</td></tr>
-                <tr><td>600</td><td>Yurtiçi Satışlar</td><td class="num">—</td><td class="num">3.210.000,00</td><td>OK</td></tr>
-                <tr class="is-flagged"><td>191</td><td>İnd. KDV</td><td class="num">41.500,00</td><td class="num">—</td><td>K11</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <div class="showcase__pane" id="pane-sonuc">
-          <div class="ui" data-ui="mizan-ihlal">
-            <div class="ui__bar">
-              <span class="ui__title">İhlal listesi</span>
-              <span class="ui__meta">6 ihlal · 2 kural</span>
-            </div>
-            <table>
-              <thead>
-                <tr><th>Durum</th><th>Hesap</th><th class="num">Bakiye</th><th>Mesaj</th></tr>
-              </thead>
-              <tbody>
-                <tr class="is-flagged"><td><span class="chip chip--flag">HATA</span></td><td>120 · Alıcılar</td><td class="num">12.400,00</td><td>Alacak bakiyeli olmamalı.</td></tr>
-                <tr class="is-flagged"><td><span class="chip chip--flag">HATA</span></td><td>320 · Satıcılar</td><td class="num">9.100,00</td><td>Borç bakiyeli olmamalı.</td></tr>
-                <tr class="is-flagged"><td><span class="chip chip--flag">HATA</span></td><td>191 · İnd. KDV</td><td class="num">41.500,00</td><td>Dönem sonunda bakiye taşımamalı.</td></tr>
-                <tr class="is-ghost"><td><span class="chip chip--ghost">UYARI</span></td><td>100 · Kasa</td><td class="num">8.250,00</td><td>Borç bakiyesi 3.000.000 TL'yi geçmemeli.</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <div class="showcase__pane" id="pane-ozet">
-          <div class="ui" data-ui="mizan-ozet">
-            <div class="ui__foot">
-              <span>OK <b>208</b></span>
-              <span>HATA <b>4</b></span>
-              <span>UYARI <b>2</b></span>
-              <span class="nums">214 hesap · 12 kural</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
   </section>
 
   <!-- ================= KURALLAR ================= -->

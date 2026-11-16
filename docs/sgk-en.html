@@ -128,99 +128,11 @@
       <p class="run" data-reveal><b>See the result.</b> At the end it says how many records went through and how many failed, lists the failures with tax number and message, and offers one more pass if you want it. Temporary failures such as a dropped session are recovered in that pass.</p>
       </div>
       <aside class="runin__gorsel" data-reveal>
-        <div class="ui" data-ui="sgk-kuyruk" aria-label="SGK E-Withholding: producer queue read from Excel and entry status">
-          <div class="ui__bar">
-            <span class="ui__title">SGK E-Withholding</span>
-            <span class="ui__meta">Entry queue · agricultural withholding</span>
-          </div>
-          <div class="ui__toolbar">
-            <span class="chip">EXCEL LOADED</span>
-            <span class="chip">TEMPLATE OK</span>
-            <span class="chip chip--ghost">48 producers</span>
-          </div>
-          <table>
-            <thead>
-              <tr><th>#</th><th>Title</th><th class="num">Base</th><th>Status</th></tr>
-            </thead>
-            <tbody>
-              <tr class="is-flagged"><td>12</td><td>Ahmet Yilmaz</td><td class="num">48,000.00</td><td><span class="chip chip--flag">ENTERING</span></td></tr>
-              <tr><td>11</td><td>Mehmet Kaya</td><td class="num">96,500.00</td><td><span class="chip">ENTERED</span></td></tr>
-              <tr><td>10</td><td>Ayse Demir</td><td class="num">1,250,000.00</td><td><span class="chip">ENTERED</span></td></tr>
-              <tr class="is-ghost"><td>9</td><td>Nuran Celik</td><td class="num">1,000,000.00</td><td><span class="chip chip--ghost">WAITING</span></td></tr>
-            </tbody>
-          </table>
-          <div class="ui__foot">
-            <span>You sign in, <b>the program never knows your password</b></span>
-            <span class="nums">48 records · 1 pass</span>
-          </div>
-        </div>
+        <figure class="shot shutter">
+          <img src="ekran-ekesinti.png" alt="E-Kesinti main screen (Turkish UI): sidebar menu, the last run's row breakdown and the licence and browser status card — with sample data" width="1875" height="1055" loading="lazy">
+          <figcaption class="caption small">Main screen: last run's identity, system status and row-by-row results; the cooperative and producers in this picture are samples.</figcaption>
+        </figure>
       </aside>
-  </section>
-
-  <!-- ================= SCREENS ================= -->
-  <section class="section showcase wrap" id="ciktilar">
-    <div class="showcase__grid">
-      <div class="showcase__names">
-        <button type="button" data-target="pane-uygulama" aria-pressed="true">Entry screen</button>
-        <button type="button" data-target="pane-sonuc" aria-pressed="false">Result list</button>
-        <button type="button" data-target="pane-ozet" aria-pressed="false">Summary</button>
-        <p class="muted">Windows are drawn with sample data to show the product's real interface.</p>
-      </div>
-      <div class="showcase__stage">
-        <div class="showcase__pane is-on" id="pane-uygulama">
-          <div class="ui" data-ui="sgk-giris">
-            <div class="ui__bar">
-              <span class="ui__title">SGK Withholding</span>
-              <span class="ui__meta">48 producers · agricultural withholding</span>
-            </div>
-            <div class="ui__toolbar">
-              <span class="chip chip--flag">ENTERING 3/48</span>
-              <span class="chip">ENTERED 44</span>
-              <span class="chip chip--ghost">WAITING 1</span>
-            </div>
-            <table>
-              <thead>
-                <tr><th>Title</th><th class="num">Tax number</th><th class="num">Base</th><th class="num">Bağ-Kur</th></tr>
-              </thead>
-              <tbody>
-                <tr class="is-flagged"><td>Ahmet Yılmaz</td><td class="num">12345678901</td><td class="num">48,000.00</td><td class="num">1,440.00</td></tr>
-                <tr class="is-flagged"><td>Mehmet Kaya</td><td class="num">98765432109</td><td class="num">96,500.00</td><td class="num">2,895.00</td></tr>
-                <tr><td>Ayşe Demir</td><td class="num">45678901234</td><td class="num">1,250,000.00</td><td class="num">37,500.00</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <div class="showcase__pane" id="pane-sonuc">
-          <div class="ui" data-ui="sgk-sonuc">
-            <div class="ui__bar">
-              <span class="ui__title">Result list</span>
-              <span class="ui__meta">48 passed · 2 failed</span>
-            </div>
-            <table>
-              <thead>
-                <tr><th>Status</th><th>Title</th><th class="num">Tax no</th><th>Message</th></tr>
-              </thead>
-              <tbody>
-                <tr class="is-flagged"><td><span class="chip chip--flag">ERROR</span></td><td>Hasan Öztürk</td><td class="num">20123456780</td><td>Base limit reached, split into two.</td></tr>
-                <tr class="is-ghost"><td><span class="chip chip--ghost">RETRY</span></td><td>Zeynep Aksoy</td><td class="num">11223344556</td><td>Session dropped, retried once.</td></tr>
-                <tr><td><span class="chip">OK</span></td><td>Ayşe Demir</td><td class="num">45678901234</td><td>Record passed.</td></tr>
-                <tr><td><span class="chip">OK</span></td><td>Mehmet Kaya</td><td class="num">56789012345</td><td>Record passed.</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <div class="showcase__pane" id="pane-ozet">
-          <div class="ui" data-ui="sgk-ozet">
-            <div class="ui__foot">
-              <span>Passed <b>48</b></span>
-              <span>Failed <b>2</b></span>
-              <span>Retried <b>1</b></span>
-              <span class="nums">51 records · 1 pass</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
   </section>
 
   <section class="section wrap" id="sablon">
