@@ -27,7 +27,7 @@
 <meta name="twitter:url" content="https://ardaekiz0.github.io/muhasebe-paketi/sgk.html">
 <meta name="twitter:image" content="https://ardaekiz0.github.io/muhasebe-paketi/og-image.png">
 <meta name="theme-color" content="#2563eb">
-<link rel="stylesheet" href="style.css?v=20261115b">
+<link rel="stylesheet" href="style.css?v=20261116a">
 <style>
 .hero--paket .hero__copy { grid-column: 1 / span 8; }
 .hero--paket .hero__aside {
@@ -65,7 +65,11 @@
 .sablon thead th { font-weight: 500; color: var(--muted); border-top: 0; }
 .sablon td { font-variant-numeric: tabular-nums; }
 .runin__col { grid-column: 1 / span 7; }
-@media (max-width: 64em) { .runin__col { grid-column: 1 / -1; } }
+.runin__gorsel { grid-column: 8 / span 5; align-self: start; }
+@media (max-width: 64em) {
+  .runin__col { grid-column: 1 / -1; }
+  .runin__gorsel { grid-column: 1 / -1; margin-top: 2rem; }
+}
 /* fiyat bölümünde iki kart var; varsayılan 3 sütun üçüncü sütunu boş bırakıyordu */
 @media (min-width: 64.01em) { .plans--ikili { grid-template-columns: 1.16fr 1fr; } }
 @media (max-width: 64em) {
@@ -125,7 +129,35 @@
       <p class="run" data-reveal><b>Girişi siz yapın.</b> Chrome açılır ve SGK sayfasına gider. Kullanıcı kodu ve şifreyi siz girersiniz; program oturum bilgilerinizi saklamaz. Giriş bitince bir tuşa basarsınız, iş başlar.</p>
       <p class="run" data-reveal><b>Program girer.</b> Her üretici için TC'yi sorgular, matrahı ve kesintiyi ilgili alanlara yazar, kaydeder ve bir sonrakine geçer. Matrahı 1.000.000 TL ve üzeri olan kaydı ikiye böler; böylece tek satırda sınırı aşan bildirim reddedilmez.</p>
       <p class="run" data-reveal><b>Sonucu görün.</b> İş bitince "şu kadar kayıt geçti, şu kadar hata aldı" der; hatalıları TC ve hata mesajıyla listeler, isterseniz bir tur daha dener. Oturum düşmesi gibi geçici hatalar bu turda kurtulur.</p>
-    </div>
+      </div>
+      <aside class="runin__gorsel" data-reveal>
+        <div class="ui" data-ui="sgk-kuyruk" aria-label="SGK E-Kesinti: Excel'den okunan üretici kuyruğu ve giriş durumu">
+          <div class="ui__bar">
+            <span class="ui__title">SGK E-Kesinti</span>
+            <span class="ui__meta">Giriş kuyruğu · tarımsal kesinti</span>
+          </div>
+          <div class="ui__toolbar">
+            <span class="chip">EXCEL YÜKLÜ</span>
+            <span class="chip">ŞABLON OK</span>
+            <span class="chip chip--ghost">48 üretici</span>
+          </div>
+          <table>
+            <thead>
+              <tr><th>#</th><th>Ünvan</th><th class="num">Matrah</th><th>Durum</th></tr>
+            </thead>
+            <tbody>
+              <tr class="is-flagged"><td>12</td><td>Ahmet Yılmaz</td><td class="num">48.000,00</td><td><span class="chip chip--flag">GİRİLİYOR</span></td></tr>
+              <tr><td>11</td><td>Mehmet Kaya</td><td class="num">96.500,00</td><td><span class="chip">GİRİLDİ</span></td></tr>
+              <tr><td>10</td><td>Ayşe Demir</td><td class="num">1.250.000,00</td><td><span class="chip">GİRİLDİ</span></td></tr>
+              <tr class="is-ghost"><td>9</td><td>Nuran Çelik</td><td class="num">1.000.000,00</td><td><span class="chip chip--ghost">BEKLİYOR</span></td></tr>
+            </tbody>
+          </table>
+          <div class="ui__foot">
+            <span>Şifreyi siz girersiniz, <b>program bilmez</b></span>
+            <span class="nums">48 kayıt · 1 tur</span>
+          </div>
+        </div>
+      </aside>
   </section>
 
   <!-- ================= EKRANLAR ================= -->
@@ -176,6 +208,7 @@
                 <tr class="is-flagged"><td><span class="chip chip--flag">HATA</span></td><td>Hasan Öztürk</td><td class="num">20123456780</td><td>Matrah aşımı, ikiye bölündü.</td></tr>
                 <tr class="is-ghost"><td><span class="chip chip--ghost">TEKRAR</span></td><td>Zeynep Aksoy</td><td class="num">11223344556</td><td>Oturum düştü, bir tur daha denendi.</td></tr>
                 <tr><td><span class="chip">OK</span></td><td>Ayşe Demir</td><td class="num">45678901234</td><td>Kayıt geçti.</td></tr>
+                <tr><td><span class="chip">OK</span></td><td>Mehmet Kaya</td><td class="num">56789012345</td><td>Kayıt geçti.</td></tr>
               </tbody>
             </table>
           </div>
@@ -336,16 +369,12 @@
     <a class="link" href="lisans.html">Lisans sözleşmesi</a>
     <a class="link" href="sgk-en.html" lang="en">English</a>
   </nav>
-  <span class="muted">© 2026 Arda Ekiz</span>
+  <span class="muted">© 2026 Arda Ekiz · Bu sitede çerez, analitik veya takip betiği yok.</span>
   <span class="end"><a class="link" href="indir/">İndir · v3.1.90</a></span>
 </footer>
 
 <script src="vendor/gsap.min.js"></script>
 <script src="vendor/ScrollTrigger.min.js"></script>
 <script src="app.js"></script>
-<aside class="cookie-note" id="cerez-notu" role="note" aria-label="Çerez bilgisi" hidden>
-  <p>Bu sitede çerez, analitik veya takip betiği yok. Yalnız bu notu bir kez kapatmanız için tarayıcınızda küçük bir tercih kaydı tutulur.</p>
-  <button type="button" data-cerez-kapat>Anladım</button>
-</aside>
 </body>
 </html>

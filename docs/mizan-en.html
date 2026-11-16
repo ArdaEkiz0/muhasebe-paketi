@@ -27,7 +27,7 @@
 <meta name="twitter:url" content="https://ardaekiz0.github.io/muhasebe-paketi/mizan-en.html">
 <meta name="twitter:image" content="https://ardaekiz0.github.io/muhasebe-paketi/og-image.png">
 <meta name="theme-color" content="#2563eb">
-<link rel="stylesheet" href="style.css?v=20261115b">
+<link rel="stylesheet" href="style.css?v=20261116a">
 <style>
 .hero--paket .hero__copy { grid-column: 1 / span 8; }
 .hero--paket .hero__aside {
@@ -58,16 +58,21 @@
   .hero--paket .hero__copy { grid-column: 1 / -1; }
   .hero--paket .hero__aside { grid-column: 1 / -1; margin-top: 2rem; }
 }
-.kurallar { display: grid; gap: 0; margin-top: 1.5rem; }
+/* rules list: account code left, rule right; rows are separated by space and
+   the code's ink colour, not by a rule line */
+.kurallar { display: grid; gap: 1.75rem; margin-top: 1.75rem; }
 .kurallar div {
   display: grid; grid-template-columns: 9rem 1fr; gap: 1.5rem;
-  padding-block: 0.85rem; border-top: 1px solid var(--rule); /* account code → rule table: real data rows */ /* taste-skill-ignore */
+  align-content: start;
 }
-.kurallar div:first-child { border-top: 0; }
-.kurallar dt { font-variant-numeric: tabular-nums; font-weight: 500; white-space: nowrap; }
+.kurallar dt { font-variant-numeric: tabular-nums; font-weight: 500; white-space: nowrap; color: var(--deep); }
 .kurallar dd { color: var(--muted); font-size: var(--step-small); margin: 0; }
 .runin__col { grid-column: 1 / span 7; }
-@media (max-width: 64em) { .runin__col { grid-column: 1 / -1; } }
+.runin__gorsel { grid-column: 8 / span 5; align-self: start; }
+@media (max-width: 64em) {
+  .runin__col { grid-column: 1 / -1; }
+  .runin__gorsel { grid-column: 1 / -1; margin-top: 2rem; }
+}
 /* two cards in the price section; the default 3-column grid left one empty */
 @media (min-width: 64.01em) { .plans--ikili { grid-template-columns: 1.16fr 1fr; } }
 @media (max-width: 64em) {
@@ -99,8 +104,8 @@
     <div class="hero__inner wrap">
       <div class="hero__copy">
         <h1 class="display lines">
-          <span class="line"><span data-line style="--i:0">If the balance</span></span>
-          <span class="line"><span data-line style="--i:1">does not tie, the account tells you why.</span></span>
+          <span class="line"><span data-line style="--i:0">If it doesn't tie,</span></span>
+          <span class="line"><span data-line style="--i:1">the account says.</span></span>
         </h1>
         <p class="lead" data-rise style="--i:3">It pulls the client trial balance and the ledger detail from Luca and checks accounts 100 cash, 120 receivables, 320 payables and 600 revenue against 12 accounting rules. What it finds is listed with the account code as an ERROR or a WARNING, and handed over as an Excel report.</p>
         <div class="hero__actions" data-rise style="--i:4">
@@ -125,7 +130,35 @@
       <p class="run" data-reveal><b>Pick the client.</b> The client list comes with a year and class filter and a search box. Choose a single client, give a date range (leave it blank for the full year), or take reports for every filtered client one after another.</p>
       <p class="run" data-reveal><b>Check.</b> The downloaded trial balances are scanned against the rule list. Every breach is listed with the account code, account name and rule number; the OK, ERROR and WARNING counters sit on top. The same breach is not written twice.</p>
       <p class="run" data-reveal><b>Take the report.</b> The result is written to Excel with a per-rule summary showing how many accounts each rule fired on. You can hand the report to the client as it is.</p>
-    </div>
+      </div>
+      <aside class="runin__gorsel" data-reveal>
+        <div class="ui" data-ui="mizan-secim" aria-label="Luca Mizan Control: client selection and check result">
+          <div class="ui__bar">
+            <span class="ui__title">Luca Mizan Control</span>
+            <span class="ui__meta">Client selection · year 2024</span>
+          </div>
+          <div class="ui__toolbar">
+            <span class="chip">Year 2024</span>
+            <span class="chip">Class: All</span>
+            <span class="chip chip--ghost">12 clients</span>
+          </div>
+          <table>
+            <thead>
+              <tr><th>Client</th><th class="num">Accounts</th><th>Result</th></tr>
+            </thead>
+            <tbody>
+              <tr class="is-flagged"><td>Demir Construction</td><td class="num">214</td><td><span class="chip chip--flag">ERROR 4</span></td></tr>
+              <tr class="is-ghost"><td>Aksoy Foods</td><td class="num">186</td><td><span class="chip chip--ghost">WARNING 2</span></td></tr>
+              <tr><td>Yilmaz Trading</td><td class="num">203</td><td><span class="chip">OK</span></td></tr>
+              <tr><td>Celik Building</td><td class="num">197</td><td><span class="chip">OK</span></td></tr>
+            </tbody>
+          </table>
+          <div class="ui__foot">
+            <span>Excel report <b>ready</b></span>
+            <span class="nums">214 accounts · 12 rules</span>
+          </div>
+        </div>
+      </aside>
   </section>
 
   <!-- ================= SCREENS ================= -->
@@ -174,6 +207,7 @@
               </thead>
               <tbody>
                 <tr class="is-flagged"><td><span class="chip chip--flag">ERROR</span></td><td>120 · Receivables</td><td class="num">12,400.00</td><td>Must not carry a credit balance.</td></tr>
+                <tr class="is-flagged"><td><span class="chip chip--flag">ERROR</span></td><td>320 · Payables</td><td class="num">9,100.00</td><td>Must not carry a debit balance.</td></tr>
                 <tr class="is-flagged"><td><span class="chip chip--flag">ERROR</span></td><td>191 · Input VAT</td><td class="num">41,500.00</td><td>Must not carry a balance at period end.</td></tr>
                 <tr class="is-ghost"><td><span class="chip chip--ghost">WARNING</span></td><td>100 · Cash</td><td class="num">8,250.00</td><td>Debit balance must not exceed 3,000,000 TL.</td></tr>
               </tbody>
@@ -287,7 +321,7 @@
   <section class="contact wrap" id="iletisim">
     <div class="contact__grid">
       <div class="contact__col">
-        <p class="contact__prompt"><span>Would the trial-balance module help?</span><span class="soft">Write to us.</span></p>
+        <p class="contact__prompt"><span>Would this module help?</span><span class="soft">Write to us.</span></p>
         <form class="contact__form" novalidate data-subject="Luca Trial Balance Check: licence and questions">
           <div class="contact__field">
             <label class="sr-only" for="eposta">Your e-mail address</label>
@@ -326,16 +360,12 @@
     <a class="link" href="lisans-en.html">Licence terms</a>
     <a class="link" href="mizan.html" lang="tr">Türkçe</a>
   </nav>
-  <span class="muted">© 2026 Arda Ekiz</span>
+  <span class="muted">© 2026 Arda Ekiz · This site uses no cookies, analytics or tracking scripts.</span>
   <span class="end"><a class="link" href="indir-en/">Download · v3.1.90</a></span>
 </footer>
 
 <script src="vendor/gsap.min.js"></script>
 <script src="vendor/ScrollTrigger.min.js"></script>
 <script src="app.js"></script>
-<aside class="cookie-note" id="cerez-notu" role="note" aria-label="Cookie note" hidden>
-  <p>This site uses no cookies, analytics or tracking scripts. Only a small preference is kept in your browser so this note stays closed once you dismiss it.</p>
-  <button type="button" data-cerez-kapat>Got it</button>
-</aside>
 </body>
 </html>

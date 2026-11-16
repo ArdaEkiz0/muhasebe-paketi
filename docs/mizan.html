@@ -27,7 +27,7 @@
 <meta name="twitter:url" content="https://ardaekiz0.github.io/muhasebe-paketi/mizan.html">
 <meta name="twitter:image" content="https://ardaekiz0.github.io/muhasebe-paketi/og-image.png">
 <meta name="theme-color" content="#2563eb">
-<link rel="stylesheet" href="style.css?v=20261115b">
+<link rel="stylesheet" href="style.css?v=20261116a">
 <style>
 .hero--paket .hero__copy { grid-column: 1 / span 8; }
 .hero--paket .hero__aside {
@@ -58,18 +58,22 @@
   .hero--paket .hero__copy { grid-column: 1 / -1; }
   .hero--paket .hero__aside { grid-column: 1 / -1; margin-top: 2rem; }
 }
-/* kurallar listesi: hesap kodu solda, kural sağda */
-.kurallar { display: grid; gap: 0; margin-top: 1.5rem; }
+/* kurallar listesi: hesap kodu solda, kural sağda; satır ayrımı çizgiyle değil
+   boşluk ve kodun koyu rengiyle yapılır */
+.kurallar { display: grid; gap: 1.75rem; margin-top: 1.75rem; }
 .kurallar div {
   display: grid; grid-template-columns: 9rem 1fr; gap: 1.5rem;
-  padding-block: 0.85rem; border-top: 1px solid var(--rule); /* hesap kodu → kural tablosu: gerçek veri satırları */ /* taste-skill-ignore */
+  align-content: start;
 }
-.kurallar div:first-child { border-top: 0; }
-.kurallar dt { font-variant-numeric: tabular-nums; font-weight: 500; white-space: nowrap; }
+.kurallar dt { font-variant-numeric: tabular-nums; font-weight: 500; white-space: nowrap; color: var(--deep); }
 .kurallar dd { color: var(--muted); font-size: var(--step-small); margin: 0; }
 /* anlatım sütunu: varsayılan 4/5 dar kalıyor, sayfada görsel yok */
 .runin__col { grid-column: 1 / span 7; }
-@media (max-width: 64em) { .runin__col { grid-column: 1 / -1; } }
+.runin__gorsel { grid-column: 8 / span 5; align-self: start; }
+@media (max-width: 64em) {
+  .runin__col { grid-column: 1 / -1; }
+  .runin__gorsel { grid-column: 1 / -1; margin-top: 2rem; }
+}
 /* fiyat bölümünde iki kart var; varsayılan 3 sütun üçüncü sütunu boş bırakıyordu */
 @media (min-width: 64.01em) { .plans--ikili { grid-template-columns: 1.16fr 1fr; } }
 @media (max-width: 64em) {
@@ -129,7 +133,35 @@
       <p class="run" data-reveal><b>Mükellefi seçin.</b> Müşteri listesi yıl ve sınıf filtresiyle, arama kutusuyla gelir. Tek mükellef seçebilir, tarih aralığı verebilir (boş bırakırsanız tüm yıl) ya da filtrelenen bütün mükellefler için sırayla rapor alabilirsiniz.</p>
       <p class="run" data-reveal><b>Kontrol edin.</b> İndirilen mizan raporları kural listesine göre taranır. Her ihlal hesap kodu, hesap adı ve kural numarasıyla listelenir; üstte OK, HATA ve UYARI sayacı durur. Aynı ihlal tekrar tekrar yazılmaz.</p>
       <p class="run" data-reveal><b>Raporu alın.</b> Sonuç Excel'e yazılır; kural bazlı özet, hangi kuralın kaç hesapta tetiklendiğini gösterir. Raporu müşteriye olduğu gibi verebilirsiniz.</p>
-    </div>
+      </div>
+      <aside class="runin__gorsel" data-reveal>
+        <div class="ui" data-ui="mizan-secim" aria-label="Luca Mizan Kontrol: mükellef seçimi ve kontrol sonucu">
+          <div class="ui__bar">
+            <span class="ui__title">Luca Mizan Kontrol</span>
+            <span class="ui__meta">Mükellef seçimi · yıl 2024</span>
+          </div>
+          <div class="ui__toolbar">
+            <span class="chip">Yıl 2024</span>
+            <span class="chip">Sınıf: Tümü</span>
+            <span class="chip chip--ghost">12 mükellef</span>
+          </div>
+          <table>
+            <thead>
+              <tr><th>Mükellef</th><th class="num">Hesap</th><th>Sonuç</th></tr>
+            </thead>
+            <tbody>
+              <tr class="is-flagged"><td>Demir Yapı Ltd.</td><td class="num">214</td><td><span class="chip chip--flag">HATA 4</span></td></tr>
+              <tr class="is-ghost"><td>Aksoy Gıda A.Ş.</td><td class="num">186</td><td><span class="chip chip--ghost">UYARI 2</span></td></tr>
+              <tr><td>Yılmaz Ticaret</td><td class="num">203</td><td><span class="chip">OK</span></td></tr>
+              <tr><td>Çelik İnşaat</td><td class="num">197</td><td><span class="chip">OK</span></td></tr>
+            </tbody>
+          </table>
+          <div class="ui__foot">
+            <span>Excel raporu <b>hazır</b></span>
+            <span class="nums">214 hesap · 12 kural</span>
+          </div>
+        </div>
+      </aside>
   </section>
 
   <!-- ================= EKRANLAR ================= -->
@@ -336,16 +368,12 @@
     <a class="link" href="lisans.html">Lisans sözleşmesi</a>
     <a class="link" href="mizan-en.html" lang="en">English</a>
   </nav>
-  <span class="muted">© 2026 Arda Ekiz</span>
+  <span class="muted">© 2026 Arda Ekiz · Bu sitede çerez, analitik veya takip betiği yok.</span>
   <span class="end"><a class="link" href="indir/">İndir · v3.1.90</a></span>
 </footer>
 
 <script src="vendor/gsap.min.js"></script>
 <script src="vendor/ScrollTrigger.min.js"></script>
 <script src="app.js"></script>
-<aside class="cookie-note" id="cerez-notu" role="note" aria-label="Çerez bilgisi" hidden>
-  <p>Bu sitede çerez, analitik veya takip betiği yok. Yalnız bu notu bir kez kapatmanız için tarayıcınızda küçük bir tercih kaydı tutulur.</p>
-  <button type="button" data-cerez-kapat>Anladım</button>
-</aside>
 </body>
 </html>

@@ -468,6 +468,21 @@ b, strong { font-weight: 600; }
 .showcase__pane .sheet .row { display: flex; justify-content: space-between; gap: 14px; font-variant-numeric: tabular-nums; }
 .showcase__pane .sheet .row span:first-child { color: var(--muted); }
 
+/* ---------- ekranlar (gerçek uygulama ekranı bandı) ---------- */
+.ekranlar {
+  background: var(--deep); color: var(--stage-ink);
+  padding-block: clamp(4.5rem, 9vw, 7.5rem);
+}
+.ekranlar__head { max-width: 46rem; margin-bottom: clamp(2.25rem, 4.5vw, 3.5rem); }
+.ekranlar__head .lead { color: var(--stage-ink); margin-top: 1.25rem; }
+.ekranlar figure { margin: 0; }
+.ekranlar img { width: 100%; display: block; }
+.ekranlar figcaption { margin-top: 0.7rem; color: var(--ink-soft); font-size: var(--step-small); }
+.ekranlar__stek {
+  display: grid; gap: 12px; align-items: start;
+}
+@media (max-width: 64em) { .ekranlar__stek { gap: 10px; } }
+
 /* ---------- comparison table ---------- */
 .compare { display: grid; gap: 0; }
 .compare__head {
@@ -521,15 +536,17 @@ b, strong { font-weight: 600; }
   font-size: var(--step-small); color: var(--muted);
 }
 
-/* fiyat satırları: kart yığını değil, editoryal satır — içerik solda,
-   eylem sağda; öne çıkan plan dolu panel olarak ayrışır */
+/* fiyat satırları: kart yığını değil, editoryal satır bantları — her satır
+   beyaz banda alınır, ince boşlukla ayrışır; öne çıkan plan mavi paneldir */
 .plans {
-  display: grid; gap: clamp(2.5rem, 5vw, 4rem);
+  display: grid; gap: 12px;
 }
 .plan {
   position: relative;
   display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
   column-gap: var(--gutter); align-items: end;
+  background: var(--surface);
+  padding: clamp(1.6rem, 2.6vw, 2.25rem);
 }
 .plan > div:first-of-type { grid-column: 1; grid-row: 1; }
 .plan__foot { grid-column: 2; grid-row: 1; display: grid; gap: 0.6rem; align-content: end; }
@@ -677,7 +694,7 @@ b, strong { font-weight: 600; }
 }
 .cta__side {
   grid-column: 8 / span 5;
-  display: grid; justify-items: end; gap: 1.1rem; text-align: right;
+  display: grid; justify-items: start; align-content: start; gap: 1.1rem; text-align: left;
 }
 .cta__side p { color: var(--stage-ink); }
 .cta__side .link { color: var(--stage-ink); }
@@ -917,7 +934,7 @@ b, strong { font-weight: 600; }
   .pricing__side { grid-column: 1 / -1; }
   .pricing__side .lead { max-width: none; }
 
-  .plans { grid-template-columns: 1fr; gap: 2.25rem; }
+  .plans { grid-template-columns: 1fr; gap: 12px; }
   .plan { grid-template-columns: 1fr; align-items: start; }
   .plan__foot { grid-column: 1; grid-row: auto; margin-top: 1.4rem; align-content: start; }
   .plan--lead { padding: 1.6rem 1.4rem; }
@@ -1092,26 +1109,8 @@ b, strong { font-weight: 600; }
   .legal__table td:first-child { padding-right: 1.25rem; }
 }
 
-/* ---------- cerez bilgi notu (cerez/analitik yok) ---------- */
-.cookie-note {
-  position: fixed; right: 1rem; bottom: 1rem;
-  z-index: 60; width: max-content; max-width: min(26rem, calc(100% - 2rem));
-  background: var(--surface);
-  border-radius: var(--radius); padding: .65rem .85rem;
-  font-size: var(--step-small); line-height: 1.45;
-  display: flex; gap: .75rem; align-items: center;
-}
-.cookie-note[hidden] { display: none; }
-.cookie-note p { margin: 0; }
-.cookie-note button {
-  font: inherit; cursor: pointer; border: 0; border-radius: var(--radius);
-  padding: .35rem 1rem; min-height: 44px; min-width: 5.5rem;
-  background: var(--accent); color: #fff;
-  white-space: nowrap;
-}
-@media (max-width: 47.99em) {
-  .cookie-note { right: 1rem; bottom: 1rem; max-width: min(19rem, calc(100% - 2rem)); display: none; }
-}
+/* cerez notu: 16 Kasım'da footer'daki tek satıra taşındı; yüzen kutu ve
+   .cookie-note kuralları kalktı (şablonlarda aside da yok). */
 
 /* ---------- indirme sayfasi (/indir) ---------- */
 /* hero: birincil indirme aksiyonu ilk ekranda (sag panel koyu capa + bevel) */

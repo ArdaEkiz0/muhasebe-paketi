@@ -27,7 +27,7 @@
 <meta name="twitter:url" content="https://ardaekiz0.github.io/muhasebe-paketi/sgk-en.html">
 <meta name="twitter:image" content="https://ardaekiz0.github.io/muhasebe-paketi/og-image.png">
 <meta name="theme-color" content="#2563eb">
-<link rel="stylesheet" href="style.css?v=20261115b">
+<link rel="stylesheet" href="style.css?v=20261116a">
 <style>
 .hero--paket .hero__copy { grid-column: 1 / span 8; }
 .hero--paket .hero__aside {
@@ -64,7 +64,11 @@
 .sablon thead th { font-weight: 500; color: var(--muted); border-top: 0; }
 .sablon td { font-variant-numeric: tabular-nums; }
 .runin__col { grid-column: 1 / span 7; }
-@media (max-width: 64em) { .runin__col { grid-column: 1 / -1; } }
+.runin__gorsel { grid-column: 8 / span 5; align-self: start; }
+@media (max-width: 64em) {
+  .runin__col { grid-column: 1 / -1; }
+  .runin__gorsel { grid-column: 1 / -1; margin-top: 2rem; }
+}
 /* two cards in the price section; the default 3-column grid left one empty */
 @media (min-width: 64.01em) { .plans--ikili { grid-template-columns: 1.16fr 1fr; } }
 @media (max-width: 64em) {
@@ -96,8 +100,8 @@
     <div class="hero__inner wrap">
       <div class="hero__copy">
         <h1 class="display lines">
-          <span class="line"><span data-line style="--i:0">A hundred producers</span></span>
-          <span class="line"><span data-line style="--i:1">from one Excel file.</span></span>
+          <span class="line"><span data-line style="--i:0">A hundred farms,</span></span>
+          <span class="line"><span data-line style="--i:1">one Excel.</span></span>
         </h1>
         <p class="lead" data-rise style="--i:3">It reads agricultural withholding lines from Excel and enters them into the SGK TAKEP screen producer by producer. The base and the Bağ-Kur withholding are written to the kuruş; when the run ends it tells you how many records went through and which tax number failed.</p>
         <div class="hero__actions" data-rise style="--i:4">
@@ -122,7 +126,35 @@
       <p class="run" data-reveal><b>Sign in yourself.</b> Chrome opens and goes to the SGK page. You enter the user code and password; the program does not store your session. When you are in, you press a key and the run starts.</p>
       <p class="run" data-reveal><b>The program enters.</b> For each producer it queries the tax number, writes the base and withholding into the fields, saves, and moves on. A base of 1,000,000 TL or more is split into two records, so a single line above the limit is not rejected.</p>
       <p class="run" data-reveal><b>See the result.</b> At the end it says how many records went through and how many failed, lists the failures with tax number and message, and offers one more pass if you want it. Temporary failures such as a dropped session are recovered in that pass.</p>
-    </div>
+      </div>
+      <aside class="runin__gorsel" data-reveal>
+        <div class="ui" data-ui="sgk-kuyruk" aria-label="SGK E-Withholding: producer queue read from Excel and entry status">
+          <div class="ui__bar">
+            <span class="ui__title">SGK E-Withholding</span>
+            <span class="ui__meta">Entry queue · agricultural withholding</span>
+          </div>
+          <div class="ui__toolbar">
+            <span class="chip">EXCEL LOADED</span>
+            <span class="chip">TEMPLATE OK</span>
+            <span class="chip chip--ghost">48 producers</span>
+          </div>
+          <table>
+            <thead>
+              <tr><th>#</th><th>Title</th><th class="num">Base</th><th>Status</th></tr>
+            </thead>
+            <tbody>
+              <tr class="is-flagged"><td>12</td><td>Ahmet Yilmaz</td><td class="num">48,000.00</td><td><span class="chip chip--flag">ENTERING</span></td></tr>
+              <tr><td>11</td><td>Mehmet Kaya</td><td class="num">96,500.00</td><td><span class="chip">ENTERED</span></td></tr>
+              <tr><td>10</td><td>Ayse Demir</td><td class="num">1,250,000.00</td><td><span class="chip">ENTERED</span></td></tr>
+              <tr class="is-ghost"><td>9</td><td>Nuran Celik</td><td class="num">1,000,000.00</td><td><span class="chip chip--ghost">WAITING</span></td></tr>
+            </tbody>
+          </table>
+          <div class="ui__foot">
+            <span>You sign in, <b>the program never knows your password</b></span>
+            <span class="nums">48 records · 1 pass</span>
+          </div>
+        </div>
+      </aside>
   </section>
 
   <!-- ================= SCREENS ================= -->
@@ -172,6 +204,7 @@
                 <tr class="is-flagged"><td><span class="chip chip--flag">ERROR</span></td><td>Hasan Öztürk</td><td class="num">20123456780</td><td>Base limit reached, split into two.</td></tr>
                 <tr class="is-ghost"><td><span class="chip chip--ghost">RETRY</span></td><td>Zeynep Aksoy</td><td class="num">11223344556</td><td>Session dropped, retried once.</td></tr>
                 <tr><td><span class="chip">OK</span></td><td>Ayşe Demir</td><td class="num">45678901234</td><td>Record passed.</td></tr>
+                <tr><td><span class="chip">OK</span></td><td>Mehmet Kaya</td><td class="num">56789012345</td><td>Record passed.</td></tr>
               </tbody>
             </table>
           </div>
@@ -289,7 +322,7 @@
   <section class="contact wrap" id="iletisim">
     <div class="contact__grid">
       <div class="contact__col">
-        <p class="contact__prompt"><span>How many producers do you enter?</span><span class="soft">Write to us.</span></p>
+        <p class="contact__prompt"><span>How many do you enter?</span><span class="soft">Write to us.</span></p>
         <form class="contact__form" novalidate data-subject="SGK Withholding: licence and questions">
           <div class="contact__field">
             <label class="sr-only" for="eposta">Your e-mail address</label>
@@ -328,16 +361,12 @@
     <a class="link" href="lisans-en.html">Licence terms</a>
     <a class="link" href="sgk.html" lang="tr">Türkçe</a>
   </nav>
-  <span class="muted">© 2026 Arda Ekiz</span>
+  <span class="muted">© 2026 Arda Ekiz · This site uses no cookies, analytics or tracking scripts.</span>
   <span class="end"><a class="link" href="indir-en/">Download · v3.1.90</a></span>
 </footer>
 
 <script src="vendor/gsap.min.js"></script>
 <script src="vendor/ScrollTrigger.min.js"></script>
 <script src="app.js"></script>
-<aside class="cookie-note" id="cerez-notu" role="note" aria-label="Cookie note" hidden>
-  <p>This site uses no cookies, analytics or tracking scripts. Only a small preference is kept in your browser so this note stays closed once you dismiss it.</p>
-  <button type="button" data-cerez-kapat>Got it</button>
-</aside>
 </body>
 </html>
