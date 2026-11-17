@@ -2,7 +2,7 @@
 <html lang="tr">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; media-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'"><meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'"><meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>KDV Çapraz Kontrol · Satış faturalarınızı muavin defterinizle karşılaştırın</title>
 <meta name="description" content="e-Fatura, MAHSUP fişi ve Excel faturalarınızı muavin defterinizle (KDV kontrol cetveliyle) karşılaştırır; eksik, hatalı ve mükerrer KDV kayıtlarını sonucuyla birlikte listeleyen Windows masaüstü uygulaması.">
@@ -33,7 +33,7 @@
 <meta name="theme-color" content="#2563eb">
 <link rel="preload" href="vendor/fonts/ClashGrotesk-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="vendor/fonts/ClashGrotesk-600.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=20261117a">
+<link rel="stylesheet" href="style.css?v=20261117b">
 <style>
 /* Fiyat bölümünde iki kart var (modül + üç modül birlikte); varsayılan
    3 sütun grid üçüncü sütunu boş bırakıyordu. */
@@ -230,6 +230,16 @@
       </div>
       <p class="run" data-reveal><b>Kaydedin.</b> Excel raporu, PDF raporu, Ba/Bs formu ve muhasebeci paketini tek tıkla alın. Her kontrol bir önceki kontrolle otomatik karşılaştırılır; yeni eksik ve çözülen belgeler özet şeridinde işaretlenir.</p>
     </div>
+  </section>
+
+  <!-- ================= KULLANIM VIDEOSU ================= -->
+  <section class="section wrap" id="video">
+    <h2 class="head">Bir kez izleyin,<br>anlarsınız.</h2>
+    <p class="lead">Klasör seçimi, kontrol ve bir sonraki kontrolün karşılaştırması — gerçek uygulamada, örnek veriyle, 50 saniyede.</p>
+    <figure class="shot shutter" data-reveal>
+      <video controls preload="metadata" poster="kdv-kullanim-poster.webp" width="1280" height="584" playsinline src="kdv-kullanim.mp4"></video>
+      <figcaption class="caption">Kullanım kaydı · ilk kontrol, ardından yeni faturayla ikinci kontrol; farklar özet şeridinde işaretlenir.</figcaption>
+    </figure>
   </section>
 
   <!-- ================= ÜRÜN SAHNESİ (three.js) ================= -->

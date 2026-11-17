@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; media-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'"><meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'"><meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>KDV Cross-Check · Compare your sales invoices against your VAT ledger</title>
 <meta name="description" content="Compares your sales invoices (e-Invoice, VAT offset slips, Excel) against your VAT ledger (KDV control list) and lists missing, incorrect and duplicated VAT entries with their results; a Windows desktop application.">
@@ -33,7 +33,7 @@
 <meta name="theme-color" content="#2563eb">
 <link rel="preload" href="vendor/fonts/ClashGrotesk-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="vendor/fonts/ClashGrotesk-600.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=20261117a">
+<link rel="stylesheet" href="style.css?v=20261117b">
 <style>
 /* Fiyat bölümünde iki kart var (modül + üç modül birlikte); varsayılan
    3 sütun grid üçüncü sütunu boş bırakıyordu. */
@@ -230,6 +230,16 @@
       </div>
       <p class="run" data-reveal><b>Save.</b> Get your Excel report, PDF report, Ba/Bs form and accountant package in one click. Each run is compared against the previous one; newly missing and resolved documents are flagged in the summary strip.</p>
     </div>
+  </section>
+
+  <!-- ================= USAGE VIDEO ================= -->
+  <section class="section wrap" id="video">
+    <h2 class="head">Watch it once,<br>you'll get it.</h2>
+    <p class="lead">Folder selection, the check, and the next run's comparison — in the real app, with sample data, in 50 seconds.</p>
+    <figure class="shot shutter" data-reveal>
+      <video controls preload="metadata" poster="kdv-kullanim-poster.webp" width="1280" height="584" playsinline src="kdv-kullanim.mp4"></video>
+      <figcaption class="caption">Usage recording · the first check, then a second run with a new invoice; the differences are flagged in the summary strip.</figcaption>
+    </figure>
   </section>
 
   <!-- ================= PRODUCT SCENE (three.js) ================= -->

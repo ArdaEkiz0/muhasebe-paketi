@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; media-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'"><meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'"><meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Accounting Suite · Three modules, one installer, one licence per module</title>
 <meta name="description" content="KDV Cross-Check, Luca Trial Balance Check and SGK Withholding in one installer. Each module is free for 15 days; the module you buy unlocks, the others stay locked until their own licence. Annual per-device licence, prices exclude VAT.">
@@ -29,7 +29,7 @@
 <meta name="theme-color" content="#2563eb">
 <link rel="preload" href="vendor/fonts/ClashGrotesk-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="vendor/fonts/ClashGrotesk-600.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=20261117a">
+<link rel="stylesheet" href="style.css?v=20261117b">
 <script src="js-baslat.js"></script>
 <script type="application/ld+json">
 {
@@ -365,6 +365,10 @@
         <p class="lead">The result screen in the real app, sample data.</p>
       </div>
       <div class="ekranlar__stek">
+        <figure>
+          <video controls preload="metadata" poster="kdv-kullanim-poster.webp" width="1280" height="584" playsinline src="kdv-kullanim.mp4"></video>
+          <figcaption>Usage recording · folder selection, the check, and the second run's comparison (sample data, ~50 s)</figcaption>
+        </figure>
         <figure>
           <picture><source type="image/webp" srcset="ekran-uygulama.webp"><img src="ekran-uygulama.png" alt="KDV Cross Check window: file selection, toolbar, colour-coded result table and status counters" width="1800" height="1000" loading="lazy"></picture>
           <figcaption>KDV Cross Check · result screen after a run (sample data)</figcaption>
