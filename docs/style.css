@@ -420,7 +420,6 @@ b, strong { font-weight: 600; }
   background: var(--surface);
 }
 .shot img { width: 100%; display: block; }
-.shot video { width: 100%; height: auto; display: block; background: #000; }
 /* webp katmani: <img> artik <picture> icinde; yerlesim eskisi gibi kalsin */
 .shot picture, .showcase__pane picture { display: block; }
 .shot--crop picture { height: 100%; }
@@ -482,7 +481,6 @@ b, strong { font-weight: 600; }
 .ekranlar__head .lead { color: var(--stage-ink); margin-top: 1.25rem; }
 .ekranlar figure { margin: 0; }
 .ekranlar img { width: 100%; display: block; }
-.ekranlar video { width: 100%; height: auto; display: block; background: #000; border-radius: var(--radius); }
 .ekranlar figcaption { margin-top: 0.7rem; color: var(--ink-soft); font-size: var(--step-small); }
 .ekranlar__stek {
   display: grid; gap: 12px; align-items: start;
