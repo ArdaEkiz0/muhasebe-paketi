@@ -55,7 +55,7 @@
       <span class="line"><span data-line style="--i:1">plainly and narrowly.</span></span>
     </h1>
     <p class="lead">KDV Cross-Check collects only a few technical values for license verification. Every item and its purpose are listed below, including the device fingerprint and IP address.</p>
-    <p class="small muted">Last updated: 3 November 2026</p>
+    <p class="small muted">Last updated: 19 November 2026</p>
   </section>
 
   <section class="wrap legal">
@@ -107,7 +107,17 @@
     </table>
 
     <h2>What stays on your computer</h2>
-    <p>Your invoices, ledger records, control tables and every generated report are processed and stored only on your own computer. They are never sent to the server. There is no telemetry, usage analytics or screen recording in the application.</p>
+    <p>Your invoices, ledger records, control tables and every generated report are processed and stored only on your own computer. They are never sent to the server. There is no screen recording or hidden collector running in the background; the only optional data feature is the anonymous usage statistics described below, and nothing is sent unless you turn it on.</p>
+
+    <h2>Optional anonymous usage statistics</h2>
+    <p>The switch on the application's <strong>Settings</strong> screen is <strong>off by default</strong>. While it is off, no usage data is collected or sent; the feature only runs with your explicit consent.</p>
+    <p>When you turn it on, the application periodically sends the following to the licence server (Cloudflare):</p>
+    <ul class="legal__list">
+      <li><strong>Event type and date:</strong> how many times you opened the application, ran an audit, downloaded a report, checked for an update or hit a crash, and on which days.</li>
+      <li><strong>Numeric counters:</strong> values such as audit duration and the number of errors, warnings and processed lines.</li>
+      <li><strong>Application version</strong> and a <strong>random device ID</strong> generated at first install. It is not linked to your hardware or identity; it only serves to count distinct devices.</li>
+    </ul>
+    <p>This data <strong>contains no text fields at all</strong>: company names, tax numbers, client names and file names cannot be sent — the software is written so that only numbers and predefined short codes can leave your machine. On the server, data is kept as counters aggregated per day, event type and version, not per customer. Crash reports themselves stay on your computer; only the fact that a crash occurred is counted. Turning the switch off stops all further transmission.</p>
 
     <h2>Collection method and legal basis</h2>
     <p>The technical data above is collected by the automatic HTTPS request the application makes at startup. The legal basis is the performance of the license contract and our legitimate interest (preventing license abuse).</p>
@@ -122,7 +132,7 @@
         <tr>
           <td>Cloudflare, Inc. (Workers, KV)</td>
           <td>United States and global edge locations</td>
-          <td>Device fingerprint, IP address, operating system, application version</td>
+          <td>Device fingerprint, IP address, operating system, application version; if the statistics switch is on, anonymous numeric counters and a random device ID</td>
           <td>Licence verification and record keeping</td>
         </tr>
         <tr>
@@ -142,7 +152,7 @@
     <p>The storage location cannot be chosen, so the transfer is inseparable from the service. For that reason the application asks for your <strong>explicit consent</strong> to the transfer abroad on first launch; without consent it does not open. Your consent is stored, with its date and text version, on your own computer in <code>%USERPROFILE%\.kdv_kontrol\kvkk_onay.json</code>. You may withdraw it at any time by writing to <a class="link" href="mailto:ardaekiz72@gmail.com">ardaekiz72@gmail.com</a>.</p>
 
     <h2>Cookies and tracking</h2>
-    <p>This site uses no cookies, analytics or tracking scripts; fonts and icons are served from our own domain, so no third-party CDN request is made while you visit. The application contains no component that collects usage data.</p>
+    <p>This site uses no cookies, analytics or tracking scripts; fonts and icons are served from our own domain, so no third-party CDN request is made while you visit. The application collects no usage data unless you turn on the statistics switch described above.</p>
 
     <h2>Retention period</h2>
     <ul class="legal__list">

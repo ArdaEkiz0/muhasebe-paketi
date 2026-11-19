@@ -55,7 +55,7 @@
       <span class="line"><span data-line style="--i:1">açıkça ve sınırlı.</span></span>
     </h1>
     <p class="lead">KDV Çapraz Kontrol yalnız lisans doğrulaması için birkaç teknik veri toplar. Aşağıda hangi verinin, neden işlendiği eksiksiz listelenmiştir.</p>
-    <p class="small muted">Son güncelleme: 3 Kasım 2026</p>
+    <p class="small muted">Son güncelleme: 19 Kasım 2026</p>
   </section>
 
   <section class="wrap legal">
@@ -107,7 +107,17 @@
     </table>
 
     <h2>Bilgisayarınızda kalan veriler</h2>
-    <p>Faturalarınız, muavin defteri kayıtlarınız, kontrol cetvelleriniz ve üretilen tüm raporlar yalnızca kendi bilgisayarınızda işlenir ve saklanır. Bu veriler sunucuya gönderilmez. Uygulamada telemetri, kullanım analizi veya ekran kaydı yoktur.</p>
+    <p>Faturalarınız, muavin defteri kayıtlarınız, kontrol cetvelleriniz ve üretilen tüm raporlar yalnızca kendi bilgisayarınızda işlenir ve saklanır. Bu veriler sunucuya gönderilmez. Uygulamada ekran kaydı veya arka planda çalışan gizli bir toplayıcı yoktur; tek seçenekli veri özelliği aşağıdaki anonim kullanım istatistiğidir ve siz anahtarı açmadıkça hiçbir veri gönderilmez.</p>
+
+    <h2>İsteğe bağlı anonim kullanım istatistiği</h2>
+    <p>Uygulamanın <strong>Ayarlar</strong> ekranındaki anahtar <strong>varsayılan olarak kapalıdır</strong>. Kapalıyken hiçbir kullanım verisi toplanmaz ve gönderilmez; özellik ancak sizin açmanızla, yani açık rızanızla (KVKK m.5/1) çalışır.</p>
+    <p>Anahtarı açtığınızda uygulama, belirli aralıklarla lisans sunucusuna (Cloudflare) şunları gönderir:</p>
+    <ul class="legal__list">
+      <li><strong>Olay türü ve tarih:</strong> uygulamayı kaç kez açtığınız, kaç denetim çalıştırdığınız, kaç rapor indirdiğiniz, güncelleme denediğiniz veya çökmeyle karşılaştığınız ve bunların hangi tarihte olduğu.</li>
+      <li><strong>Sayısal sayaçlar:</strong> denetim süresi ile hata, uyarı ve işlenen satır sayısı gibi yalnızca sayı değerleri.</li>
+      <li><strong>Uygulama sürümü</strong> ve ilk kurulumda üretilen <strong>rastgele bir cihaz numarası</strong>. Bu numara donanımınızla veya kimliğinizle ilişkili değildir; kaç ayrı cihazda kullanıldığını saymaya yarar.</li>
+    </ul>
+    <p>Bu veriler <strong>hiçbir metin alanı içermez</strong>: firma adı, vergi kimlik numarası, mükellef bilgisi, dosya veya klasör adı gönderilemez; yazılım teknik olarak yalnızca sayı ve önceden tanımlı kısa kodlar gönderecek biçimde yazılmıştır. Sunucuda veriler müşteri müşteri değil, gün–olay türü–sürüm bazında toplanmış sayılar olarak tutulur. Çökme raporlarının kendisi yine kendi bilgisayarınızda kalır; istatistiğe yalnızca "kaç kez çöktü" sayısı girer. Anahtarı kapattığınızda yeni veri gönderimi tamamen durur.</p>
 
     <h2>Toplama yöntemi ve dayanak</h2>
     <p>Yukarıdaki teknik veriler, uygulamanın açılışında yaptığı otomatik HTTPS isteğiyle toplanır. İşlemenin dayanağı, lisans sözleşmesinin kurulması ve ifası ile meşru menfaatimizdir (lisans suistimalinin önlenmesi).</p>
@@ -122,7 +132,7 @@
         <tr>
           <td>Cloudflare, Inc. (Workers, KV)</td>
           <td>ABD ve küresel uç noktalar</td>
-          <td>Cihaz parmak izi, IP adresi, işletim sistemi, uygulama sürümü</td>
+          <td>Cihaz parmak izi, IP adresi, işletim sistemi, uygulama sürümü; istatistik anahtarı açıksa anonim sayısal sayaçlar ve rastgele cihaz numarası</td>
           <td>Lisans doğrulama ve kayıt tutma</td>
         </tr>
         <tr>
@@ -142,7 +152,7 @@
     <p>Saklama adresi seçilebilir olmadığı için aktarım bu hizmetin ayrılmaz parçasıdır. Bu nedenle uygulama ilk açılışta yurt dışı aktarım için <strong>açık rızanızı</strong> ister; onay vermezseniz uygulama açılmaz. Onayınız tarih ve metin sürümüyle birlikte kendi bilgisayarınızda <code>%USERPROFILE%\.kdv_kontrol\kvkk_onay.json</code> dosyasında saklanır. Onayınızı <a class="link" href="mailto:ardaekiz72@gmail.com">ardaekiz72@gmail.com</a> adresine yazarak dilediğiniz zaman geri alabilirsiniz.</p>
 
     <h2>Çerez ve izleme</h2>
-    <p>Bu sitede çerez, analitik veya takip betiği yoktur; yazı tipleri ve ikonlar kendi sunucumuzdan yüklenir, ziyaretiniz sırasında üçüncü taraf bir CDN'e istek gitmez. Uygulamada kullanım verisi toplayan bir bileşen yoktur.</p>
+    <p>Bu sitede çerez, analitik veya takip betiği yoktur; yazı tipleri ve ikonlar kendi sunucumuzdan yüklenir, ziyaretiniz sırasında üçüncü taraf bir CDN'e istek gitmez. Uygulamada ise, yukarıda anlatılan anahtarı siz açmadıkça hiçbir kullanım verisi toplanmaz.</p>
 
     <h2>Saklama süresi</h2>
     <ul class="legal__list">
