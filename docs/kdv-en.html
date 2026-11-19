@@ -34,6 +34,7 @@
 <link rel="preload" href="vendor/fonts/ClashGrotesk-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="vendor/fonts/ClashGrotesk-600.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="style.css?v=20261117c">
+<link rel="stylesheet" href="driver-hints.1.14.0.css">
 <style>
 /* Fiyat bölümünde iki kart var (modül + üç modül birlikte); varsayılan
    3 sütun grid üçüncü sütunu boş bırakıyordu. */
@@ -43,7 +44,14 @@
   .plans--ikili .plan--lead { grid-column: auto; }
 }
 </style>
+<style>
+/* driver.js hint beacon: amber for contrast on the blue download button */
+.driver-hint { --driver-hint-color: #f59e0b; --driver-hint-size: 28px; }
+.driver-popover { font-family: inherit; }
+</style>
 <script src="js-baslat.js"></script>
+<script src="driver-hints.1.14.0.js" defer></script>
+<script src="ipucu-baslat.js" defer></script>
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -172,7 +180,7 @@
         </h1>
         <p class="lead" data-rise style="--i:3">Checks e-Invoices, VAT offset slips and Excel invoices against your VAT ledger; lists what's missing, wrong or duplicated. A record missing from the ledger is a sale left undeclared — left alone, it returns as tax, penalty and interest.</p>
         <div class="hero__actions" data-rise style="--i:4">
-          <a class="button" href="https://github.com/ArdaEkiz0/muhasebe-paketi/releases/latest/download/Muhasebe-Paketi-kurulum.exe" data-press>Download for free</a>
+          <a id="hero-indir" class="button" href="https://github.com/ArdaEkiz0/muhasebe-paketi/releases/latest/download/Muhasebe-Paketi-kurulum.exe" data-press>Download for free</a>
           <a class="link" href="#how">How it works?</a>
         </div>
         <p class="hero__meta small muted" data-rise style="--i:5">Runs on Windows 10 and 11 · Installer or portable · Free trial</p>
@@ -531,7 +539,7 @@
       <dl class="contact__rows">
         <div><dt>Phone</dt><dd><a class="link" href="tel:+905462083854">0546 208 38 54</a></dd></div>
         <div><dt>E-mail</dt><dd><a class="link" href="mailto:ardaekiz72@gmail.com">ardaekiz72@gmail.com</a></dd></div>
-        <div><dt>Version</dt><dd class="nums">v3.1.91</dd></div>
+        <div><dt>Version</dt><dd class="nums">v3.1.92</dd></div>
       </dl>
     </div>
   </section>
@@ -555,7 +563,7 @@
     <a class="link" href="kdv.html" lang="tr">Türkçe</a>
   </nav>
   <span class="muted">© 2026 Arda Ekiz · This site uses no cookies, analytics or tracking scripts.</span>
-  <span class="end"><a class="link" href="indir-en/">Download · v3.1.91</a></span>
+  <span class="end"><a class="link" href="indir-en/">Download · v3.1.92</a></span>
 </footer>
 
 <script src="vendor/gsap.min.js" defer></script>
