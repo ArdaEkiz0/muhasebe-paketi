@@ -115,7 +115,7 @@
     <p>Every third-party component inside the application (libraries and native runtimes included) is published in the <a class="link" href="https://github.com/ArdaEkiz0/muhasebe-paketi/releases/latest/download/SBOM.json">SBOM.json</a> list. The list is CycloneDX 1.5 and is extracted directly from the shipped package: each componentâ€™s version, licence and dependencies, plus the SHA-256 of the native runtime files.</p>
     <p>You can also inspect the files with independent security engines; the links open VirusTotal by the fileâ€™s own SHA-256:</p>
     <ul class="legal__list">
-      <li><a class="link" href="https://www.virustotal.com/gui/file/1e446b982be4b2c83e6a790344c32bb11de25709129b0bd901128b1ecdefd95d">Package installer · VirusTotal</a></li>
+      <li><a class="link" href="https://www.virustotal.com/gui/file/60d419c65e023b1f82f9e969c6239517fd134127c5b434b677903f1a9ea1c66d">Package installer · VirusTotal</a></li>
       <li><a class="link" href="https://www.virustotal.com/gui/file/5e5ade2776acdcd5c74e5407d0e65ea263863a450936a8242e5c26aef6b6a3ee">Portable package · VirusTotal</a></li>
     </ul>
     <p>VirusTotal only scans files that are submitted to it; a freshly released version may show <em>Item not found</em> â€” that is not a scan result, it means the record does not exist yet. Meanwhile you can verify the file yourself: in PowerShell, <code>Get-FileHash .\Muhasebe-Paketi-kurulum.exe -Algorithm SHA256</code> must match the value in <a class="link" href="https://github.com/ArdaEkiz0/muhasebe-paketi/releases/latest/download/SHA256SUMS.txt">SHA256SUMS.txt</a> exactly.</p>
