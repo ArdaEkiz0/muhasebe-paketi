@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; media-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'"><meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KDV Çapraz Kontrolü Nasıl Yapılır? Adım Adım Rehber — Muhasebe Paketi</title>
+<meta name="description" content="Satış faturalarınızı muavin defteriyle karşılaştırmanın adım adım yolu: hangi belgeler hazırlanır, Excel'de elle kontrol nasıl kurulur, beş sonuç türü nasıl düzeltilir ve beyan öncesi rutin nasıl kurulur.">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://ardaekiz0.github.io/muhasebe-paketi/rehber-kdv-capraz-kontrol.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Muhasebe Paketi">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:url" content="https://ardaekiz0.github.io/muhasebe-paketi/rehber-kdv-capraz-kontrol.html">
+<meta property="og:title" content="KDV Çapraz Kontrolü Nasıl Yapılır? Adım Adım Rehber">
+<meta property="og:description" content="Belge hazırlığından Excel'de elle kontrole, fark türlerinin düzeltilmesinden beyan öncesi rutin kurmaya kadar tam rehber.">
+<meta property="og:image" content="https://ardaekiz0.github.io/muhasebe-paketi/og-kdv.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2563eb">
+<link rel="preload" href="vendor/fonts/ClashGrotesk-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="vendor/fonts/ClashGrotesk-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css?v=20261117c">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Article",
+   "@id": "https://ardaekiz0.github.io/muhasebe-paketi/rehber-kdv-capraz-kontrol.html#makale",
+   "headline": "KDV Çapraz Kontrolü Nasıl Yapılır? Adım Adım Rehber",
+   "description": "Satış faturalarını muavin defteriyle karşılaştırmanın adım adım yolu; Excel'de elle kontrol ve fark türlerinin düzeltilmesi.",
+   "inLanguage": "tr",
+   "author": { "@id": "https://ardaekiz0.github.io/muhasebe-paketi/#kurulus" },
+   "publisher": { "@id": "https://ardaekiz0.github.io/muhasebe-paketi/#kurulus" },
+   "dateModified": "2026-11-22"
+  },
+  {
+   "@type": "Organization",
+   "@id": "https://ardaekiz0.github.io/muhasebe-paketi/#kurulus",
+   "name": "Muhasebe Paketi",
+   "url": "https://ardaekiz0.github.io/muhasebe-paketi/"
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "KDV çapraz kontrolü ne sıklıkla yapılmalı?",
+     "acceptedAnswer": { "@type": "Answer", "text": "En azından her beyanname vermeden önce bir kez. Ay içinde fatura trafiği yoğunsa ay ortasında hızlı bir ara kontrol yapmak, düzeltme penceresi açıkken farkları görmeyi sağlar." }
+    },
+    {
+     "@type": "Question",
+     "name": "Elle (Excel ile) kontrol yeterli mi?",
+     "acceptedAnswer": { "@type": "Answer", "text": "Düşük hacimli dosyalarda evet; XLOOKUP ile belge numarası eşleştirmesi temeli kurar. Yüzlerce satırda tutar, matrah ve KDV oranı karşılaştırması, mükerrer tespiti ve düzeltme fişi takibi elle yorucu ve hataya açık hale gelir." }
+    },
+    {
+     "@type": "Question",
+     "name": "Fark çıkarsa düzeltme nasıl yapılır?",
+     "acceptedAnswer": { "@type": "Answer", "text": "Önce farkın yönü belirlenir: kayıt eksikse kaydı tamamlamak, kayıt fazla veya hatalıysa düzeltme (vesair) fişi düzenlemek gerekir. Dönem kapanmışsa ilgili dönemi kapsayan K1 düzeltme beyannamesi verilir; gecikilen her gün faiz işlediği için fark ne kadar erken bulunursa düzeltme o kadar ucuzlar." }
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+
+<header class="wrap">
+  <nav class="nav" aria-label="Ana menü">
+    <a class="nav__mark link" href="index.html">Muhasebe Paketi</a>
+    <div class="nav__links">
+      <a class="link" href="kdv.html">KDV Çapraz Kontrol</a>
+      <a class="link" href="mizan.html">Luca Mizan</a>
+      <a class="link" href="sgk.html">SGK E-Kesinti</a>
+      <a class="link hide-phone" href="index.html#fiyatlar">Fiyatlar</a>
+      <a class="link" href="indir/">İndir</a>
+      <a class="link" href="index-en.html" lang="en">English</a>
+    </div>
+  </nav>
+</header>
+
+<main id="ust">
+
+  <section class="hero">
+    <div class="hero__inner wrap">
+      <div class="hero__copy">
+        <h1 class="display"><span class="line"><span data-line style="--i:0">KDV çapraz kontrolü</span></span><span class="line"><span data-line style="--i:1">nasıl yapılır?</span></span></h1>
+        <p class="lead" data-rise style="--i:3">Fatura tarafındaki kayıt ile defter tarafındaki kaydı satır satır karşılaştırmanın tam yolu. Adımlar elle de uygulanabilir; Muhasebe Paketi aynı kontrolü dakikalar içinde otomatik yapar. Bu rehber önce mantığı, sonra iki yolu anlatır.</p>
+        <div class="hero__actions" data-rise style="--i:4">
+          <a class="button" href="indir/" data-press>Ücretsiz dene</a>
+          <a class="link" href="#adim-1">Rehbere başla</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section wrap" id="neden">
+    <h2 class="head">Önce mantık: neden iki taraf karşılaştırılır?</h2>
+    <p>Kesilen her satış faturasının muavin defterde (KDV kontrol cetvelinde) bir karşılığı vardır; defterdeki her KDV kaydının da bir dayanak belgesi. İki taraf birebir örtüştüğünde beyannameniz dayanak belgelerle güvence altındadır. Örtüşmediğinde tablo şudur:</p>
+    <p><b>Faturada var, defterde yok:</b> o teslim beyana girmez. KDV hesaplanıp beyan edilmediği için <b>eksik beyan</b> doğar; tarhiyat, vergi ziyaı cezası ve gecikme faizi mükellefe döner.</p>
+    <p><b>Defterde var, faturada yok:</b> dayanağı olmayan kayıt, KDV indirimi veya hesaplaması risksiz değildir; indirim reddi veya mükerrer kayıt anlamına gelebilir.</p>
+    <p><b>İkisi var ama tutar farklı:</b> kısmi düzeltme fişinden yanlış aktarılan satıra kadar uzar; fark kadar matrah ve KDV sapması kalıcı olur.</p>
+    <p>Kontrolün özü tek cümle: <b>her belge numarası iki tarafta da, aynı tutarla, tam bir kez bulunmalı.</b></p>
+  </section>
+
+  <section class="section wrap" id="adim-1">
+    <h2 class="head">Adım 1 — Karşılaştırma gününü seçin</h2>
+    <p>Çapraz kontrol, iki tarafın <b>aynı zaman kesitini</b> görmesini gerektirir. Beyan vermeden önceki gün en doğal zamandır: beyanname henüz gönderilmemiş, düzeltme penceresi açıktır. Bir dönem kapanıp beyan verildiyse kontrol yine yapılır; bulunan fark bu kez düzeltme beyannamesi gerektirir, ki her gün faiz demektir.</p>
+    <p>Seçtiğiniz tarih, her iki taraftan alacağınız raporun da kesim tarihidir. Bir taraf bayramdan önceki Cuma'nın, diğer taraf Salı'nın kayıtlarını gösteriyorsa ortaya çıkan "fark" gerçek değil zamanlama farkıdır.</p>
+  </section>
+
+  <section class="section wrap" id="adim-2">
+    <h2 class="head">Adım 2 — Fatura tarafını toplayın</h2>
+    <p>Fatura tarafı sizin kestiğiniz belgelerin bütünüdür:</p>
+    <ul>
+      <li>e-Fatura / e-Arşiv PDF ve XML çıktıları (GİB portalı, entegratör paneli veya muhasebe programı ekranlarından dönem dönem klasörlere alın).</li>
+      <li>Kâğıt düzen devam ediyorsa Excel/PDF fatura listeleri.</li>
+      <li>İade faturaları: üstü çizilip "iptal" yazılmaz; iade belgesi olarak listede durur.</li>
+    </ul>
+    <p>Her fatura bir kez ve tam olmalı. Arşivi ay/çalışan bazlı alt klasörlere ayırmak karışmayı keser; iç içe klasörleri de tarayan araçlar bu düzeni bozmadan okur.</p>
+  </section>
+
+  <section class="section wrap" id="adim-3">
+    <h2 class="head">Adım 3 — Defter tarafını çıkarın</h2>
+    <p>Muavin defteri (KDV kontrol cetveli), aynı döneme ait kayıtların belge numarası, VKN/TCKN, matrah ve KDV kırılımıdır. Muhasebe programınızdan (LUCA, Logo, Mikro ve benzerleri) <b>Excel veya PDF</b> olarak dışa aktarın; dışa aktarımda belge numarası kolonu mutlaka bulunmalı — eşleştirmenin anahtarı odur.</p>
+  </section>
+
+  <section class="section wrap" id="adim-4">
+    <h2 class="head">Adım 4 — Elle (Excel) yol: iki sütunun dansı</h2>
+    <p>Elle kontrol, hacim düşükse iş görür; mantığı bilmek programlı kontrolün sonucunu okumayı da kolaylaştırır:</p>
+    <ol>
+      <li><b>İki sayfa açın:</b> biri faturalar (Belge No, Tarih, Matrah, KDV), diğeri muavin (Belge No, VKN, Matrah, KDV).</li>
+      <li><b>Anahtar hazırlayın:</b> belge numarası tek başına yetmeyebilir; numara değişimini önlemek için iki tarafta da no'yu metne çevirin (<code>=METNEÇEVİR(A2)</code>).</li>
+      <li><b>İki yönlü XLOOKUP:</b> fatura sayfasına <code>=XLOOKUP(A2;Muavin!A:A;Muavin!D:D;"MUAVİNDE YOK")</code>; muavin sayfasına aynı formülün tersi. <code>MUAVİNDE YOK</code> ve <code>FATURADA YOK</code> dönen satırlar listenizdir.</li>
+      <li><b>Eşleşenlerde tutar karşılaştırması:</b> matrah ve KDV için ayrı XLOOKUP fark sütunları; sıfır olmayan her satır inceleme ister.</li>
+      <li><b>Mükerrer avı:</b> her iki sayfada <code>=EĞERSAY(A:A;A2)</code> — birden büyük değer aynı belgenin iki kez kaydıdır.</li>
+      <li><b>Kısmi düzeltmeleri işaretleyin:</b> asıl belgeye bağlı üstü çizili/mahsup fişleri ham eşleştirmede "eksik" görünür; elle ayıklamak sizin işinizdir.</li>
+    </ol>
+    <p>Bu yol yüzlerce satırda yorucu, binlerce satırda güvenilmez hâle gelir; KDV oranı kırılımı ve ay-satış geçişleri (fatura bu ay, kayıt gelecek ay) elle takipte en sık kaçan farklardır.</p>
+  </section>
+
+  <section class="section wrap" id="adim-5">
+    <h2 class="head">Adım 5 — Otomatik yol: iki klasör, tek sonuç</h2>
+    <p><a class="link" href="kdv.html">KDV Çapraz Kontrol</a> modülü aynı işi iki klasörü göstererek yapar: fatura klasörü ile muavin klasörünü seçersiniz; program PDF/XML/Excel karışımını ve alt klasörleri tarar, belge numarasıyla eşler, matrah/KDV karşılaştırmasını ve mükerrer taramasını yapar. Bulunan her satır durumla etiketlenir: <b>eşleşti, tutar farkı, VKN farkı, muavinde yok, faturalarda yok, mükerrer.</b> Bir önceki kontrolle otomatik kıyaslama, yeni açılan ve kapanan farkları ayrıca gösterir; sonuç Excel/PDF raporu ve Ba-Bs formu olarak dışa aktarılır. Veriler bilgisayarınızdan çıkmaz.</p>
+  </section>
+
+  <section class="section wrap" id="adim-6">
+    <h2 class="head">Adım 6 — Bulunan her farkı sonuçlandırın</h2>
+    <p>Kontrol, fark listesiyle bitmez; fark <b>sonucuyla</b> birlikte kapanır:</p>
+    <ul>
+      <li><b>Eksik kayıt:</b> dönem açıkken muhasebe kaydı tamamlanır; dönem kapandıysa ilgili dönemi kapsayan <b>K1 düzeltme beyannamesi</b> verilir. Erken bulunursa yalnız beyan düzelir, geç bulunursa tarhiyat + ziyaı cezası + faiz döner.</li>
+      <li><b>Fazla/mükerrer kayıt:</b> düzeltme (vesair) fişiyle geri alınır; mükerrer indirimse indirimin reddi riski doğar.</li>
+      <li><b>Tutar farkı:</b> kaynağı bulunur (kısmi düzeltme fişi, yanlış aktarım, yuvarlama); ya kayıt düzeltilir ya fişin işlenmesi tamamlanır.</li>
+      <li><b>VKN farkı:</b> alıcı bilgisi düzeltilir; yanlış VKN'ye düzenlenen e-Arşiv faturası alıcı tarafından indirilemez.</li>
+      <li><b>Zamanlama farkı:</b> kontrol günü iki tarafta aynı kesilene kadarki farktır; sonraki kontrolde kendiliğinden kapanır — kapanmıyorsa gerçek farktır.</li>
+    </ul>
+    <p>Kapanan her fark, bir sonraki kontrolün başlangıç noktası olur; döngü budur.</p>
+  </section>
+
+  <section class="section wrap" id="rutin">
+    <h2 class="head">Rutin haline getirmek</h2>
+    <p>Ayda bir, beyan öncesi gün: iki klasörü hazırla → kontrolü çalıştır → farkları sonuçlandır → raporu dosyala. Otomatik yolda bu rutin birkaç dakikadır; elle yolda yarım güne yakın sürer. Ritüel önemli çünkü en pahalı KDV hatası, hiç aranmayan hatadır.</p>
+    <div class="hero__actions">
+      <a class="button" href="indir/" data-press>Muhasebe Paketini ücretsiz dene</a>
+      <a class="link" href="kdv.html">Modülü incele</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <nav aria-label="Alt menü">
+    <a class="link" href="index.html">Muhasebe Paketi</a>
+    <a class="link" href="kdv.html">KDV Çapraz Kontrol</a>
+    <a class="link" href="mizan.html">Luca Mizan</a>
+    <a class="link" href="sgk.html">SGK E-Kesinti</a>
+    <a class="link" href="indir/">İndir</a>
+    <a class="link" href="https://github.com/ArdaEkiz0/muhasebe-paketi">GitHub</a>
+    <a class="link" href="lisans.html">Lisans</a>
+    <a class="link" href="kvkk.html">KVKK</a>
+    <a class="link" href="mesafeli-satis.html">Mesafeli satış</a>
+    <a class="link" href="iade.html">İade</a>
+  </nav>
+  <span class="muted">© 2026 Arda Ekiz — Bu sitede çerez, analitik veya takip betiği yok.</span>
+</footer>
+
+<script src="vendor/gsap.min.js" defer></script>
+<script src="vendor/ScrollTrigger.min.js" defer></script>
+<script src="scene.js" defer></script>
+<script src="app.js" defer></script>
+</body>
+</html>

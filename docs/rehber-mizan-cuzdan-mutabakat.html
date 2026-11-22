@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; media-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'"><meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mizan – Cüzdan Mutabakatı Nasıl Yapılır? Adım Adım Rehber — Muhasebe Paketi</title>
+<meta name="description" content="Dönem sonlarında mizan ile cüzdan/muavin hareketlerinin karşılaştırılması: hangi hesaplarda mutabakat şart, sapma nasıl bulunur, tipik sapma nedenleri ve dönem sonu rutini.">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://ardaekiz0.github.io/muhasebe-paketi/rehber-mizan-cuzdan-mutabakat.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Muhasebe Paketi">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:url" content="https://ardaekiz0.github.io/muhasebe-paketi/rehber-mizan-cuzdan-mutabakat.html">
+<meta property="og:title" content="Mizan – Cüzdan Mutabakatı Nasıl Yapılır? Adım Adım Rehber">
+<meta property="og:description" content="Hangi hesaplarda mutabakat şart, mutsuz satır nasıl bulunur, tipik sapma nedenleri ve dönem sonu rutini.">
+<meta property="og:image" content="https://ardaekiz0.github.io/muhasebe-paketi/og-mizan.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2563eb">
+<link rel="preload" href="vendor/fonts/ClashGrotesk-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="vendor/fonts/ClashGrotesk-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css?v=20261117c">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Article",
+   "@id": "https://ardaekiz0.github.io/muhasebe-paketi/rehber-mizan-cuzdan-mutabakat.html#makale",
+   "headline": "Mizan – Cüzdan Mutabakatı Nasıl Yapılır? Adım Adım Rehber",
+   "description": "Dönem sonlarında mizan ile cüzdan hareketlerinin karşılaştırması: mutabakat gerektiren hesaplar, sapma nedenleri ve rutin kurma.",
+   "inLanguage": "tr",
+   "author": { "@id": "https://ardaekiz0.github.io/muhasebe-paketi/#kurulus" },
+   "publisher": { "@id": "https://ardaekiz0.github.io/muhasebe-paketi/#kurulus" },
+   "dateModified": "2026-11-22"
+  },
+  {
+   "@type": "Organization",
+   "@id": "https://ardaekiz0.github.io/muhasebe-paketi/#kurulus",
+   "name": "Muhasebe Paketi",
+   "url": "https://ardaekiz0.github.io/muhasebe-paketi/"
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Mutabakat her hesap için şart mı?",
+     "acceptedAnswer": { "@type": "Answer", "text": "Hayır. Asgari mutabakat seti üçüncü kişilere ait hesaplardır: 120-121 alıcılar, 320-321 satıcılar, 126-326 diğer hesaplar ve ortak grup hesapları. 100-102 kasa/banka hesapları kendi kayıtlarınızla (ekstre, sayım tutanağı) mutabakata girer; gelir-gider hesaplarının mutabakatı yerine dönem sonu kapanış kontrolleri yapılır." }
+    },
+    {
+     "@type": "Question",
+     "name": "Mizan doğru ama cüzdan farklı ise hangi taraf yanlıştır?",
+     "acceptedAnswer": { "@type": "Answer", "text": "Mizan, cüzdan hareketlerinin toplamı olduğu için teknik olarak cüzdan asıldır; toplam farkı genellikle filtre farkıdır: rapor tarih aralığı, silinmiş fişlerin mizana yansımaması, iptal edilen fişlerin bir tarafta kalması veya alt hesap toplamlarının yuvarlaması. Önce iki raporun aynı kesim tarihinden alındığı doğrulanmalı." }
+    },
+    {
+     "@type": "Question",
+     "name": "Mutabakat zinciri bozuksa ne yapılır?",
+     "acceptedAnswer": { "@type": "Answer", "text": "Fark tek bir fişte görülmüyorsa dönem ikiye bölünerek (tarih aralığı daraltılarak) sapmanın doğduğu aya inilir; o ayın fiş listesi cüzdanla satır satır karşılaştırılır. Sapma genellikle o ay içindeki tek bir elle fiş, aktarım hatası veya sil-fiş döngüsüdür." }
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+
+<header class="wrap">
+  <nav class="nav" aria-label="Ana menü">
+    <a class="nav__mark link" href="index.html">Muhasebe Paketi</a>
+    <div class="nav__links">
+      <a class="link" href="kdv.html">KDV Çapraz Kontrol</a>
+      <a class="link" href="mizan.html">Luca Mizan</a>
+      <a class="link" href="sgk.html">SGK E-Kesinti</a>
+      <a class="link hide-phone" href="index.html#fiyatlar">Fiyatlar</a>
+      <a class="link" href="indir/">İndir</a>
+      <a class="link" href="index-en.html" lang="en">English</a>
+    </div>
+  </nav>
+</header>
+
+<main id="ust">
+
+  <section class="hero">
+    <div class="hero__inner wrap">
+      <div class="hero__copy">
+        <h1 class="display"><span class="line"><span data-line style="--i:0">Mizan – cüzdan</span></span><span class="line"><span data-line style="--i:1">mutabakatı nasıl yapılır?</span></span></h1>
+        <p class="lead" data-rise style="--i:3">Dönem kapanışının sessiz kahramanı: mizandaki bakiyeler ile cüzdan/muavin hareketlerinin birebir örtüştüğünü kanıtlamak. Bu rehber hangi hesapta neyin karşılaştırılacağını, sapma bulunursa nasıl izleneceğini ve işi dakikaya indiren otomatik kontrolü anlatır.</p>
+        <div class="hero__actions" data-rise style="--i:4">
+          <a class="button" href="indir/" data-press>Ücretsiz dene</a>
+          <a class="link" href="#fark">Neden gerekir?</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section wrap" id="fark">
+    <h2 class="head">Mizan mı, cüzdan mı — neyi karşılaştırıyoruz?</h2>
+    <p><b>Mizan</b>, her hesabın dönem içi borç/alacak toplamları ve kapanış bakiyesidir; özet tablodur. <b>Cüzdan</b> (muavin) ise o toplamları oluşturan tek tek fiş hareketleridir. Mizan doğru görünürken cüzdan bozuk olabilir — toplamları eşitleyen iki hatalı hareket birbirini gölgeleyebilir. Mutabakat, "her hesapta: cüzdan hareketlerinin toplamı = mizan bakiyesi" zincirinin her halkasını ayrı ayrı doğrulamaktır.</p>
+  </section>
+
+  <section class="section wrap" id="hesaplar">
+    <h2 class="head">Hangi hesap, kiminle mutabakata girer?</h2>
+    <p>Asgari set (dönem sonlarında hiç atlanmaması gerekenler):</p>
+    <ul>
+      <li><b>120 Alıcılar / 121 Alacak Senetleri:</b> müşteri hesap ekstreleri; tek tek müşteri onayı istenen hesaplar bakiye onay mektubuna davet edilir.</li>
+      <li><b>320 Satıcılar / 321 Borç Senetleri:</b> tedarikçi ekstreleri; yaşlandırma tablosu sapmanın yönünü gösterir.</li>
+      <li><b>126 / 326 Diğer Hesaplar:</b> personel avansları, KDV iade alacakları, depozitolar — unutulduğunda en uzun süre sessiz kalan hesaplardır.</li>
+      <li><b>100 Kasa / 102 Bankalar:</b> sayım tutanağı ve banka ekstreleri; kutup yönü kontrolü (kasada negatif bakiye düşünülemez) ilk uyarıdır.</li>
+      <li><b>Ortak grup hesapları:</b> ilişkili taraf işlemleri tek tek fişle desteklenmeli, senetler senet dökümünden kontrol edilmelidir.</li>
+    </ul>
+  </section>
+
+  <section class="section wrap" id="adimlar">
+    <h2 class="head">Adım adım mutabakat</h2>
+    <ol>
+      <li><b>Aynı kesim tarihi seçin.</b> Mizan ile cüzdan/ekstre aynı tarih aralığını göstermeli; yarım günlük fark zincirin ilk halkasında sahte sapma üretir.</li>
+      <li><b>Mizanı Excel'e alın.</b> Hesap kodu, borç, alacak, bakiye kolonlu tam liste.</li>
+      <li><b>Hesap bazında eşleştirin.</b> Excel'de <code>=XLOOKUP(A2;Ekstre!A:A;Ekstre!E:E;"CÜZDANDA YOK")</code> — mizanda olup ekstrede olmayan hesap, ekstrede olup mizanda olmayan hesap diye iki liste çıkar.</li>
+      <li><b>Bakiye sapmasını ikiye ayırın:</b> <i>tutar sapması</i> (aynı hesap, farklı bakiye → fiş avına geçilir) ve <i>kayıp hesap</i> (tek tarafta hiç yok → filtre veya yetki sorunu).</li>
+      <li><b>Tutar sapmasında dönemi daraltın.</b> Sapmayı aylara bölün; sapmanın doğduğu ay bulunduğunda o ayın fiş listesi cüzdanla satır satır sayılır. Çoğu sapma tek bir elle fiş, çift işlenmiş ekstre satırı veya silinip yeniden girilen fiştir.</li>
+      <li><b>Mantık kontrollerini ayrı tarayın.</b> Bakiye yönü hataları (kasada negatif bakiye, 120'de alacak bakiyesi), kapanmamış dönem hesapları ve bakiye veren 7'li hesaplar — bunlar iki taraf eşitken de bozuk olabilir.</li>
+      <li><b>Sapan hesap için tutanak.</b> Ne bulundu, nasıl düzeltildi, hangi fişle — dönem kapanır, iz kalır.</li>
+    </ol>
+  </section>
+
+  <section class="section wrap" id="tipik">
+    <h2 class="head">Sapmanın dört tipik kaynağı</h2>
+    <ul>
+      <li><b>Tarih kesimi:</b> ekstre ile mizan aynı günü görmüyor; en sık ve en masumu.</li>
+      <li><b>Sil-fiş döngüsü:</b> silinen fiş mizandan düşer ama dışa aktarılan eski cüzdan listesinde kalır (veya tam tersi).</li>
+      <li><b>Aktarım hatası:</b> banka/modül entegrasyonunun çift gönderdiği satır; tutar farkı muntazam tekrar ediyorsa akla ilk bu gelmeli.</li>
+      <li><b>Elle düzeltme fişleri:</b> dönem sonu vesairleri cüzdana işlenip mizana yansıtılmamış (veya biri bir sonraki döneme kalmış).</li>
+    </ul>
+  </section>
+
+  <section class="section wrap" id="otomatik">
+    <h2 class="head">Otomatik yol: kural tabanlı mizan taraması</h2>
+    <p>Ekstre bazlı mutabakat kaçınılmaz olarak elle ama <b>mantık kontrolleri</b> otomatikleştirilebilir. <a class="link" href="mizan.html">Luca Mizan Kontrol</a> modülü LUCA'dan çektiği mizan raporlarını yerleşik kural listesinden geçirir: bakiye yönü hataları (kasa negatif, alıcı hesap alacak bakiyesi gibi), kapanmış kalması gereken hesaplar ve tipik kapanış kaçakları hesap kodu, hesap adı ve kural numarasıyla listelenir; ihlal listesi Excel olarak raporlanır. Yüzlerce mükellefli ofislerde tarama sırayla çalışır; elle yapılsa gün sürecek ilk eleme dakikalar içinde biter.</p>
+    <div class="hero__actions">
+      <a class="button" href="indir/" data-press>Muhasebe Paketini ücretsiz dene</a>
+      <a class="link" href="mizan.html">Modülü incele</a>
+    </div>
+  </section>
+
+  <section class="section wrap" id="rutin">
+    <h2 class="head">Dönem sonu rutini</h2>
+    <p>Geçici vergi ve beyan dönemlerinde sıralama şu şekilde işler: kural taraması (otomatik, hızlı) → mantık hatalarının temizlenmesi → üçüncü kişi hesaplarında ekstre mutabakatı (elle) → sapan hesaplar için fiş avı → tutanak ve kapanış. Otomatik ilk eleme, elle mutabakatın yalnız gerçek şüphelilere harcanmasını sağlar.</p>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <nav aria-label="Alt menü">
+    <a class="link" href="index.html">Muhasebe Paketi</a>
+    <a class="link" href="kdv.html">KDV Çapraz Kontrol</a>
+    <a class="link" href="mizan.html">Luca Mizan</a>
+    <a class="link" href="sgk.html">SGK E-Kesinti</a>
+    <a class="link" href="indir/">İndir</a>
+    <a class="link" href="https://github.com/ArdaEkiz0/muhasebe-paketi">GitHub</a>
+    <a class="link" href="lisans.html">Lisans</a>
+    <a class="link" href="kvkk.html">KVKK</a>
+    <a class="link" href="mesafeli-satis.html">Mesafeli satış</a>
+    <a class="link" href="iade.html">İade</a>
+  </nav>
+  <span class="muted">© 2026 Arda Ekiz — Bu sitede çerez, analitik veya takip betiği yok.</span>
+</footer>
+
+<script src="vendor/gsap.min.js" defer></script>
+<script src="vendor/ScrollTrigger.min.js" defer></script>
+<script src="scene.js" defer></script>
+<script src="app.js" defer></script>
+</body>
+</html>
