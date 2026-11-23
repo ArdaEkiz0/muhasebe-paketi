@@ -1,0 +1,31 @@
+# Muhasebe Paketi
+
+> Muhasebe Paketi, muhasebeciler ve SMMM büroları için Windows masaüstü kontrol/uyum araçlarıdır: KDV Çapraz Kontrol, Luca Mizan Kontrol ve SGK E-Kesinti tek kurulumda sunulur. Her modül ilk açılışta 15 gün ücretsiz denenir; lisans cihaz başına yıllıkdır, fiyatlar KDV hariç Türk Lirasıdır. Finansal Hesaplayıcı pakete hediye olarak dahildir ve kalıcı ücretsizdir. Yazılım yerelde çalışır; veri bilgisayardan dışarı gönderilmez.
+
+## Ürünler
+- [KDV Çapraz Kontrol](https://muhasebepaketi.com.tr/kdv.html): Satış faturalarını muavin defteriyle karşılaştırır, beş fark türünü raporlar. Yıllık 12.900 ₺.
+- [Luca Mizan Kontrol](https://muhasebepaketi.com.tr/mizan.html): Luca'dan mizan ve muavin dökümünü çekip karşılaştırır, mutabakat raporunu hazırlar. Yıllık 8.900 ₺. Luca'nın yerine geçmez, onunla birlikte çalışır.
+- [SGK E-Kesinti](https://muhasebepaketi.com.tr/sgk.html): SGK e-kesinti belgelerini toplu listeler ve arşivler. Yıllık 6.900 ₺.
+- [Paket](https://muhasebepaketi.com.tr/paket.html): Üç modül tek kurulumda, Finansal Hesaplayıcı dahil. Yıllık 23.900 ₺.
+
+## Satın Alma ve İndirme
+- [Satın Al](https://muhasebepaketi.com.tr/satin-al.html)
+- [İndirme sayfası](https://muhasebepaketi.com.tr/indir/)
+- Lisans satın alma sonrası cihaza bağlanır; cihaz değişiminde bilgi verilirse yetki taşınır.
+
+## Rehberler (ücretsiz, kayıt gerekmez)
+- [KDV Çapraz Kontrolü Nasıl Yapılır? Adım Adım Rehber](https://muhasebepaketi.com.tr/rehber-kdv-capraz-kontrol.html)
+- [Mizan – Cüzdan Mutabakatı Nasıl Yapılır? Adım Adım Rehber](https://muhasebepaketi.com.tr/rehber-mizan-cuzdan-mutabakat.html)
+
+## Politika
+- [Lisans sözleşmesi](https://muhasebepaketi.com.tr/lisans.html)
+- [KVKK aydınlatma metni](https://muhasebepaketi.com.tr/kvkk.html)
+- [İade politikası](https://muhasebepaketi.com.tr/iade.html)
+- [Mesafeli satış sözleşmesi](https://muhasebepaketi.com.tr/mesafeli-satis.html)
+
+## İletişim
+- E-posta: info@muhasebepaketi.com.tr
+- Web sitesi yalnız GA4 istatistik çerezini kullanır (`_ga`); reklam veya takip çerezi yoktur.
+
+## Dil
+- Birincil dil Türkçedir. İngilizce sayfalar aynı adın `-en` ekli hâlidir (ör. kdv-en.html).
