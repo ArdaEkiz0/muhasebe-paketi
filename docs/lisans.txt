@@ -6,7 +6,7 @@ koşulları belirler. Kuruluma devam ederek bu metni okuduğunuzu ve kabul etti�
 beyan etmiş olursunuz.
 
 1. TARAFLAR
-   Lisans veren : Arda Mehmet Ekiz | ardaekiz72@gmail.com | 0546 208 38 54
+   Lisans veren : Arda Mehmet Ekiz | info@muhasebepaketi.com.tr | 0546 208 38 54
    Adres        : İsabeyli Mahallesi, 4010 Sokak, No: 3 (Umay Apartmanı), Daire 14, 09800 Nazilli / Aydın
    Lisans alan  : Yazılımı kuran ve kullanan gerçek veya tüzel kişi.
 

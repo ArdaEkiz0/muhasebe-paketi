@@ -100,7 +100,7 @@
       }
       hatayiTemizle();
       var subject = form.getAttribute('data-subject') || '';
-      var href = 'mailto:ardaekiz72@gmail.com';
+      var href = 'mailto:info@muhasebepaketi.com.tr';
       href += '?subject=' + encodeURIComponent(subject) +
         '&body=' + encodeURIComponent(v + '\n\n(' + (eposta ? eposta.name : '') + ')');
       window.location.href = href;
