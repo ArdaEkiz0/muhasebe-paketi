@@ -23,6 +23,9 @@
 - [İade politikası](https://muhasebepaketi.com.tr/iade.html)
 - [Mesafeli satış sözleşmesi](https://muhasebepaketi.com.tr/mesafeli-satis.html)
 
+## Hesap araçları
+- [Finansal Hesaplayıcı (kalıcı ücretsiz)](https://muhasebepaketi.com.tr/finansal-hesaplayici.html): 20 mali hesaplama modu; çevrimdışı çalışır, veri cihazda kalır.
+
 ## İletişim
 - E-posta: info@muhasebepaketi.com.tr
 - Web sitesi yalnız GA4 istatistik çerezini kullanır (`_ga`); reklam veya takip çerezi yoktur.

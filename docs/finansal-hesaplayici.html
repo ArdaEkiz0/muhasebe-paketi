@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YXSJMD8PM2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YXSJMD8PM2');
+</script>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; media-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'"><meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Finansal Hesaplayıcı · 20 hesaplama modu, çevrimdışı — kalıcı ücretsiz</title>
+<meta name="description" content="KDV, stopaj ve tevkifat, damga ve emlak vergisi, kredi taksiti, bileşik faiz, dönem KDV: 20 hesaplama modu tek konsolda. İnternet istemez, veri cihazınızda kalır, ondalık hassasiyetle kuruşu kuruşuna hesaplar. Muhasebe Paketi'nin hediyesi; kalıcı ücretsiz.">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="canonical" href="https://muhasebepaketi.com.tr/finansal-hesaplayici.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Muhasebe Paketi">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:url" content="https://muhasebepaketi.com.tr/finansal-hesaplayici.html">
+<meta property="og:title" content="Finansal Hesaplayıcı · 20 hesaplama modu, çevrimdışı">
+<meta property="og:description" content="KDV, stopaj, tevkifat, damga vergisi, kredi taksiti, dönem KDV... 20 mod, tek konsol. İnternet istemez, veri cihazda kalır. Kalıcı ücretsiz.">
+<meta property="og:image" content="https://muhasebepaketi.com.tr/og-fh.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Finansal Hesaplayıcı arayüzü: mod listesi, çalışma alanı ve sonuç paneli">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://muhasebepaketi.com.tr/finansal-hesaplayici.html">
+<meta name="twitter:image" content="https://muhasebepaketi.com.tr/og-fh.png">
+<meta name="theme-color" content="#2563eb">
+<link rel="preload" href="vendor/fonts/ClashGrotesk-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="vendor/fonts/ClashGrotesk-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css?v=20261117c">
+<style>
+.hero--paket .hero__copy { grid-column: 1 / span 8; }
+.hero--paket .hero__aside {
+  grid-column: 9 / span 4; align-self: end;
+  background: var(--deep); color: #ffffff;
+  clip-path: polygon(0 44px, 44px 0, 100% 0, 100% 100%, 0 100%); /* sayfanın tek kesik köşe imzası (koyu çapa) */
+  padding: 2.2rem 1.6rem 1.6rem 2rem; position: relative;
+}
+.hero--paket .hero__aside::before {
+  content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background: radial-gradient(26rem 15rem at 82% -18%, rgba(110, 150, 250, 0.30), rgba(15, 23, 42, 0) 62%), /* taste-skill-ignore */
+              radial-gradient(20rem 14rem at -10% 115%, rgba(125, 165, 255, 0.10), rgba(15, 23, 42, 0) 55%); /* taste-skill-ignore */
+}
+.hero--paket .hero__aside > * { position: relative; z-index: 1; }
+.hero--paket .hero__aside .name { font-size: var(--step-small); font-weight: 500; color: var(--accent-soft); }
+.hero--paket .hero__aside .figure {
+  font-family: var(--font-display); font-size: clamp(2.75rem, 4.4vw, 4.25rem);
+  line-height: 1; letter-spacing: -0.03em; margin-top: 0.5rem;
+  display: flex; align-items: baseline; gap: 0.4rem;
+}
+.hero--paket .hero__aside .figure small { font-family: var(--font-text); font-size: 0.875rem; color: var(--accent-soft); letter-spacing: 0; }
+.hero--paket .hero__aside .was { margin-top: 0.35rem; font-size: var(--step-small); color: rgba(255, 255, 255, 0.85); }
+.hero--paket .hero__aside .go { display: inline-flex; margin-top: 1rem; font-size: var(--step-small); color: #ffffff; }
+@media (max-width: 64em) {
+  .hero--paket .hero__copy { grid-column: 1 / -1; }
+  .hero--paket .hero__aside { grid-column: 1 / -1; margin-top: 2rem; }
+}
+.runin__col { grid-column: 1 / span 7; }
+.runin__gorsel { grid-column: 8 / span 5; align-self: start; }
+@media (max-width: 64em) {
+  .runin__col { grid-column: 1 / -1; }
+  .runin__gorsel { grid-column: 1 / -1; margin-top: 2rem; }
+}
+/* 20 mod listesi: adlar uygulamadakiyle birebir ayni */
+.modlar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.6rem 1.4rem; margin-top: 1.75rem; padding: 0; list-style: none; }
+.modlar li { border-top: 1px solid var(--rule); padding: 0.7rem 0 0.15rem; font-size: var(--step-small); }
+.modlar li b { font-weight: 500; }
+@media (max-width: 64em) { .modlar { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .modlar { grid-template-columns: 1fr; } }
+</style>
+<script src="js-baslat.js"></script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "SoftwareApplication",
+ "@id": "https://muhasebepaketi.com.tr/finansal-hesaplayici.html#uygulama",
+ "name": "Finansal Hesaplayıcı",
+ "applicationCategory": "BusinessApplication",
+ "operatingSystem": "Windows 10 / 11",
+ "url": "https://muhasebepaketi.com.tr/finansal-hesaplayici.html",
+ "image": "https://muhasebepaketi.com.tr/og-fh.png",
+ "description": "Türk mali hesaplamaları için çevrimdışı çalışan masaüstü uygulaması: 20 hesaplama modu, dönem arşivi, cari kartlar, vergi takvimi, e-fatura CSV içe aktarma, güvenli yedek al/yükle. Muhasebe Paketi'nin hediye modülü; kalıcı ücretsiz.",
+ "inLanguage": "tr",
+ "isPartOf": {
+  "@type": "SoftwareApplication",
+  "name": "Muhasebe Paketi"
+ },
+ "offers": {
+  "@type": "Offer",
+  "name": "Kalıcı ücretsiz",
+  "price": "0",
+  "priceCurrency": "TRY",
+  "availability": "https://schema.org/InStock",
+  "url": "https://muhasebepaketi.com.tr/finansal-hesaplayici.html"
+ }
+}
+</script>
+</head>
+<body>
+
+<header class="wrap">
+  <nav class="nav" aria-label="Ana menü">
+    <a class="nav__mark link" href="index.html">Muhasebe Paketi</a>
+    <div class="nav__links">
+      <a class="link" href="kdv.html">KDV Çapraz Kontrol</a>
+      <a class="link" href="mizan.html">Luca Mizan</a>
+      <a class="link" href="sgk.html">SGK E-Kesinti</a>
+      <a class="link hide-phone" href="index.html#fiyatlar">Fiyatlar</a>
+      <a class="link" href="indir/">İndir</a>
+      <a class="link" href="index-en.html" lang="en">English</a>
+    </div>
+  </nav>
+</header>
+
+<main id="ust">
+
+  <!-- ================= BAŞLIK ================= -->
+  <section class="hero hero--paket">
+    <div class="hero__inner wrap">
+      <div class="hero__copy">
+        <h1 class="display lines">
+          <span class="line"><span data-line style="--i:0">Yirmi mod,</span></span>
+          <span class="line"><span data-line style="--i:1">tek konsol.</span></span>
+        </h1>
+        <p class="lead" data-rise style="--i:3">KDV, stopaj, tevkifat, damga ve emlak vergisi, kredi taksiti, bileşik faiz, dönem KDV... Sayıyı yazdığınız anda sonucu görürsünüz. İnternet bağlantısı istemez; hesap da veriniz de cihazınızda kalır.</p>
+        <div class="hero__actions" data-rise style="--i:4">
+          <a class="button" href="https://github.com/ArdaEkiz0/finansal-hesaplayici/releases/latest" data-press>Ücretsiz indirin</a>
+          <a class="link" href="index.html#fiyatlar">Pakete bakın</a>
+        </div>
+        <p class="hero__meta small muted" data-rise style="--i:5">Kurulum ve güncelleme SHA-256 doğrulamalı · Windows 10 ve 11 · Arayüz tamamen Türkçe</p>
+      </div>
+      <aside class="hero__aside" data-rise style="--i:5">
+        <p class="name">Finansal Hesaplayıcı</p>
+        <p class="figure">0 <small>TL · kalıcı ücretsiz</small></p>
+        <p class="was">Kapı yok, deneme süresi yok. Muhasebe Paketi'ne hediye modül olarak dahil; tek başına da kurulur.</p>
+        <a class="link go" href="index.html#fiyatlar">Paket ve fiyatlar</a>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ================= NASIL CALISIR ================= -->
+  <section class="section runin wrap" id="nasil">
+    <div class="runin__col">
+      <h2 class="head">Sayıyı yazın, sonuç aynı anda belirsin.</h2>
+      <p class="run" data-reveal><b>Modü seçin.</b> Kenar menüden ya da Ctrl+K paletinden: KDV Hesaplama, Stopaj / Tevkifat, KDV Tevkifatı, Damga Vergisi, Kredi Taksiti... Her modun alanları hazır gelir; formülle uğraşmazsınız.</p>
+      <p class="run" data-reveal><b>Kuruşu kuruşuna.</b> Para matematiği ondalık hassasiyetle ve yuvarlama kuralıyla çalışır; virgülden sonraki iki hane sonuç değil, taahhüttür.</p>
+      <p class="run" data-reveal><b>Kaybolmaz.</b> Her hesap geçme düşer; dönem arşivi ve yıllık özetle ay sonunuz hazır durur. Cari kartlar, vergi takvimi ve e-fatura CSV içe aktarma aynı konsolun içindedir.</p>
+      <p class="run" data-reveal><b>Yanınızda çalışır.</b> Daima üstte küçük widget olarak ekranda durur, çıktınızı yazdırırsınız, yedeğinizi alıp başka cihaza taşırsınız. Güncelleme tek tıkla ve SHA-256 doğrulamalı gelir.</p>
+      </div>
+      <aside class="runin__gorsel">
+        <figure class="shot">
+          <picture><source type="image/webp" srcset="ekran-fh.webp"><img src="ekran-fh.png" alt="Finansal Hesaplayıcı ana ekranı: solda 20 modun listesi, ortada KDV Hesaplama çalışma alanı, sağda sonuç paneli — örnek değerlerle" width="1360" height="850" loading="eager" fetchpriority="high"></picture>
+          <figcaption class="caption small">Ana ekran: solda modlar, ortada çalışma alanı, sağda sonuç ve hesap dökümü; görüntü gerçek uygulamadan alınmıştır.</figcaption>
+        </figure>
+      </aside>
+  </section>
+
+  <!-- ================= MODLAR ================= -->
+  <section class="section wrap" id="modlar">
+    <div class="pricing__head">
+      <h2 class="head">Yirmi mod,<br>hepsi kurulumda.</h2>
+      <div class="pricing__side">
+        <p class="lead muted">Mod adları uygulamadakiyle birebir aynıdır. Yeni mod eklendikçe güncellenir; güncellemeyi uygulamanın kendisi haber verir.</p>
+        <p class="tag">Ek modül satınamaz — hepsi ücretsiz</p>
+      </div>
+    </div>
+    <ul class="modlar">
+      <li><b>KDV Hesaplama</b></li>
+      <li><b>KDV Karşılaştırma</b></li>
+      <li><b>Dönem KDV</b></li>
+      <li><b>KDV Tevkifatı</b></li>
+      <li><b>Stopaj / Tevkifat</b></li>
+      <li><b>Net → Brüt</b></li>
+      <li><b>Damga Vergisi</b></li>
+      <li><b>Emlak Vergisi</b></li>
+      <li><b>Marj → Satış Fiyatı</b></li>
+      <li><b>Kâr Oranı → Fiyat</b></li>
+      <li><b>Yüzde Hesaplama</b></li>
+      <li><b>Zincirleme İndirim</b></li>
+      <li><b>Fiyat Etiketi</b></li>
+      <li><b>Kredi Taksiti</b></li>
+      <li><b>Bileşik Faiz</b></li>
+      <li><b>Basit Faiz</b></li>
+      <li><b>Gecikme Faizi</b></li>
+      <li><b>Amortisman</b></li>
+      <li><b>Döviz Çevirme</b></li>
+      <li><b>Toplu Hesaplama</b></li>
+    </ul>
+  </section>
+
+  <!-- ================= HEDIYE ================= -->
+  <section class="section wrap" id="hediye">
+    <div class="pricing__head">
+      <h2 class="head">Hediye olduğu için ücretsiz.</h2>
+      <div class="pricing__side">
+        <p class="lead muted">Finansal Hesaplayıcı, Muhasebe Paketi'nin kalıcı hediyesidir: kapıya, kredi kartına ya da deneme süresine bağlamadık. İstediğiniz kadar kullanın.</p>
+        <p class="tag">Tek başına kurulur · paketi alınca da aynı hediye</p>
+      </div>
+    </div>
+    <p class="run" data-reveal><b>İşinizi otomasyona bağlamak isterseniz:</b> KDV Çapraz Kontrol faturalarınızı muavin defteriyle, Luca Mizan Kontrol mizanı hesap hesap karşılaştırır; SGK E-Kesinti yüz üreticiyi tek Excel'den TAKEP'e girer. Üçü tek kurulumda, modül modül lisanslanır.</p>
+  </section>
+
+  <!-- ================= CTA ================= -->
+  <section class="cta">
+    <div class="cta__grid wrap">
+      <h2>Konsolu<br>bedavaya alın.</h2>
+      <div class="cta__side">
+        <p>Tek kurulum dosyası, internet gerektirmeyen hesaplar. Beğenmezseniz kaldırması da tek tık.</p>
+        <a class="button button--stage" href="https://github.com/ArdaEkiz0/finansal-hesaplayici/releases/latest" data-press>Ücretsiz indirin</a>
+        <a class="link" href="#iletisim">Sorular için yazın</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ILETISIM ================= -->
+  <section class="contact wrap" id="iletisim">
+    <div class="contact__grid">
+      <div class="contact__col">
+        <p class="contact__prompt"><span>Hesabı beğendiniz mi?</span><span class="soft">Sorulacak bir şey olursa yazın.</span></p>
+        <form class="contact__form" novalidate data-subject="Finansal Hesaplayıcı: sorular">
+          <div class="contact__field">
+            <label class="sr-only" for="eposta">E-posta adresiniz</label>
+            <input class="field" id="eposta" name="eposta" type="email" placeholder="E-posta adresiniz" required>
+            <button class="contact__send" type="submit" aria-label="Gönder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+          </div>
+          <p class="contact__error small" role="alert" hidden></p>
+          <p class="contact__next small muted">Gönder’e bastığınızda e-posta uygulamanız açılır.</p>
+        </form>
+      </div>
+      <dl class="contact__rows">
+        <div><dt>Telefon</dt><dd><a class="link" href="tel:+905462083854">0546 208 38 54</a></dd></div>
+        <div><dt>E-posta</dt><dd><a class="link" href="mailto:info@muhasebepaketi.com.tr">info@muhasebepaketi.com.tr</a></dd></div>
+        <div><dt>Fiyat</dt><dd class="nums">Kalıcı ücretsiz</dd></div>
+      </dl>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <nav aria-label="Alt menü">
+    <a class="link" href="index.html">Muhasebe Paketi</a>
+    <a class="link" href="kdv.html">KDV Çapraz Kontrol</a>
+    <a class="link" href="mizan.html">Luca Mizan</a>
+    <a class="link" href="sgk.html">SGK E-Kesinti</a>
+    <a class="link" href="finansal-hesaplayici.html" aria-current="page">Finansal Hesaplayıcı</a>
+    <a class="link" href="indir/">İndir</a>
+    <a class="link" href="#iletisim">Destek</a>
+    <a class="link" href="index.html#fiyatlar">Fiyatlar</a>
+    <a class="link" href="kvkk.html">KVKK</a>
+    <a class="link" href="mesafeli-satis.html">Mesafeli satış</a>
+    <a class="link" href="iade.html">İade</a>
+    <a class="link" href="lisans.html">Lisans sözleşmesi</a>
+    <a class="link" href="index-en.html" lang="en">English</a>
+  </nav>
+  <span class="muted">© 2026 Arda Ekiz · Bu sitede yalnızca ziyaret sayısı için Google Analytics kullanılır; reklam/takip çerezi yok.</span>
+  <span class="end"><a class="link" href="indir/">İndir</a></span>
+</footer>
+
+<script src="vendor/gsap.min.js" defer></script>
+<script src="vendor/ScrollTrigger.min.js" defer></script>
+<script src="app.js" defer></script>
+</body>
+</html>
