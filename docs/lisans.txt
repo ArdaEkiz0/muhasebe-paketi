@@ -45,7 +45,7 @@ beyan etmiş olursunuz.
    gönderir. Bu verilerin işlenmesi KVKK Aydınlatma Metni'nde açıklanmıştır. İlk
    açılışta yurt dışı aktarım için açık rızanız alınır; onay vermezseniz yazılım
    açılmaz.
-   Tam metin: https://ardaekiz0.github.io/muhasebe-paketi/kvkk.html
+   Tam metin: https://muhasebepaketi.com.tr/kvkk.html
 
 6. GÜNCELLEMELER
    Lisans veren, yazılımı güncelleme hakkını saklı tutar. Güncellemeler aynı
@@ -70,7 +70,7 @@ beyan etmiş olursunuz.
 10. UYGULANACAK HUKUK
    Bu sözleşmeye Türkiye Cumhuriyeti hukuku uygulanır. Tüketici işlemlerinde Ön
    Bilgilendirme Formu ve Mesafeli Satış Sözleşmesi hükümleri saklıdır.
-   Tam metin: https://ardaekiz0.github.io/muhasebe-paketi/mesafeli-satis.html
+   Tam metin: https://muhasebepaketi.com.tr/mesafeli-satis.html
 
 11. KABUL
    Yazılımı kurarak veya kullanarak bu sözleşmeyi okuduğunuzu ve kabul ettiğinizi
