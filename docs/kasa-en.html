@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; media-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'"><meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Office Safe · Staff passwords in the office safe, not on loose papers</title>
+<meta name="description" content="Staff passwords for the GIB tax portal, SGK, Luca and client systems stay in an encrypted safe on your own office computer. Role-based access: the assistant uses a password but never sees it; a copied password is wiped from the clipboard after 30 seconds; every action is logged with a name. Windows 10 and 11.">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="canonical" href="https://ardaekiz0.github.io/muhasebe-paketi/kasa-en.html">
+<link rel="alternate" hreflang="tr" href="https://ardaekiz0.github.io/muhasebe-paketi/kasa.html">
+<link rel="alternate" hreflang="en" href="https://ardaekiz0.github.io/muhasebe-paketi/kasa-en.html">
+<link rel="alternate" hreflang="x-default" href="https://ardaekiz0.github.io/muhasebe-paketi/kasa.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Muhasebe Paketi">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://ardaekiz0.github.io/muhasebe-paketi/kasa-en.html">
+<meta property="og:title" content="Office Safe · Staff passwords in the office safe">
+<meta property="og:description" content="Encrypted safe, role-based access, auto-lock and an audit log that records who did what. The safe file never leaves your office computer.">
+<meta property="og:image" content="https://ardaekiz0.github.io/muhasebe-paketi/og-image-v6.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Muhasebe Paketi: Office Safe">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://ardaekiz0.github.io/muhasebe-paketi/kasa-en.html">
+<meta name="twitter:image" content="https://ardaekiz0.github.io/muhasebe-paketi/og-image-v6.png">
+<meta name="theme-color" content="#2563eb">
+<link rel="preload" href="vendor/fonts/ClashGrotesk-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="vendor/fonts/ClashGrotesk-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css?v=20261126a">
+<style>
+.hero--paket .hero__copy { grid-column: 1 / span 8; }
+.hero--paket .hero__aside {
+  grid-column: 9 / span 4; align-self: end;
+  background: var(--deep); color: #ffffff;
+  clip-path: polygon(0 44px, 44px 0, 100% 0, 100% 100%, 0 100%); /* the page's single cut-corner signature (dark anchor) */
+  padding: 2.2rem 1.6rem 1.6rem 2rem;
+}
+.hero--paket .hero__aside .name { font-size: var(--step-small); font-weight: 500; color: var(--accent-soft); }
+.hero--paket .hero__aside .figure {
+  font-family: var(--font-display); font-size: clamp(2.75rem, 4.4vw, 4.25rem);
+  line-height: 1; letter-spacing: -0.03em; margin-top: 0.5rem;
+  display: flex; align-items: baseline; gap: 0.4rem;
+}
+.hero--paket .hero__aside .figure small { font-family: var(--font-text); font-size: 0.875rem; color: var(--accent-soft); letter-spacing: 0; }
+.hero--paket .hero__aside .was { margin-top: 0.35rem; font-size: var(--step-small); color: rgba(255, 255, 255, 0.85); }
+.hero--paket .hero__aside .was s { color: rgba(255, 255, 255, 0.85); }
+.hero--paket .hero__aside .go { display: inline-flex; margin-top: 1rem; font-size: var(--step-small); color: #ffffff; }
+/* the dark anchor panel catches light — the window is lit from above (pseudo layer) */
+.hero--paket .hero__aside { position: relative; }
+.hero--paket .hero__aside::before {
+  content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background: radial-gradient(26rem 15rem at 82% -18%, rgba(110, 150, 250, 0.30), rgba(15, 23, 42, 0) 62%), /* taste-skill-ignore */
+              radial-gradient(20rem 14rem at -10% 115%, rgba(125, 165, 255, 0.10), rgba(15, 23, 42, 0) 55%); /* taste-skill-ignore */
+}
+.hero--paket .hero__aside > * { position: relative; z-index: 1; }
+@media (max-width: 64em) {
+  .hero--paket .hero__copy { grid-column: 1 / -1; }
+  .hero--paket .hero__aside { grid-column: 1 / -1; margin-top: 2rem; }
+}
+/* no screenshots on this page: the narrative column runs full width */
+.runin--tam .runin__col { grid-column: 1 / -1; max-width: 62rem; }
+/* two cards in the pricing section; the default 3 columns left a gap */
+@media (min-width: 64.01em) { .plans--ikili { grid-template-columns: 1.16fr 1fr; } }
+@media (max-width: 64em) {
+  .plans--ikili { grid-template-columns: 1fr; }
+  .plans--ikili .plan--lead { grid-column: auto; }
+}
+</style>
+<script src="js-baslat.js"></script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "SoftwareApplication",
+ "@id": "https://ardaekiz0.github.io/muhasebe-paketi/kasa-en.html#application",
+ "name": "Office Safe",
+ "applicationCategory": "BusinessApplication",
+ "operatingSystem": "Windows 10 / 11",
+ "url": "https://ardaekiz0.github.io/muhasebe-paketi/kasa-en.html",
+ "image": "https://ardaekiz0.github.io/muhasebe-paketi/og-image-v6.png",
+ "description": "Staff passwords for the GIB tax portal, SGK, Luca and client systems stay in an encrypted safe on your own office computer. Role-based access: the assistant uses a password but never sees it; a copied password is wiped from the clipboard after 30 seconds; every action is logged with a name.",
+ "inLanguage": "en",
+ "isPartOf": {
+  "@type": "SoftwareApplication",
+  "name": "Accounting Suite"
+ },
+ "offers": {
+  "@type": "Offer",
+  "name": "Annual license",
+  "price": "4900",
+  "priceCurrency": "TRY",
+  "availability": "https://schema.org/InStock",
+  "url": "https://ardaekiz0.github.io/muhasebe-paketi/kasa-en.html"
+ }
+}
+</script>
+</head>
+<body>
+
+<header class="wrap">
+  <nav class="nav" aria-label="Main menu">
+    <a class="nav__mark link" href="index-en.html">Accounting Suite</a>
+    <div class="nav__links">
+      <a class="link" href="kdv-en.html">KDV Cross-Check</a>
+      <a class="link" href="mizan-en.html">Luca Trial Balance Check</a>
+      <a class="link" href="sgk-en.html">SGK Withholding</a>
+      <a class="link" href="kasa-en.html" aria-current="page">Office Safe</a>
+      <a class="link hide-phone" href="index-en.html#fiyatlar">Pricing</a>
+      <a class="link" href="https://lisans.muhasebepaketi.com.tr" rel="noopener">My license</a>
+      <a class="link" href="indir-en/">Download</a>
+      <a class="link" href="kasa.html" lang="tr">Türkçe</a>
+    </div>
+  </nav>
+</header>
+
+<main id="ust">
+
+  <!-- ================= HEADLINE ================= -->
+  <section class="hero hero--paket">
+    <div class="hero__inner wrap">
+      <div class="hero__copy">
+        <h1 class="display lines">
+          <span class="line"><span data-line style="--i:0">Your office's passwords,</span></span>
+          <span class="line"><span data-line style="--i:1">one safe.</span></span>
+        </h1>
+        <p class="lead" data-rise style="--i:3">Staff passwords for the GIB tax portal, SGK, Luca and client systems don't live on a paper in the drawer — they live in an encrypted safe on your own office computer. You decide who sees what: the assistant uses a password but never sees it on screen; thirty seconds after you copy it, a neutral line replaces it on the clipboard; every action is recorded with a name.</p>
+        <div class="hero__actions" data-rise style="--i:4">
+          <a class="button" href="https://indir.muhasebepaketi.com.tr/Ofis-Kasasi-kurulum.exe" data-press>Download free</a>
+          <a class="link" href="index-en.html#fiyatlar">See pricing</a>
+        </div>
+        <p class="hero__meta small muted" data-rise style="--i:5">The safe file never leaves your computer · nothing goes to a server · Windows 10 and 11 · annual license per device</p>
+      </div>
+      <aside class="hero__aside" data-rise style="--i:5" data-ui="fiyat-karti">
+        <p class="name">Office Safe</p>
+        <p class="figure">4,900 <small>TL + VAT / year</small></p>
+        <p class="was">List price <s>6,900 TL</s> · founder price for the first 10 devices</p>
+        <a class="link go" href="index-en.html#fiyatlar">Pricing table</a>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ================= HOW IT WORKS ================= -->
+  <section class="section runin runin--tam wrap" id="nasil">
+    <div class="runin__col">
+      <h2 class="head">Set the safe up once; the team lives in their own role from then on.</h2>
+      <p class="run" data-reveal><b>Create the safe.</b> On first launch the manager sets their own name and password. The safe is a single encrypted file on the office computer; it never goes to a server, a cloud or another machine. It waits in the tray after Windows starts, and closing the window doesn't quit it.</p>
+      <p class="run" data-reveal><b>Add the records.</b> Each record is one system: title, tax or ID number, user code, password. Import the Excel list you already have — the importer checks the tax-ID checksum, shows the whole queue up front, and never overwrites existing records.</p>
+      <p class="run" data-reveal><b>You assign the roles.</b> The manager handles operators; the officer sees and uses passwords; the assistant uses passwords but can't see them anywhere — the copy button isn't even rendered on their screen. When a password's due date passes, a "password due" chip lights up on the record row.</p>
+      <p class="run" data-reveal><b>Your daily work.</b> Copy a password with one click; thirty seconds later a neutral line overwrites the clipboard, so nobody finds it afterwards. After five, ten or thirty idle minutes the safe locks itself. Who opened which record, who you added — every line lands in the audit log with your name, and the manager gets a printable KVKK summary in one click.</p>
+      <p class="run" data-reveal><b>Optionally wire it to the browser.</b> With the optional Chrome extension, the record you select can be filled into the browser safely: the bridge listens only on your own machine, every fill needs your approval, and each ticket is single-use. Nothing is ever filled without the extension.</p>
+      </div>
+  </section>
+
+  <!-- ================= TRUST STRIP ================= -->
+  <section class="section wrap" id="guven">
+    <div class="pricing__head">
+      <h2 class="head">Papers scatter, Excel files multiply.<br>The safe stays locked.</h2>
+      <div class="pricing__side">
+        <p class="lead muted">A shared Excel sheet or a WhatsApp thread has no control over passwords: nobody knows who knows them, who used them, or who took them along when they left. In the safe, every line carries a signature.</p>
+        <p class="tag">When staff leave: remove the operator, the safe keeps working for the team</p>
+      </div>
+    </div>
+    <div class="trust">
+      <div><b><svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="10" cy="6.5" r="3"/><path d="M4 17c.8-3 3-4.5 6-4.5s5.2 1.5 6 4.5"/></svg>Role-based</b><span>The assistant never sees a password, only uses it</span></div>
+      <div><b><svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="4" y="8.5" width="12" height="8.5" rx="1.5"/><path d="M6.5 8.5V6a3.5 3.5 0 0 1 7 0v2.5"/></svg>Auto-lock</b><span>Idle 5/10/30 min · clipboard wiped after 30 s</span></div>
+      <div><b><svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5.5 2.5h5.5L15 6.5V17a.5.5 0 0 1-.5.5h-9A.5.5 0 0 1 5 17V3a.5.5 0 0 1 .5-.5Z"/><path d="M11 2.5V7h4"/><path d="M8 11h4M8 14h4"/></svg>Audit log</b><span>Every line with a name · one-click KVKK summary</span></div>
+      <div><b><svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 12.5V15a1.5 1.5 0 0 0 1.5 1.5h11A1.5 1.5 0 0 0 17 15v-2.5"/><path d="M10 3v7m0 0 3-3m-3 3-3-3"/></svg>Backup and restore</b><span>The backup's password is separate from the safe</span></div>
+    </div>
+  </section>
+
+  <!-- ================= PRICING ================= -->
+  <section class="section wrap" id="fiyat">
+    <div class="pricing__head">
+      <h2 class="head">One app, one price.</h2>
+      <div class="pricing__side">
+        <p class="lead muted">You can buy Office Safe on its own; it installs and runs separately from the Accounting Suite. An office with a package license also opens the Safe — no extra payment.</p>
+        <p class="tag">Purchase by e-mail or phone · no credit card needed</p>
+      </div>
+    </div>
+    <div class="plans plans--ikili">
+      <article class="plan plan--lead">
+        <p class="plan__badge">Founder price · first 10 devices</p>
+        <div>
+          <h3 class="plan__name">Office Safe</h3>
+          <p class="plan__for">For offices with a bookkeeping team that still keeps GIB/SGK/Luca passwords in a shared file</p>
+          <p class="plan__price">
+            <span class="plan__figure">4,900</span>
+            <span class="plan__unit">TL + VAT / year</span>
+          </p>
+          <p class="plan__ref">List price <s>6,900 TL</s> + VAT · the founder price continues on renewal</p>
+          <p class="plan__scope">1 computer · unlimited records and operators</p>
+          <ul class="plan__feats">
+            <li>Three roles: manager, officer, assistant</li>
+            <li>Excel import and password-expiry reminders</li>
+            <li>Audit log + printable KVKK summary</li>
+          </ul>
+        </div>
+        <div class="plan__foot">
+          <a class="button" href="https://indir.muhasebepaketi.com.tr/Ofis-Kasasi-kurulum.exe" data-press>Download free</a>
+          <p class="plan__micro">No credit card · invoiced, bank transfer</p>
+        </div>
+      </article>
+
+      <article class="plan">
+        <div>
+          <h3 class="plan__name">With the package</h3>
+          <p class="plan__for">KDV Cross-Check + Luca Trial Balance Check + SGK Withholding + Office Safe — one key opens all four apps</p>
+          <p class="plan__price">
+            <span class="plan__figure">23,900</span>
+            <span class="plan__unit">TL + VAT / year</span>
+          </p>
+          <p class="plan__ref">Office Safe alone is 4,900 TL · included in the package</p>
+          <p class="plan__scope">1 computer · unlimited clients</p>
+          <ul class="plan__feats">
+            <li>All four apps, a single invoice</li>
+            <li>One renewal date</li>
+            <li>No separate setup or license for the Safe</li>
+          </ul>
+        </div>
+        <div class="plan__foot">
+          <a class="button button--ghost" href="index-en.html#fiyatlar" data-press>Pricing table</a>
+          <p class="plan__micro">Per device, not per person</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ================= CTA ================= -->
+  <section class="cta">
+    <div class="cta__grid wrap">
+      <h2>Let's set up<br>the safe together.</h2>
+      <div class="cta__side">
+        <p>The download is free; using the app needs a product key. <a class="link" href="https://wa.me/905462083854">Contact us</a> — WhatsApp or <a class="link" href="mailto:info@muhasebepaketi.com.tr">info@muhasebepaketi.com.tr</a> — and your license gets bound to your device; if you like, we'll show you a live demo with screen sharing. No credit card.</p>
+        <a class="button button--stage" href="https://indir.muhasebepaketi.com.tr/Ofis-Kasasi-kurulum.exe" data-press>Download free</a>
+        <a class="link" href="#iletisim">Write to us about licensing and questions</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section class="contact wrap" id="iletisim">
+    <div class="contact__grid">
+      <div class="contact__col">
+        <p class="contact__prompt"><span>Where do your passwords live right now?</span><span class="soft">Write to us, let's look together.</span></p>
+        <form class="contact__form" novalidate data-subject="Office Safe: licensing and questions">
+          <div class="contact__field">
+            <label class="sr-only" for="eposta">Your e-mail address</label>
+            <input class="field" id="eposta" name="eposta" type="email" placeholder="Your e-mail address" required>
+            <button class="contact__send" type="submit" aria-label="Send">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+          </div>
+          <p class="contact__error small" role="alert" hidden></p>
+          <p class="contact__next small muted">Pressing Send opens your e-mail app.</p>
+        </form>
+      </div>
+      <dl class="contact__rows">
+        <div><dt>Phone</dt><dd><a class="link" href="tel:+905462083854">+90 546 208 38 54</a></dd></div>
+        <div><dt>E-mail</dt><dd><a class="link" href="mailto:info@muhasebepaketi.com.tr">info@muhasebepaketi.com.tr</a></dd></div>
+        <div><dt>Version</dt><dd class="nums">v0.1.0</dd></div>
+      </dl>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <nav aria-label="Footer menu">
+    <a class="link" href="index-en.html">Accounting Suite</a>
+    <a class="link" href="kdv-en.html">KDV Cross-Check</a>
+    <a class="link" href="mizan-en.html">Luca Trial Balance Check</a>
+    <a class="link" href="sgk-en.html">SGK Withholding</a>
+    <a class="link" href="kasa-en.html">Office Safe</a>
+    <a class="link" href="indir-en/">Download</a>
+    <a class="link" href="#iletisim">Support</a>
+    <a class="link" href="index-en.html#fiyatlar">Pricing</a>
+    <a class="link" href="kvkk-en.html">KVKK</a>
+    <a class="link" href="mesafeli-satis-en.html">Distance sales</a>
+    <a class="link" href="iade-en.html">Refunds</a>
+    <a class="link" href="lisans-en.html">License agreement</a>
+    <a class="link" href="kasa.html" lang="tr">Türkçe</a>
+  </nav>
+  <span class="muted">© 2026 Arda Ekiz · This site uses no cookies, analytics or tracking scripts.</span>
+  <span class="end"><a class="link" href="https://indir.muhasebepaketi.com.tr/Ofis-Kasasi-kurulum.exe">Download · v0.1.0</a></span>
+</footer>
+
+<script src="vendor/gsap.min.js" defer></script>
+<script src="vendor/ScrollTrigger.min.js" defer></script>
+<script src="app.js?v=20261126a" defer></script>
+</body>
+</html>

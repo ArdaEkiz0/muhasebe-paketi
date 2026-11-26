@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; media-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'"><meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ofis Kasası · Personel şifreleri ofisin kasasında, dağınık kâğıtlarda değil</title>
+<meta name="description" content="GİB, SGK, Luca ve mükellef sistemlerinin personel şifreleri ofisin kendi bilgisayarındaki şifreli kasada durur. Rol bazlı kullanım: asistan şifreyi kullanır, göremez; kopyalanan şifre 30 saniyede panodan silinir; her işlem kimin yaptığıyla yazılır. Windows 10 ve 11.">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="canonical" href="https://ardaekiz0.github.io/muhasebe-paketi/kasa.html">
+<link rel="alternate" hreflang="tr" href="https://ardaekiz0.github.io/muhasebe-paketi/kasa.html">
+<link rel="alternate" hreflang="en" href="https://ardaekiz0.github.io/muhasebe-paketi/kasa-en.html">
+<link rel="alternate" hreflang="x-default" href="https://ardaekiz0.github.io/muhasebe-paketi/kasa.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Muhasebe Paketi">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:url" content="https://ardaekiz0.github.io/muhasebe-paketi/kasa.html">
+<meta property="og:title" content="Ofis Kasası · Personel şifreleri ofisin kasasında">
+<meta property="og:description" content="Şifreli kasa, rol bazlı yetki, otomatik kilit ve kimin ne yaptığını yazan denetim günlüğü. Kasa dosyası ofisin bilgisayarından çıkmaz.">
+<meta property="og:image" content="https://ardaekiz0.github.io/muhasebe-paketi/og-image-v6.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Muhasebe Paketi: Ofis Kasası">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://ardaekiz0.github.io/muhasebe-paketi/kasa.html">
+<meta name="twitter:image" content="https://ardaekiz0.github.io/muhasebe-paketi/og-image-v6.png">
+<meta name="theme-color" content="#2563eb">
+<link rel="preload" href="vendor/fonts/ClashGrotesk-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="vendor/fonts/ClashGrotesk-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css?v=20261126a">
+<style>
+.hero--paket .hero__copy { grid-column: 1 / span 8; }
+.hero--paket .hero__aside {
+  grid-column: 9 / span 4; align-self: end;
+  background: var(--deep); color: #ffffff;
+  clip-path: polygon(0 44px, 44px 0, 100% 0, 100% 100%, 0 100%); /* sayfanın tek kesik köşe imzası (koyu çapa) */
+  padding: 2.2rem 1.6rem 1.6rem 2rem;
+}
+.hero--paket .hero__aside .name { font-size: var(--step-small); font-weight: 500; color: var(--accent-soft); }
+.hero--paket .hero__aside .figure {
+  font-family: var(--font-display); font-size: clamp(2.75rem, 4.4vw, 4.25rem);
+  line-height: 1; letter-spacing: -0.03em; margin-top: 0.5rem;
+  display: flex; align-items: baseline; gap: 0.4rem;
+}
+.hero--paket .hero__aside .figure small { font-family: var(--font-text); font-size: 0.875rem; color: var(--accent-soft); letter-spacing: 0; }
+.hero--paket .hero__aside .was { margin-top: 0.35rem; font-size: var(--step-small); color: rgba(255, 255, 255, 0.85); }
+.hero--paket .hero__aside .was s { color: rgba(255, 255, 255, 0.85); }
+.hero--paket .hero__aside .go { display: inline-flex; margin-top: 1rem; font-size: var(--step-small); color: #ffffff; }
+/* koyu çapa paneli ışık alır — pencere üstten aydınlanır (pseudo katman) */
+.hero--paket .hero__aside { position: relative; }
+.hero--paket .hero__aside::before {
+  content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background: radial-gradient(26rem 15rem at 82% -18%, rgba(110, 150, 250, 0.30), rgba(15, 23, 42, 0) 62%), /* taste-skill-ignore */
+              radial-gradient(20rem 14rem at -10% 115%, rgba(125, 165, 255, 0.10), rgba(15, 23, 42, 0) 55%); /* taste-skill-ignore */
+}
+.hero--paket .hero__aside > * { position: relative; z-index: 1; }
+@media (max-width: 64em) {
+  .hero--paket .hero__copy { grid-column: 1 / -1; }
+  .hero--paket .hero__aside { grid-column: 1 / -1; margin-top: 2rem; }
+}
+/* bu sayfada ekran görüntüsü yok: anlatım kolonu tam genişlik akar */
+.runin--tam .runin__col { grid-column: 1 / -1; max-width: 62rem; }
+/* fiyat bölümünde iki kart var; varsayılan 3 sütun üçüncü sütunu boş bırakıyordu */
+@media (min-width: 64.01em) { .plans--ikili { grid-template-columns: 1.16fr 1fr; } }
+@media (max-width: 64em) {
+  .plans--ikili { grid-template-columns: 1fr; }
+  .plans--ikili .plan--lead { grid-column: auto; }
+}
+</style>
+<script src="js-baslat.js"></script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "SoftwareApplication",
+ "@id": "https://ardaekiz0.github.io/muhasebe-paketi/kasa.html#uygulama",
+ "name": "Ofis Kasası",
+ "applicationCategory": "BusinessApplication",
+ "operatingSystem": "Windows 10 / 11",
+ "url": "https://ardaekiz0.github.io/muhasebe-paketi/kasa.html",
+ "image": "https://ardaekiz0.github.io/muhasebe-paketi/og-image-v6.png",
+ "description": "GİB, SGK, Luca ve mükellef sistemlerinin personel şifreleri ofisin kendi bilgisayarındaki şifreli kasada durur. Rol bazlı kullanım: asistan şifreyi kullanır, göremez; kopyalanan şifre 30 saniyede panodan silinir; her işlem kimin yaptığıyla yazılır.",
+ "inLanguage": "tr",
+ "isPartOf": {
+  "@type": "SoftwareApplication",
+  "name": "Muhasebe Paketi"
+ },
+ "offers": {
+  "@type": "Offer",
+  "name": "Yıllık lisans",
+  "price": "4900",
+  "priceCurrency": "TRY",
+  "availability": "https://schema.org/InStock",
+  "url": "https://ardaekiz0.github.io/muhasebe-paketi/kasa.html"
+ }
+}
+</script>
+</head>
+<body>
+
+<header class="wrap">
+  <nav class="nav" aria-label="Ana menü">
+    <a class="nav__mark link" href="index.html">Muhasebe Paketi</a>
+    <div class="nav__links">
+      <a class="link" href="kdv.html">KDV Çapraz Kontrol</a>
+      <a class="link" href="mizan.html">Luca Mizan</a>
+      <a class="link" href="sgk.html">SGK E-Kesinti</a>
+      <a class="link" href="kasa.html" aria-current="page">Ofis Kasası</a>
+      <a class="link hide-phone" href="index.html#fiyatlar">Fiyatlar</a>
+      <a class="link" href="https://lisans.muhasebepaketi.com.tr" rel="noopener">Lisansım</a>
+      <a class="link" href="indir/">İndir</a>
+      <a class="link" href="kasa-en.html" lang="en">English</a>
+    </div>
+  </nav>
+</header>
+
+<main id="ust">
+
+  <!-- ================= BAŞLIK ================= -->
+  <section class="hero hero--paket">
+    <div class="hero__inner wrap">
+      <div class="hero__copy">
+        <h1 class="display lines">
+          <span class="line"><span data-line style="--i:0">Ofisin şifreleri</span></span>
+          <span class="line"><span data-line style="--i:1">tek kasada.</span></span>
+        </h1>
+        <p class="lead" data-rise style="--i:3">GİB, SGK, Luca ve mükellef sistemlerinin personel şifreleri çekmecedeki kâğıtta değil, ofisin kendi bilgisayarındaki şifreli kasada durur. Kimin görebileceğini siz belirlersiniz: asistan şifreyi kullanır ama ekranda görmez; kopyalanan şifre 30 saniyede panonun üstüne nötr bir satır yazılır; her işlem kimin yaptığıyla kayıt geçer.</p>
+        <div class="hero__actions" data-rise style="--i:4">
+          <a class="button" href="https://indir.muhasebepaketi.com.tr/Ofis-Kasasi-kurulum.exe" data-press>Ücretsiz indir</a>
+          <a class="link" href="index.html#fiyatlar">Fiyatlara bakın</a>
+        </div>
+        <p class="hero__meta small muted" data-rise style="--i:5">Kasa dosyası ofisin bilgisayarından çıkmaz · sunucuya hiçbir şey gitmez · Windows 10 ve 11 · Cihaz başına yıllık lisans</p>
+      </div>
+      <aside class="hero__aside" data-rise style="--i:5" data-ui="fiyat-karti">
+        <p class="name">Ofis Kasası</p>
+        <p class="figure">4.900 <small>TL + KDV / yıl</small></p>
+        <p class="was">Liste fiyatı <s>6.900 TL</s> · kurucu fiyatı ilk 10 cihaz</p>
+        <a class="link go" href="index.html#fiyatlar">Fiyat tablosu</a>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ================= NASIL ÇALIŞIR ================= -->
+  <section class="section runin runin--tam wrap" id="nasil">
+    <div class="runin__col">
+      <h2 class="head">Kasayı bir kez kurun, gerisini ekip kendi rolünden yaşar.</h2>
+      <p class="run" data-reveal><b>Kasayı kurun.</b> İlk açılışta yönetici kendi adını ve parolasını verir. Kasa, ofisin bilgisayarında tek bir şifreli dosyadır; hiçbir sunucuya, buluta ya da başka bir makineye gitmez. Windows açılışında tepside bekler, pencereyi kapatınca da kapanmaz.</p>
+      <p class="run" data-reveal><b>Kayıtları ekleyin.</b> Her kayıt bir sistem demek: ünvan, VKN ya da TC, kullanıcı kodu, parola. Elinizdeki Excel listesini içeri alabilirsiniz — içe aktarma VKN sağlama basamağını denetler, önde yığını gösterir, mevcut kayıtların üstüne yazmaz.</p>
+      <p class="run" data-reveal><b>Rolü siz verin.</b> Yönetici operatörleri yönetir; yetkili şifreyi görür ve kullanır; asistan şifreyi kullanır ama hiçbir yerde göremez — kopyalama düğmesi bile ekranına gelmez. Parola süresi dolduysa kayıt satırında "şifre süresi geldi" çipi yanar.</p>
+      <p class="run" data-reveal><b>Günlük işiniz.</b> Şifreyi tek tıkla kopyalarsınız; 30 saniye sonra panonun üstüne nötr bir satır yazılır, kimse sonradan bulamaz. Beş, on ya da otuz dakika boşta kalırsa kasa kendiliğinden kilitlenir. Kim hangi kaydı açtı, kimi eklediniz — hepsi denetim günlüğünde adınızla yazar; yönetici tek tıkla yazdırılabilir KVKK özeti alır.</p>
+      <p class="run" data-reveal><b>İsterseniz tarayıcıya bağlayın.</b> İsteğe bağlı Chrome eklentisiyle seçtiğiniz kayıt tarayıcıya güvenle doldurulabilir: köprü yalnız kendi bilgisayarınızda dinler, doldurma her seferinde sizin onayınızla olur ve tek seferliktir. Eklenti kurulmadığı sürece hiçbir şey dolmaz.</p>
+      </div>
+  </section>
+
+  <!-- ================= GÜVEN ŞERİDİ ================= -->
+  <section class="section wrap" id="guven">
+    <div class="pricing__head">
+      <h2 class="head">Kâğıt dağılır, Excel çoğalır.<br>Kasa kilitli kalır.</h2>
+      <div class="pricing__side">
+        <p class="lead muted">Şifreleri paylaşılan bir Excel'de ya da WhatsApp sohbetinde tutmanın denetimi yoktur: kimin bildiği, kimin kullandığı, kimin ayrılırken yanında götürdüğü bilinmez. Kasada her satır bir imza taşır.</p>
+        <p class="tag">Ayrılan personel için: operatörü silin, kasa ekip için çalışmaya devam eder</p>
+      </div>
+    </div>
+    <div class="trust">
+      <div><b><svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="10" cy="6.5" r="3"/><path d="M4 17c.8-3 3-4.5 6-4.5s5.2 1.5 6 4.5"/></svg>Rol bazlı</b><span>Asistan şifreyi görmez, yalnız kullanır</span></div>
+      <div><b><svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="4" y="8.5" width="12" height="8.5" rx="1.5"/><path d="M6.5 8.5V6a3.5 3.5 0 0 1 7 0v2.5"/></svg>Otomatik kilit</b><span>Boşta 5/10/30 dk · pano 30 sn'de temizlenir</span></div>
+      <div><b><svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5.5 2.5h5.5L15 6.5V17a.5.5 0 0 1-.5.5h-9A.5.5 0 0 1 5 17V3a.5.5 0 0 1 .5-.5Z"/><path d="M11 2.5V7h4"/><path d="M8 11h4M8 14h4"/></svg>Denetim günlüğü</b><span>Her satır kimin yaptığıyla · KVKK özeti tek tık</span></div>
+      <div><b><svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 12.5V15a1.5 1.5 0 0 0 1.5 1.5h11A1.5 1.5 0 0 0 17 15v-2.5"/><path d="M10 3v7m0 0 3-3m-3 3-3-3"/></svg>Yedek ve geri kurma</b><span>Yedeğin parolası kasadan ayrıdır</span></div>
+    </div>
+  </section>
+
+  <!-- ================= FİYAT ================= -->
+  <section class="section wrap" id="fiyat">
+    <div class="pricing__head">
+      <h2 class="head">Tek uygulama, tek fiyat.</h2>
+      <div class="pricing__side">
+        <p class="lead muted">Ofis Kasası'nı tek başına alabilirsiniz; Muhasebe Paketi'nden ayrı kurulur, ayrı çalışır. Paket lisansı alan ofis Kasayı da açar — ayrıca bir şey ödemez.</p>
+        <p class="tag">Satın alma e-posta veya telefonla · kredi kartı istenmez</p>
+      </div>
+    </div>
+    <div class="plans plans--ikili">
+      <article class="plan plan--lead">
+        <p class="plan__badge">Kurucu fiyatı · ilk 10 cihaz</p>
+        <div>
+          <h3 class="plan__name">Ofis Kasası</h3>
+          <p class="plan__for">Ön muhasebe ekibi olan, GİB/SGK/Luca şifrelerini hâlâ ortak dosyada tutan ofisler için</p>
+          <p class="plan__price">
+            <span class="plan__figure">4.900</span>
+            <span class="plan__unit">TL + KDV / yıl</span>
+          </p>
+          <p class="plan__ref">Liste fiyatı <s>6.900 TL</s> + KDV · yenilemede kurucu fiyatı devam eder</p>
+          <p class="plan__scope">1 bilgisayar · sınırsız kayıt ve operatör</p>
+          <ul class="plan__feats">
+            <li>Üç rol: yönetici, yetkili, asistan</li>
+            <li>Excel'den içe aktarma ve parola süresi hatırlatması</li>
+            <li>Denetim günlüğü + yazdırılabilir KVKK özeti</li>
+          </ul>
+        </div>
+        <div class="plan__foot">
+          <a class="button" href="https://indir.muhasebepaketi.com.tr/Ofis-Kasasi-kurulum.exe" data-press>Ücretsiz indir</a>
+          <p class="plan__micro">Kredi kartı istenmez · faturalı, havale/EFT</p>
+        </div>
+      </article>
+
+      <article class="plan">
+        <div>
+          <h3 class="plan__name">Paketle birlikte</h3>
+          <p class="plan__for">KDV Çapraz Kontrol + Luca Mizan + SGK E-Kesinti + Ofis Kasası — tek anahtar dört uygulamayı da açar</p>
+          <p class="plan__price">
+            <span class="plan__figure">23.900</span>
+            <span class="plan__unit">TL + KDV / yıl</span>
+          </p>
+          <p class="plan__ref">Ofis Kasası tek başına 4.900 TL · pakete dahil</p>
+          <p class="plan__scope">1 bilgisayar · sınırsız mükellef</p>
+          <ul class="plan__feats">
+            <li>Dört uygulamanın tamamı, tek fatura</li>
+            <li>Tek yenileme tarihi</li>
+            <li>Kasa için ayrı kurulum, ayrı lisans derdi yok</li>
+          </ul>
+        </div>
+        <div class="plan__foot">
+          <a class="button button--ghost" href="index.html#fiyatlar" data-press>Fiyat tablosu</a>
+          <p class="plan__micro">Kişi başı değil, cihaz başına</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ================= CTA ================= -->
+  <section class="cta">
+    <div class="cta__grid wrap">
+      <h2>Kasayı<br>birlikte kuralım.</h2>
+      <div class="cta__side">
+        <p>İndirme ücretsiz; kullanmak için ürün anahtarı gerekir. <a class="link" href="https://wa.me/905462083854">Bize ulaşın</a> — WhatsApp veya <a class="link" href="mailto:info@muhasebepaketi.com.tr">info@muhasebepaketi.com.tr</a> — lisansınız cihazınıza tanımlansın; isterseniz ekran paylaşımlı canlı demo gösterelim. Kredi kartı istemez.</p>
+        <a class="button button--stage" href="https://indir.muhasebepaketi.com.tr/Ofis-Kasasi-kurulum.exe" data-press>Ücretsiz indir</a>
+        <a class="link" href="#iletisim">Lisans ve sorular için yazın</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= İLETİŞİM ================= -->
+  <section class="contact wrap" id="iletisim">
+    <div class="contact__grid">
+      <div class="contact__col">
+        <p class="contact__prompt"><span>Şifreler şu anda nerede duruyor?</span><span class="soft">Yazın, birlikte bakalım.</span></p>
+        <form class="contact__form" novalidate data-subject="Ofis Kasası: lisans ve sorular">
+          <div class="contact__field">
+            <label class="sr-only" for="eposta">E-posta adresiniz</label>
+            <input class="field" id="eposta" name="eposta" type="email" placeholder="E-posta adresiniz" required>
+            <button class="contact__send" type="submit" aria-label="Gönder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+          </div>
+          <p class="contact__error small" role="alert" hidden></p>
+          <p class="contact__next small muted">Gönder’e bastığınızda e-posta uygulamanız açılır.</p>
+        </form>
+      </div>
+      <dl class="contact__rows">
+        <div><dt>Telefon</dt><dd><a class="link" href="tel:+905462083854">0546 208 38 54</a></dd></div>
+        <div><dt>E-posta</dt><dd><a class="link" href="mailto:info@muhasebepaketi.com.tr">info@muhasebepaketi.com.tr</a></dd></div>
+        <div><dt>Sürüm</dt><dd class="nums">v0.1.0</dd></div>
+      </dl>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <nav aria-label="Alt menü">
+    <a class="link" href="index.html">Muhasebe Paketi</a>
+    <a class="link" href="kdv.html">KDV Çapraz Kontrol</a>
+    <a class="link" href="mizan.html">Luca Mizan</a>
+    <a class="link" href="sgk.html">SGK E-Kesinti</a>
+    <a class="link" href="kasa.html">Ofis Kasası</a>
+    <a class="link" href="indir/">İndir</a>
+    <a class="link" href="#iletisim">Destek</a>
+    <a class="link" href="index.html#fiyatlar">Fiyatlar</a>
+    <a class="link" href="kvkk.html">KVKK</a>
+    <a class="link" href="mesafeli-satis.html">Mesafeli satış</a>
+    <a class="link" href="iade.html">İade</a>
+    <a class="link" href="lisans.html">Lisans sözleşmesi</a>
+    <a class="link" href="kasa-en.html" lang="en">English</a>
+  </nav>
+  <span class="muted">© 2026 Arda Ekiz · Bu sitede çerez, analitik veya takip betiği yok.</span>
+  <span class="end"><a class="link" href="https://indir.muhasebepaketi.com.tr/Ofis-Kasasi-kurulum.exe">İndir · v0.1.0</a></span>
+</footer>
+
+<script src="vendor/gsap.min.js" defer></script>
+<script src="vendor/ScrollTrigger.min.js" defer></script>
+<script src="app.js?v=20261126a" defer></script>
+</body>
+</html>
