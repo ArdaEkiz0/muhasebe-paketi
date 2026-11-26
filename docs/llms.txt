@@ -1,6 +1,6 @@
 # Muhasebe Paketi
 
-> Muhasebe Paketi, muhasebeciler ve SMMM büroları için Windows masaüstü kontrol/uyum araçlarıdır: KDV Çapraz Kontrol, Luca Mizan Kontrol ve SGK E-Kesinti tek kurulumda sunulur. Her modül ilk açılışta 15 gün ücretsiz denenir; lisans cihaz başına yıllıkdır, fiyatlar KDV hariç Türk Lirasıdır. Finansal Hesaplayıcı pakete hediye olarak dahildir ve kalıcı ücretsizdir. Yazılım yerelde çalışır; veri bilgisayardan dışarı gönderilmez.
+> Muhasebe Paketi, muhasebeciler ve SMMM büroları için Windows masaüstü kontrol/uyum araçlarıdır: KDV Çapraz Kontrol, Luca Mizan Kontrol ve SGK E-Kesinti tek kurulumda sunulur. Her modül cihaz başına yıllık lisans anahtarıyla (key) açılır; deneme süresi yoktur, fiyatlar KDV hariç Türk Lirasıdır. Finansal Hesaplayıcı pakete hediye olarak dahildir ve kalıcı ücretsizdir. Yazılım yerelde çalışır; veri bilgisayardan dışarı gönderilmez.
 
 ## Ürünler
 - [KDV Çapraz Kontrol](https://muhasebepaketi.com.tr/kdv.html): Satış faturalarını muavin defteriyle karşılaştırır, beş fark türünü raporlar. Yıllık 12.900 ₺.

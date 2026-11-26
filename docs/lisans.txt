@@ -1,5 +1,5 @@
 ﻿KDV ÇAPRAZ KONTROL - SON KULLANICI LİSANS SÖZLEŞMESİ (EULA)
-Sürüm 1.1 - 3 Kasım 2026
+Sürüm 1.2 - 26 Kasım 2026
 
 Bu sözleşme, KDV Çapraz Kontrol yazılımını kurarken ve kullanırken uymanız gereken
 koşulları belirler. Kuruluma devam ederek bu metni okuduğunuzu ve kabul ettiğinizi
@@ -13,15 +13,14 @@ beyan etmiş olursunuz.
 2. VERİLEN LİSANS
    Lisans veren, KDV Çapraz Kontrol yazılımını TEK BİR BİLGİSAYARDA, sözleşme
    süresi boyunca kullanmanız için münhasır olmayan, devredilemez bir kullanım
-   hakkı verir. Lisans, sunucudan cihazınıza tanımlanır; uygulamada anahtar (key)
-   girişi yoktur.
+   hakkı verir. Lisans, satın alma sonrası anahtarla (key) etkinleşir: anahtar
+   sunucudan cihazınıza tanımlanır ve açılıştaki kilit ekranına girilir.
 
-   DENEME: Lisans satın alınmadan önce yazılım 15 gün ücretsiz denenebilir.
-   Deneme, programın ilk kez lisans sunucusuna bağlandığı anda başlar ve
-   cihaz başına değil internet bağlantısı (ağ) başına tanımlanır; aynı
-   ağdaki ikinci bilgisayar yeni bir süre almaz, kalan süreyi devralır.
-   Henüz sunucuya bağlanmamış yeni kurulum internet yokken en fazla 3 gün
-   açılır. Deneme sona erdiğinde yazılım, lisans satın alınmadan kullanılamaz.
+   ANAHTAR (KEY): Yazılım, satın alınan yıllık lisansın anahtarıyla
+   çalışır. Anahtar satın alma sonrası sunucudan cihazınıza tanımlanır;
+   açılıştaki kilit ekranına girilir ve modül anında açılır. Deneme
+   süresi yoktur. Satın alma: https://muhasebepaketi.com.tr veya
+   WhatsApp 0546 208 38 54.
 
 3. KAPSAM VE SINIRLAR
    İzin verilenler:
